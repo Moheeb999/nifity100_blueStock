@@ -22,10 +22,17 @@ def load_excel(path, header=1):
     # Normalize year column
     if "year" in df.columns:
         df["year"] = df["year"].apply(normalize_year)
-
-    return df
+        df = df[df["year"].notna()]
+    return df    
 
 
 if __name__ == "__main__":
-    df = load_excel("data/raw/companies.xlsx")
-    print(df.head())
+    companies = load_excel("data/raw/companies.xlsx")
+    pnl = load_excel("data/raw/profitandloss.xlsx")
+    bs = load_excel("data/raw/balancesheet.xlsx")
+    cf = load_excel("data/raw/cashflow.xlsx")
+
+    print("Companies:", companies.shape)
+    print("Profit & Loss:", pnl.shape)
+    print("Balance Sheet:", bs.shape)
+    print("Cash Flow:", cf.shape)

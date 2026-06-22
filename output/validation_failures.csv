@@ -1,0 +1,879 @@
+rule_id,severity,table_name,row_id,message
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2013.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2014.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2015.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2016.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2017.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2018.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2019.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2020.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2021.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2022.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2023.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2013.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2014.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2015.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2016.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2017.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2018.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2019.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2020.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2021.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2022.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2023.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,ADANIPORTS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,AMBUJACEM_2015.0,Duplicate composite key
+DQ-02,CRITICAL,profitandloss,AMBUJACEM_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ABB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ABB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIENSOL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIENSOL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIENT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIENT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIGREEN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIGREEN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIPORTS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIPORTS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIPOWER_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ADANIPOWER_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,AMBUJACEM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,AMBUJACEM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,APOLLOHOSP_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,APOLLOHOSP_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ASIANPAINT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ATGL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ATGL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJ-AUTO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJ-AUTO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJFINSV_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJFINSV_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJHLDNG_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJAJHLDNG_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJFINANCE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BAJFINANCE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BHARTIARTL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BHARTIARTL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BHEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BHEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BOSCHLTD_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BOSCHLTD_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BPCL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BPCL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BRITANNIA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,BRITANNIA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,CHOLAFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,CHOLAFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,CIPLA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,CIPLA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,COALINDIA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,COALINDIA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DABUR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DABUR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DIVISLAB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DIVISLAB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DLF_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DLF_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DMART_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DMART_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DRREDDY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,DRREDDY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,EICHERMOT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,EICHERMOT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GAIL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GAIL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GODREJCP_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GODREJCP_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GRASIM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,GRASIM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HAL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HAL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HCLTECH_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HCLTECH_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HAVELLS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HAVELLS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HDFCLIFE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HDFCLIFE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HEROMOTOCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HEROMOTOCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HINDALCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HINDALCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HINDUNILVR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,HINDUNILVR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ICICIGI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ICICIGI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ICICIPRULI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ICICIPRULI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,INDIGO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,INDIGO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,INFY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,INFY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IOC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IOC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IRCTC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IRCTC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IRFC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,IRFC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ITC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ITC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ONGC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ONGC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NTPC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NTPC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NHPC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NHPC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NESTLEIND_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NESTLEIND_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NAUKRI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,NAUKRI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,MOTHERSON_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,MOTHERSON_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,MARUTI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,MARUTI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,M&M_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,M&M_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LTIM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LTIM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LODHA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LODHA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LICI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,LICI_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JSWSTEEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JSWSTEEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JSWENERGY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JSWENERGY_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JIOFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JIOFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JINDALSTEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,JINDALSTEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PFC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PFC_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PIDILITIND_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PIDILITIND_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,PNB_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,POWERGRID_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,RECLTD_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,RECLTD_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,RELIANCE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,RELIANCE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SBILIFE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SBILIFE_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SHREECEM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SHREECEM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SHRIRAMFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SHRIRAMFIN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SUNPHARMA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,SUNPHARMA_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ULTRACEMCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,ULTRACEMCO_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TVSMOTOR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TVSMOTOR_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TRENT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TRENT_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TORNTPHARM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TORNTPHARM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TITAN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TITAN_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATACONSUM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATACONSUM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TCS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TCS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATASTEEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATASTEEL_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2013.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2014.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2015.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2016.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2017.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2018.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2019.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2020.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2021.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2022.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2023.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TECHM_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATAPOWER_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATAPOWER_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATAMOTORS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,balancesheet,TATAMOTORS_2024.0,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2013,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2024,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2024,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,ABB_2024,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2013,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2024,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2013,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,BAJAJ-AUTO_2024,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2013,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2014,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2015,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2016,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2017,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2018,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2019,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2020,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2021,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2022,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2023,Duplicate composite key
+DQ-02,CRITICAL,cashflow,TCS_2024,Duplicate composite key
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VBL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,VEDL,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,WIPRO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,profitandloss,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,WIPRO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,VEDL,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,balancesheet,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,AGTL,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ULTRACEMCO,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNIONBANK,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,UNITDSPR,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VBL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,VEDL,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,WIPRO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZOMATO,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-03,CRITICAL,cashflow,ZYDUSLIFE,Foreign key missing
+DQ-05,WARNING,profitandloss,ADANIENSOL_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,AXISBANK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BAJFINANCE_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,BANKBARODA_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CANBK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CHOLAFIN_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,CIPLA_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,COALINDIA_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCBANK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HDFCLIFE_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HEROMOTOCO_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDALCO_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,HINDUNILVR_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIBANK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIGI_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,ICICIPRULI_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDUSINDBK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,JIOFIN_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,KOTAKBANK_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,SUNPHARMA_2024.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2013.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2014.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2015.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2016.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2017.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2018.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2019.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2020.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2021.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2022.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2023.0,OPM mismatch > 1%
+DQ-05,WARNING,profitandloss,INDIGO_2024.0,OPM mismatch > 1%
+DQ-06,CRITICAL,profitandloss,ADANIENSOL_2014.0,Sales must be positive
