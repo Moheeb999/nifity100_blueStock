@@ -16,6 +16,16 @@ def load_data():
     documents = load_excel("data/raw/documents.xlsx")
     proscons = load_excel("data/raw/prosandcons.xlsx")
 
+    # Remove duplicate company-year rows
+    pnl = pnl.drop_duplicates(subset=["company_id", "year"])
+    bs = bs.drop_duplicates(subset=["company_id", "year"])
+    cf = cf.drop_duplicates(subset=["company_id", "year"])
+
+    print("Rows after dedupe:")
+    print("P&L:", len(pnl))
+    print("Balance Sheet:", len(bs))
+    print("Cash Flow:", len(cf))
+
     # Supporting files (header=0)
     stock_prices = pd.read_excel("data/raw/stock_prices.xlsx", header=0)
     sectors = pd.read_excel("data/raw/sectors.xlsx", header=0)

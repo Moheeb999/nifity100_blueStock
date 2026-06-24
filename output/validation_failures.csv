@@ -876,4 +876,156 @@ DQ-05,WARNING,profitandloss,INDIGO_2021.0,OPM mismatch > 1%
 DQ-05,WARNING,profitandloss,INDIGO_2022.0,OPM mismatch > 1%
 DQ-05,WARNING,profitandloss,INDIGO_2023.0,OPM mismatch > 1%
 DQ-05,WARNING,profitandloss,INDIGO_2024.0,OPM mismatch > 1%
-DQ-06,CRITICAL,profitandloss,ADANIENSOL_2014.0,Sales must be positive
+DQ-07,WARNING,cashflow,TVSMOTOR_2022,Net cash mismatch
+DQ-08,WARNING,profitandloss,ADANIENT_2014.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIGREEN_2017.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIGREEN_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIGREEN_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIPOWER_2014.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIPOWER_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIPOWER_2017.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ADANIPOWER_2023.0,Invalid tax %
+DQ-08,WARNING,profitandloss,AMBUJACEM_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,AXISBANK_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BANKBARODA_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BANKBARODA_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BANKBARODA_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BHARTIARTL_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BHARTIARTL_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BHEL_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BHEL_2021.0,Invalid tax %
+DQ-08,WARNING,profitandloss,BHEL_2024.0,Invalid tax %
+DQ-08,WARNING,profitandloss,CANBK_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,CANBK_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,CANBK_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,DLF_2014.0,Invalid tax %
+DQ-08,WARNING,profitandloss,DRREDDY_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,GODREJCP_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,GRASIM_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,HDFCLIFE_2024.0,Invalid tax %
+DQ-08,WARNING,profitandloss,IOC_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JINDALSTEL_2015.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JINDALSTEL_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JINDALSTEL_2017.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JINDALSTEL_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JINDALSTEL_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JSWSTEEL_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,JSWSTEEL_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,LODHA_2021.0,Invalid tax %
+DQ-08,WARNING,profitandloss,LODHA_2023.0,Invalid tax %
+DQ-08,WARNING,profitandloss,MOTHERSON_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,NHPC_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,NHPC_2022.0,Invalid tax %
+DQ-08,WARNING,profitandloss,NTPC_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,NTPC_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,PNB_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,PNB_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,PNB_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,POWERGRID_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,SBIN_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,SHREECEM_2015.0,Invalid tax %
+DQ-08,WARNING,profitandloss,TATAMOTORS_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,TATAMOTORS_2024.0,Invalid tax %
+DQ-08,WARNING,profitandloss,TATASTEEL_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,TRENT_2021.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ULTRACEMCO_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,UNIONBANK_2017.0,Invalid tax %
+DQ-08,WARNING,profitandloss,UNIONBANK_2018.0,Invalid tax %
+DQ-08,WARNING,profitandloss,UNIONBANK_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,UNIONBANK_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,UNIONBANK_2021.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VBL_2012.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VBL_2013.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VEDL_2013.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VEDL_2014.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VEDL_2016.0,Invalid tax %
+DQ-08,WARNING,profitandloss,VEDL_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ZOMATO_2023.0,Invalid tax %
+DQ-08,WARNING,profitandloss,ZOMATO_2024.0,Invalid tax %
+DQ-08,WARNING,profitandloss,INDIGO_2019.0,Invalid tax %
+DQ-08,WARNING,profitandloss,INDIGO_2020.0,Invalid tax %
+DQ-08,WARNING,profitandloss,INDIGO_2024.0,Invalid tax %
+DQ-09,WARNING,profitandloss,AMBUJACEM_2020.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BHARTIARTL_2018.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BHARTIARTL_2019.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BHEL_2018.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BPCL_2020.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BPCL_2021.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,BRITANNIA_2021.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,COALINDIA_2014.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,COALINDIA_2016.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,COALINDIA_2017.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,COALINDIA_2018.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,DLF_2016.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,HINDUNILVR_2013.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,HINDUNILVR_2021.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,ITC_2021.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,M&M_2020.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,NAUKRI_2015.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,NESTLEIND_2019.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,SBIN_2017.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,TATAPOWER_2015.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,TECHM_2024.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,TORNTPHARM_2022.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,VEDL_2023.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,VEDL_2024.0,Dividend payout > 100%
+DQ-09,WARNING,profitandloss,INDIGO_2019.0,Dividend payout > 100%
+DQ-10,WARNING,companies,TVSMOTOR,Invalid URL in website
+DQ-10,WARNING,companies,TVSMOTOR,Invalid URL in nse_profile
+DQ-10,WARNING,companies,TVSMOTOR,Invalid URL in bse_profile
+DQ-11,WARNING,profitandloss,M&M_2020.0,Negative profit but positive EPS
+DQ-11,WARNING,profitandloss,NAUKRI_2015.0,Negative profit but positive EPS
+DQ-12,WARNING,companies,TVSMOTOR,Missing NSE/BSE profile
+DQ-13,WARNING,profitandloss,JIOFIN,Only 2 years of data
+DQ-14,WARNING,documents,ADANIENT,Annual report missing
+DQ-14,WARNING,documents,ADANIENT,Annual report missing
+DQ-14,WARNING,documents,ADANIENT,Annual report missing
+DQ-14,WARNING,documents,BANKBARODA,Annual report missing
+DQ-14,WARNING,documents,BANKBARODA,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BEL,Annual report missing
+DQ-14,WARNING,documents,BHARTIARTL,Annual report missing
+DQ-14,WARNING,documents,BHARTIARTL,Annual report missing
+DQ-14,WARNING,documents,BHARTIARTL,Annual report missing
+DQ-14,WARNING,documents,BHARTIARTL,Annual report missing
+DQ-14,WARNING,documents,BHARTIARTL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BHEL,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BOSCHLTD,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,BPCL,Annual report missing
+DQ-14,WARNING,documents,DLF,Annual report missing
+DQ-14,WARNING,documents,DLF,Annual report missing
+DQ-14,WARNING,documents,EICHERMOT,Annual report missing
+DQ-14,WARNING,documents,HAL,Annual report missing
+DQ-14,WARNING,documents,ITC,Annual report missing
+DQ-14,WARNING,documents,ITC,Annual report missing
+DQ-14,WARNING,documents,ITC,Annual report missing
+DQ-14,WARNING,documents,JINDALSTEL,Annual report missing
+DQ-14,WARNING,documents,JINDALSTEL,Annual report missing
+DQ-14,WARNING,documents,NESTLEIND,Annual report missing
+DQ-14,WARNING,documents,SUNPHARMA,Annual report missing
+DQ-14,WARNING,documents,SUNPHARMA,Annual report missing
+DQ-14,WARNING,documents,SUNPHARMA,Annual report missing
