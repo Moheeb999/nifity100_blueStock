@@ -1,0 +1,5 @@
+table_name,row_count,status
+companies,92,LOADED
+profitandloss,1083,LOADED
+balancesheet,1227,LOADED
+cashflow,1091,LOADED

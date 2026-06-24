@@ -55,9 +55,9 @@ CREATE TABLE IF NOT EXISTS cashflow (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
     year INTEGER,
-    cash_from_operating REAL,
-    cash_from_investing REAL,
-    cash_from_financing REAL,
+    operating_activity REAL,
+    investing_activity REAL,
+    financing_activity REAL,
     net_cash_flow REAL,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
@@ -65,51 +65,89 @@ CREATE TABLE IF NOT EXISTS cashflow (
 CREATE TABLE IF NOT EXISTS analysis (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    metric_name TEXT,
-    metric_value REAL,
+    compounded_sales_growth REAL,
+    compounded_profit_growth REAL,
+    stock_price_cagr REAL,
+    roe REAL,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE IF NOT EXISTS documents (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    document_name TEXT,
-    document_url TEXT,
+    year INTEGER,
+    annual_report TEXT,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE IF NOT EXISTS prosandcons (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    type TEXT,
-    description TEXT,
+    pros TEXT,
+    cons TEXT,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE IF NOT EXISTS sectors (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    sector_name TEXT,
+    broad_sector TEXT,
+    sub_sector TEXT,
+    index_weight_pct REAL,
+    market_cap_category TEXT,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE IF NOT EXISTS stock_prices (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    trade_date TEXT,
+    date TEXT,
     open_price REAL,
     high_price REAL,
     low_price REAL,
     close_price REAL,
     volume REAL,
+    adjusted_close REAL,
+    FOREIGN KEY(company_id) REFERENCES companies(id)
+);
+
+CREATE TABLE IF NOT EXISTS peer_groups (
+    id INTEGER PRIMARY KEY,
+    peer_group_name TEXT,
+    company_id TEXT,
+    is_benchmark TEXT,
+    FOREIGN KEY(company_id) REFERENCES companies(id)
+);
+
+CREATE TABLE IF NOT EXISTS market_cap (
+    id INTEGER PRIMARY KEY,
+    company_id TEXT,
+    year INTEGER,
+    market_cap_crore REAL,
+    enterprise_value_crore REAL,
+    pe_ratio REAL,
+    pb_ratio REAL,
+    ev_ebitda REAL,
+    dividend_yield_pct REAL,
     FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
 CREATE TABLE IF NOT EXISTS financial_ratios (
     id INTEGER PRIMARY KEY,
     company_id TEXT,
-    ratio_name TEXT,
-    ratio_value REAL,
+    year INTEGER,
+    net_profit_margin_pct REAL,
+    operating_profit_margin_pct REAL,
+    return_on_equity_pct REAL,
+    debt_to_equity REAL,
+    interest_coverage REAL,
+    asset_turnover REAL,
+    free_cash_flow_cr REAL,
+    capex_cr REAL,
+    earnings_per_share REAL,
+    book_value_per_share REAL,
+    dividend_payout_ratio_pct REAL,
+    total_debt_cr REAL,
+    cash_from_operations_cr REAL,
     FOREIGN KEY(company_id) REFERENCES companies(id)
-);
-
+)
