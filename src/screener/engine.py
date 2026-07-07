@@ -28,7 +28,6 @@ class ScreenerEngine:
             self.conn
         )
 
-        # Load Profit & Loss for Sales and Net Profit
         pnl = pd.read_sql(
             """
             SELECT
@@ -41,6 +40,7 @@ class ScreenerEngine:
             self.conn
         )
 
+        # Merge all datasets
         df = ratios.merge(
             sectors,
             on="company_id",
@@ -59,155 +59,146 @@ class ScreenerEngine:
             how="left"
         )
 
+        # Keep latest available year for each company
+        df = df.sort_values(
+            ["company_id", "year"]
+        )
+
+        df = (
+            df.groupby("company_id")
+              .tail(1)
+              .reset_index(drop=True)
+        )
+
         return df
 
-    def apply_filters(self, df):
+    def apply_preset(self, df, preset_name):
 
-        filters = self.config["filters"]
+        if preset_name not in self.config["presets"]:
+            raise ValueError(
+                f"Unknown preset: {preset_name}"
+            )
 
-        # ------------------------------------------------
+        preset = self.config["presets"].get(preset_name)
+
+        if preset is None:
+            raise ValueError(
+                f"Preset '{preset_name}' is missing or empty in screener_config.yaml"
+            )
+
+        # -------------------------
         # ROE
-        # ------------------------------------------------
-        df = df[
-            df["return_on_equity_pct"] >= filters["roe_min"]
-        ]
+        # -------------------------
+        if "roe_min" in preset:
+            df = df[
+                df["return_on_equity_pct"] >=
+                preset["roe_min"]
+            ]
 
-        # ------------------------------------------------
+        # -------------------------
         # Debt to Equity
         # Skip Financial companies
-        # ------------------------------------------------
-        non_financial = (
-            (df["broad_sector"] != "Financials") &
-            (df["debt_to_equity"] <= filters["debt_to_equity_max"])
-        )
+        # -------------------------
+        if "debt_to_equity_max" in preset:
 
-        financial = (
-            df["broad_sector"] == "Financials"
-        )
+            non_financial = (
+                (df["broad_sector"] != "Financials") &
+                (
+                    df["debt_to_equity"] <=
+                    preset["debt_to_equity_max"]
+                )
+            )
 
-        df = df[
-            non_financial | financial
-        ]
+            financial = (
+                df["broad_sector"] == "Financials"
+            )
 
-        # ------------------------------------------------
+            df = df[
+                non_financial | financial
+            ]
+
+        # -------------------------
         # Free Cash Flow
-        # ------------------------------------------------
-        df = df[
-            df["free_cash_flow_cr"] >= filters["free_cash_flow_min"]
-        ]
+        # -------------------------
+        if "free_cash_flow_min" in preset:
+            df = df[
+                df["free_cash_flow_cr"] >=
+                preset["free_cash_flow_min"]
+            ]
 
-        # ------------------------------------------------
+        # -------------------------
         # Revenue CAGR
-        # ------------------------------------------------
-        df = df[
-            df["revenue_cagr_5yr"] >= filters["revenue_cagr_5yr_min"]
-        ]
+        # -------------------------
+        if "revenue_cagr_5yr_min" in preset:
+            df = df[
+                df["revenue_cagr_5yr"] >=
+                preset["revenue_cagr_5yr_min"]
+            ]
 
-        # ------------------------------------------------
+        # -------------------------
         # PAT CAGR
-        # ------------------------------------------------
-        df = df[
-            df["pat_cagr_5yr"] >= filters["pat_cagr_5yr_min"]
-        ]
+        # -------------------------
+        if "pat_cagr_5yr_min" in preset:
+            df = df[
+                df["pat_cagr_5yr"] >=
+                preset["pat_cagr_5yr_min"]
+            ]
 
-        # ------------------------------------------------
-        # Operating Profit Margin
-        # ------------------------------------------------
-        df = df[
-            df["operating_profit_margin_pct"] >=
-            filters["operating_profit_margin_min"]
-        ]
-
-        # ------------------------------------------------
-        # Interest Coverage
-        # Debt-free (NULL) automatically passes
-        # ------------------------------------------------
-        df = df[
-            df["interest_coverage"].isna() |
-            (
-                df["interest_coverage"] >=
-                filters["interest_coverage_min"]
-            )
-        ]
-
-        # ------------------------------------------------
-        # Asset Turnover
-        # ------------------------------------------------
-        df = df[
-            df["asset_turnover"] >=
-            filters["asset_turnover_min"]
-        ]
-
-        # ------------------------------------------------
-        # EPS CAGR
-        # ------------------------------------------------
-        df = df[
-            df["eps_cagr_5yr"] >=
-            filters["eps_cagr_min"]
-        ]
-
-        # ------------------------------------------------
-        # Sales
-        # ------------------------------------------------
-        df = df[
-            df["sales"] >=
-            filters["sales_min"]
-        ]
-
-        # ------------------------------------------------
-        # Net Profit
-        # ------------------------------------------------
-        df = df[
-            df["net_profit"] >=
-            filters["net_profit_min"]
-        ]
-
-        # ------------------------------------------------
-        # Market Cap
-        # Apply only where data exists
-        # ------------------------------------------------
-        df = df[
-            df["market_cap_crore"].isna() |
-            (
-                df["market_cap_crore"] >=
-                filters["market_cap_min"]
-            )
-        ]
-
-        # ------------------------------------------------
-        # PE Ratio
-        # ------------------------------------------------
-        df = df[
-            df["pe_ratio"].isna() |
-            (
-                df["pe_ratio"] <=
-                filters["pe_max"]
-            )
-        ]
-
-        # ------------------------------------------------
-        # PB Ratio
-        # ------------------------------------------------
-        df = df[
-            df["pb_ratio"].isna() |
-            (
-                df["pb_ratio"] <=
-                filters["pb_max"]
-            )
-        ]
-
-        # ------------------------------------------------
+        # -------------------------
         # Dividend Yield
-        # ------------------------------------------------
-        df = df[
-            df["dividend_yield_pct"].isna() |
-            (
-                df["dividend_yield_pct"] >=
-                filters["dividend_yield_min"]
-            )
-        ]
+        # -------------------------
+        if "dividend_yield_min" in preset:
+            df = df[
+                df["dividend_yield_pct"].isna() |
+                (
+                    df["dividend_yield_pct"] >=
+                    preset["dividend_yield_min"]
+                )
+            ]
 
-        # Sort by quality score
+        # -------------------------
+        # PE Ratio
+        # -------------------------
+        if "pe_max" in preset:
+            df = df[
+                df["pe_ratio"].isna() |
+                (
+                    df["pe_ratio"] <=
+                    preset["pe_max"]
+                )
+            ]
+
+        # -------------------------
+        # PB Ratio
+        # -------------------------
+        if "pb_max" in preset:
+            df = df[
+                df["pb_ratio"].isna() |
+                (
+                    df["pb_ratio"] <=
+                    preset["pb_max"]
+                )
+            ]
+
+        # -------------------------
+        # Sales
+        # -------------------------
+        if "sales_min" in preset:
+            df = df[
+                df["sales"] >=
+                preset["sales_min"]
+            ]
+
+        # -------------------------
+        # Dividend Payout
+        # -------------------------
+        if "dividend_payout_max" in preset:
+            df = df[
+                df["dividend_payout_ratio_pct"] <=
+                preset["dividend_payout_max"]
+            ]
+
+        # Sort by Composite Score
         df = df.sort_values(
             by="composite_quality_score",
             ascending=False
@@ -222,11 +213,31 @@ def main():
 
     df = engine.load_data()
 
-    filtered = engine.apply_filters(df)
+    presets = [
+        "quality_compounder",
+        "value_pick",
+        "growth_accelerator",
+        "dividend_champion",
+        "debt_free_blue_chip",
+        "turnaround_watch"
+    ]
 
-    print(filtered.head())
+    for preset in presets:
 
-    print("\nFiltered Rows:", len(filtered))
+        print("=" * 70)
+        print(f"Preset: {preset}")
+
+        result = engine.apply_preset(
+            df.copy(),
+            preset
+        )
+
+        print(result.head())
+
+        print("\nCompanies:", len(result))
+        print("=" * 70)
+
+    engine.conn.close()
 
 
 if __name__ == "__main__":
