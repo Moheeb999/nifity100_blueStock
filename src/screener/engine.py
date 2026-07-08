@@ -2,6 +2,8 @@ import sqlite3
 import pandas as pd
 import yaml
 
+from src.analytics.composite_score import compute_composite_score
+
 
 class ScreenerEngine:
 
@@ -19,7 +21,12 @@ class ScreenerEngine:
         )
 
         sectors = pd.read_sql(
-            "SELECT company_id, broad_sector FROM sectors",
+            """
+            SELECT
+                company_id,
+                broad_sector
+            FROM sectors
+            """,
             self.conn
         )
 
@@ -40,7 +47,9 @@ class ScreenerEngine:
             self.conn
         )
 
-        # Merge all datasets
+        # ----------------------------
+        # Merge datasets
+        # ----------------------------
         df = ratios.merge(
             sectors,
             on="company_id",
@@ -59,16 +68,23 @@ class ScreenerEngine:
             how="left"
         )
 
-        # Keep latest available year for each company
+        # ----------------------------
+        # Keep latest year only
+        # ----------------------------
         df = df.sort_values(
             ["company_id", "year"]
         )
 
         df = (
             df.groupby("company_id")
-              .tail(1)
-              .reset_index(drop=True)
+            .tail(1)
+            .reset_index(drop=True)
         )
+
+        # ----------------------------
+        # Compute Composite Score
+        # ----------------------------
+        df = compute_composite_score(df)
 
         return df
 
@@ -83,22 +99,22 @@ class ScreenerEngine:
 
         if preset is None:
             raise ValueError(
-                f"Preset '{preset_name}' is missing or empty in screener_config.yaml"
+                f"Preset '{preset_name}' is missing or empty."
             )
 
-        # -------------------------
+        # ----------------------------
         # ROE
-        # -------------------------
+        # ----------------------------
         if "roe_min" in preset:
             df = df[
                 df["return_on_equity_pct"] >=
                 preset["roe_min"]
             ]
 
-        # -------------------------
+        # ----------------------------
         # Debt to Equity
-        # Skip Financial companies
-        # -------------------------
+        # Financial carve-out
+        # ----------------------------
         if "debt_to_equity_max" in preset:
 
             non_financial = (
@@ -117,36 +133,36 @@ class ScreenerEngine:
                 non_financial | financial
             ]
 
-        # -------------------------
+        # ----------------------------
         # Free Cash Flow
-        # -------------------------
+        # ----------------------------
         if "free_cash_flow_min" in preset:
             df = df[
                 df["free_cash_flow_cr"] >=
                 preset["free_cash_flow_min"]
             ]
 
-        # -------------------------
+        # ----------------------------
         # Revenue CAGR
-        # -------------------------
+        # ----------------------------
         if "revenue_cagr_5yr_min" in preset:
             df = df[
                 df["revenue_cagr_5yr"] >=
                 preset["revenue_cagr_5yr_min"]
             ]
 
-        # -------------------------
+        # ----------------------------
         # PAT CAGR
-        # -------------------------
+        # ----------------------------
         if "pat_cagr_5yr_min" in preset:
             df = df[
                 df["pat_cagr_5yr"] >=
                 preset["pat_cagr_5yr_min"]
             ]
 
-        # -------------------------
+        # ----------------------------
         # Dividend Yield
-        # -------------------------
+        # ----------------------------
         if "dividend_yield_min" in preset:
             df = df[
                 df["dividend_yield_pct"].isna() |
@@ -156,9 +172,9 @@ class ScreenerEngine:
                 )
             ]
 
-        # -------------------------
+        # ----------------------------
         # PE Ratio
-        # -------------------------
+        # ----------------------------
         if "pe_max" in preset:
             df = df[
                 df["pe_ratio"].isna() |
@@ -168,9 +184,9 @@ class ScreenerEngine:
                 )
             ]
 
-        # -------------------------
+        # ----------------------------
         # PB Ratio
-        # -------------------------
+        # ----------------------------
         if "pb_max" in preset:
             df = df[
                 df["pb_ratio"].isna() |
@@ -180,25 +196,27 @@ class ScreenerEngine:
                 )
             ]
 
-        # -------------------------
+        # ----------------------------
         # Sales
-        # -------------------------
+        # ----------------------------
         if "sales_min" in preset:
             df = df[
                 df["sales"] >=
                 preset["sales_min"]
             ]
 
-        # -------------------------
+        # ----------------------------
         # Dividend Payout
-        # -------------------------
+        # ----------------------------
         if "dividend_payout_max" in preset:
             df = df[
                 df["dividend_payout_ratio_pct"] <=
                 preset["dividend_payout_max"]
             ]
 
+        # ----------------------------
         # Sort by Composite Score
+        # ----------------------------
         df = df.sort_values(
             by="composite_quality_score",
             ascending=False
