@@ -4,6 +4,7 @@ import pandas as pd
 
 METRICS = [
     "return_on_equity_pct",
+    "return_on_capital_employed_pct",
     "net_profit_margin_pct",
     "debt_to_equity",
     "free_cash_flow_cr",
@@ -11,7 +12,7 @@ METRICS = [
     "pat_cagr_5yr",
     "eps_cagr_5yr",
     "interest_coverage",
-    "asset_turnover",
+    "asset_turnover"
 ]
 
 
