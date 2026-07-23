@@ -1,6 +1,5 @@
 company_id,type,rule_id,text,confidence_pct
 ABB,PRO,P1,High ROE indicates efficient capital utilization.,95
-ABB,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ABB,PRO,P3,Strong profit margins support healthy earnings.,90
 ABB,PRO,P4,High operating margin reflects operational efficiency.,90
 ABB,PRO,P5,Low debt improves financial stability.,93
@@ -25,7 +24,6 @@ ADANIENT,CON,C5,High debt increases financial risk.,93
 ADANIENT,CON,C10,Negative free cash flow may constrain future growth.,90
 ADANIGREEN,PRO,P4,High operating margin reflects operational efficiency.,90
 ADANIGREEN,PRO,P7,Revenue has grown consistently over five years.,92
-ADANIGREEN,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 ADANIGREEN,CON,C5,High debt increases financial risk.,93
 ADANIGREEN,CON,C6,Poor interest coverage raises repayment concerns.,92
 ADANIGREEN,CON,C10,Negative free cash flow may constrain future growth.,90
@@ -37,7 +35,6 @@ ADANIPORTS,PRO,P10,Positive free cash flow strengthens future growth.,90
 ADANIPORTS,PRO,P11,Healthy dividend yield rewards shareholders.,80
 ADANIPORTS,PRO,P12,Excellent overall quality score.,96
 ADANIPOWER,PRO,P1,High ROE indicates efficient capital utilization.,95
-ADANIPOWER,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ADANIPOWER,PRO,P3,Strong profit margins support healthy earnings.,90
 ADANIPOWER,PRO,P4,High operating margin reflects operational efficiency.,90
 ADANIPOWER,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -57,7 +54,6 @@ APOLLOHOSP,PRO,P10,Positive free cash flow strengthens future growth.,90
 APOLLOHOSP,PRO,P11,Healthy dividend yield rewards shareholders.,80
 APOLLOHOSP,CON,C3,Weak profit margins reduce profitability.,90
 ASIANPAINT,PRO,P1,High ROE indicates efficient capital utilization.,95
-ASIANPAINT,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ASIANPAINT,PRO,P3,Strong profit margins support healthy earnings.,90
 ASIANPAINT,PRO,P4,High operating margin reflects operational efficiency.,90
 ASIANPAINT,PRO,P5,Low debt improves financial stability.,93
@@ -68,7 +64,6 @@ ASIANPAINT,PRO,P10,Positive free cash flow strengthens future growth.,90
 ASIANPAINT,PRO,P11,Healthy dividend yield rewards shareholders.,80
 ASIANPAINT,PRO,P12,Excellent overall quality score.,96
 BAJAJ-AUTO,PRO,P1,High ROE indicates efficient capital utilization.,95
-BAJAJ-AUTO,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 BAJAJ-AUTO,PRO,P3,Strong profit margins support healthy earnings.,90
 BAJAJ-AUTO,PRO,P5,Low debt improves financial stability.,93
 BAJAJ-AUTO,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -80,7 +75,6 @@ AXISBANK,PRO,P4,High operating margin reflects operational efficiency.,90
 AXISBANK,PRO,P8,Profit growth has remained consistently strong.,92
 AXISBANK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 AXISBANK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-AXISBANK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 AXISBANK,CON,C5,High debt increases financial risk.,93
 AXISBANK,CON,C6,Poor interest coverage raises repayment concerns.,92
 AXISBANK,CON,C10,Negative free cash flow may constrain future growth.,90
@@ -102,14 +96,12 @@ BAJAJHLDNG,PRO,P9,EPS growth indicates increasing shareholder value.,92
 BAJAJHLDNG,PRO,P10,Positive free cash flow strengthens future growth.,90
 BAJAJHLDNG,PRO,P11,Healthy dividend yield rewards shareholders.,80
 BAJAJHLDNG,PRO,P12,Excellent overall quality score.,96
-BAJAJHLDNG,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 BAJFINANCE,PRO,P3,Strong profit margins support healthy earnings.,90
 BAJFINANCE,PRO,P4,High operating margin reflects operational efficiency.,90
 BAJFINANCE,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 BAJFINANCE,PRO,P7,Revenue has grown consistently over five years.,92
 BAJFINANCE,PRO,P8,Profit growth has remained consistently strong.,92
 BAJFINANCE,PRO,P9,EPS growth indicates increasing shareholder value.,92
-BAJFINANCE,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 BAJFINANCE,CON,C5,High debt increases financial risk.,93
 BAJFINANCE,CON,C10,Negative free cash flow may constrain future growth.,90
 BANKBARODA,PRO,P3,Strong profit margins support healthy earnings.,90
@@ -118,11 +110,9 @@ BANKBARODA,PRO,P7,Revenue has grown consistently over five years.,92
 BANKBARODA,PRO,P8,Profit growth has remained consistently strong.,92
 BANKBARODA,PRO,P9,EPS growth indicates increasing shareholder value.,92
 BANKBARODA,PRO,P11,Healthy dividend yield rewards shareholders.,80
-BANKBARODA,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 BANKBARODA,CON,C5,High debt increases financial risk.,93
 BANKBARODA,CON,C6,Poor interest coverage raises repayment concerns.,92
 BANKBARODA,CON,C10,Negative free cash flow may constrain future growth.,90
-BHARTIARTL,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 BHARTIARTL,PRO,P4,High operating margin reflects operational efficiency.,90
 BHARTIARTL,PRO,P8,Profit growth has remained consistently strong.,92
 BHARTIARTL,PRO,P9,EPS growth indicates increasing shareholder value.,92
@@ -130,7 +120,6 @@ BHARTIARTL,PRO,P10,Positive free cash flow strengthens future growth.,90
 BHARTIARTL,PRO,P11,Healthy dividend yield rewards shareholders.,80
 BHARTIARTL,CON,C5,High debt increases financial risk.,93
 BEL,PRO,P1,High ROE indicates efficient capital utilization.,95
-BEL,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 BEL,PRO,P3,Strong profit margins support healthy earnings.,90
 BEL,PRO,P4,High operating margin reflects operational efficiency.,90
 BEL,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -140,7 +129,6 @@ BEL,CON,C10,Negative free cash flow may constrain future growth.,90
 BHEL,PRO,P5,Low debt improves financial stability.,93
 BHEL,PRO,P11,Healthy dividend yield rewards shareholders.,80
 BHEL,CON,C1,Low ROE reflects weak capital efficiency.,95
-BHEL,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 BHEL,CON,C3,Weak profit margins reduce profitability.,90
 BHEL,CON,C4,Low operating margin signals operational weakness.,90
 BHEL,CON,C6,Poor interest coverage raises repayment concerns.,92
@@ -154,7 +142,6 @@ BOSCHLTD,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 BOSCHLTD,PRO,P10,Positive free cash flow strengthens future growth.,90
 BOSCHLTD,PRO,P11,Healthy dividend yield rewards shareholders.,80
 BPCL,PRO,P1,High ROE indicates efficient capital utilization.,95
-BPCL,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 BPCL,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 BPCL,PRO,P8,Profit growth has remained consistently strong.,92
 BPCL,PRO,P9,EPS growth indicates increasing shareholder value.,92
@@ -162,7 +149,6 @@ BPCL,PRO,P10,Positive free cash flow strengthens future growth.,90
 BPCL,PRO,P11,Healthy dividend yield rewards shareholders.,80
 BPCL,CON,C4,Low operating margin signals operational weakness.,90
 BRITANNIA,PRO,P1,High ROE indicates efficient capital utilization.,95
-BRITANNIA,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 BRITANNIA,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 BRITANNIA,PRO,P10,Positive free cash flow strengthens future growth.,90
 BRITANNIA,PRO,P11,Healthy dividend yield rewards shareholders.,80
@@ -172,7 +158,6 @@ CANBK,PRO,P8,Profit growth has remained consistently strong.,92
 CANBK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 CANBK,PRO,P10,Positive free cash flow strengthens future growth.,90
 CANBK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-CANBK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 CANBK,CON,C5,High debt increases financial risk.,93
 CANBK,CON,C6,Poor interest coverage raises repayment concerns.,92
 CHOLAFIN,PRO,P3,Strong profit margins support healthy earnings.,90
@@ -182,10 +167,8 @@ CHOLAFIN,PRO,P7,Revenue has grown consistently over five years.,92
 CHOLAFIN,PRO,P8,Profit growth has remained consistently strong.,92
 CHOLAFIN,PRO,P9,EPS growth indicates increasing shareholder value.,92
 CHOLAFIN,PRO,P11,Healthy dividend yield rewards shareholders.,80
-CHOLAFIN,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 CHOLAFIN,CON,C5,High debt increases financial risk.,93
 CHOLAFIN,CON,C10,Negative free cash flow may constrain future growth.,90
-CIPLA,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 CIPLA,PRO,P3,Strong profit margins support healthy earnings.,90
 CIPLA,PRO,P4,High operating margin reflects operational efficiency.,90
 CIPLA,PRO,P5,Low debt improves financial stability.,93
@@ -194,7 +177,6 @@ CIPLA,PRO,P8,Profit growth has remained consistently strong.,92
 CIPLA,PRO,P9,EPS growth indicates increasing shareholder value.,92
 CIPLA,PRO,P10,Positive free cash flow strengthens future growth.,90
 COALINDIA,PRO,P1,High ROE indicates efficient capital utilization.,95
-COALINDIA,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 COALINDIA,PRO,P3,Strong profit margins support healthy earnings.,90
 COALINDIA,PRO,P4,High operating margin reflects operational efficiency.,90
 COALINDIA,PRO,P5,Low debt improves financial stability.,93
@@ -204,7 +186,6 @@ COALINDIA,PRO,P9,EPS growth indicates increasing shareholder value.,92
 COALINDIA,PRO,P10,Positive free cash flow strengthens future growth.,90
 COALINDIA,PRO,P11,Healthy dividend yield rewards shareholders.,80
 COALINDIA,PRO,P12,Excellent overall quality score.,96
-DABUR,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 DABUR,PRO,P5,Low debt improves financial stability.,93
 DABUR,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 DABUR,PRO,P10,Positive free cash flow strengthens future growth.,90
@@ -227,9 +208,7 @@ DLF,PRO,P8,Profit growth has remained consistently strong.,92
 DLF,PRO,P10,Positive free cash flow strengthens future growth.,90
 DLF,PRO,P11,Healthy dividend yield rewards shareholders.,80
 DLF,CON,C1,Low ROE reflects weak capital efficiency.,95
-DLF,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 DLF,CON,C7,Revenue growth has been weak.,92
-DMART,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 DMART,PRO,P5,Low debt improves financial stability.,93
 DMART,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 DMART,PRO,P7,Revenue has grown consistently over five years.,92
@@ -239,7 +218,6 @@ DMART,PRO,P10,Positive free cash flow strengthens future growth.,90
 DMART,PRO,P11,Healthy dividend yield rewards shareholders.,80
 DMART,CON,C3,Weak profit margins reduce profitability.,90
 DMART,CON,C4,Low operating margin signals operational weakness.,90
-DRREDDY,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 DRREDDY,PRO,P3,Strong profit margins support healthy earnings.,90
 DRREDDY,PRO,P4,High operating margin reflects operational efficiency.,90
 DRREDDY,PRO,P5,Low debt improves financial stability.,93
@@ -248,7 +226,6 @@ DRREDDY,PRO,P8,Profit growth has remained consistently strong.,92
 DRREDDY,PRO,P9,EPS growth indicates increasing shareholder value.,92
 DRREDDY,PRO,P10,Positive free cash flow strengthens future growth.,90
 EICHERMOT,PRO,P1,High ROE indicates efficient capital utilization.,95
-EICHERMOT,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 EICHERMOT,PRO,P3,Strong profit margins support healthy earnings.,90
 EICHERMOT,PRO,P4,High operating margin reflects operational efficiency.,90
 EICHERMOT,PRO,P5,Low debt improves financial stability.,93
@@ -271,7 +248,6 @@ GRASIM,PRO,P9,EPS growth indicates increasing shareholder value.,92
 GRASIM,CON,C5,High debt increases financial risk.,93
 GRASIM,CON,C10,Negative free cash flow may constrain future growth.,90
 HAL,PRO,P1,High ROE indicates efficient capital utilization.,95
-HAL,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HAL,PRO,P3,Strong profit margins support healthy earnings.,90
 HAL,PRO,P4,High operating margin reflects operational efficiency.,90
 HAL,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -280,13 +256,11 @@ HAL,PRO,P9,EPS growth indicates increasing shareholder value.,92
 HAL,PRO,P10,Positive free cash flow strengthens future growth.,90
 HAL,PRO,P11,Healthy dividend yield rewards shareholders.,80
 HAL,PRO,P12,Excellent overall quality score.,96
-HAVELLS,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HAVELLS,PRO,P5,Low debt improves financial stability.,93
 HAVELLS,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 HAVELLS,PRO,P10,Positive free cash flow strengthens future growth.,90
 HAVELLS,PRO,P11,Healthy dividend yield rewards shareholders.,80
 HCLTECH,PRO,P1,High ROE indicates efficient capital utilization.,95
-HCLTECH,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HCLTECH,PRO,P4,High operating margin reflects operational efficiency.,90
 HCLTECH,PRO,P5,Low debt improves financial stability.,93
 HCLTECH,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -299,10 +273,8 @@ HDFCBANK,PRO,P8,Profit growth has remained consistently strong.,92
 HDFCBANK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 HDFCBANK,PRO,P10,Positive free cash flow strengthens future growth.,90
 HDFCBANK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-HDFCBANK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 HDFCBANK,CON,C5,High debt increases financial risk.,93
 HDFCBANK,CON,C6,Poor interest coverage raises repayment concerns.,92
-HDFCLIFE,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HDFCLIFE,PRO,P4,High operating margin reflects operational efficiency.,90
 HDFCLIFE,PRO,P5,Low debt improves financial stability.,93
 HDFCLIFE,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -313,7 +285,6 @@ HDFCLIFE,CON,C8,Profit growth has remained weak.,92
 HDFCLIFE,CON,C9,EPS growth has been limited.,92
 HDFCLIFE,CON,C10,Negative free cash flow may constrain future growth.,90
 HEROMOTOCO,PRO,P1,High ROE indicates efficient capital utilization.,95
-HEROMOTOCO,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HEROMOTOCO,PRO,P4,High operating margin reflects operational efficiency.,90
 HEROMOTOCO,PRO,P5,Low debt improves financial stability.,93
 HEROMOTOCO,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -322,14 +293,12 @@ HEROMOTOCO,PRO,P11,Healthy dividend yield rewards shareholders.,80
 HEROMOTOCO,CON,C7,Revenue growth has been weak.,92
 HEROMOTOCO,CON,C8,Profit growth has remained weak.,92
 HEROMOTOCO,CON,C9,EPS growth has been limited.,92
-HINDALCO,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HINDALCO,PRO,P4,High operating margin reflects operational efficiency.,90
 HINDALCO,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 HINDALCO,PRO,P10,Positive free cash flow strengthens future growth.,90
 HINDALCO,CON,C1,Low ROE reflects weak capital efficiency.,95
 HINDALCO,CON,C3,Weak profit margins reduce profitability.,90
 HINDUNILVR,PRO,P1,High ROE indicates efficient capital utilization.,95
-HINDUNILVR,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 HINDUNILVR,PRO,P3,Strong profit margins support healthy earnings.,90
 HINDUNILVR,PRO,P4,High operating margin reflects operational efficiency.,90
 HINDUNILVR,PRO,P5,Low debt improves financial stability.,93
@@ -344,16 +313,13 @@ ICICIBANK,PRO,P8,Profit growth has remained consistently strong.,92
 ICICIBANK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 ICICIBANK,PRO,P10,Positive free cash flow strengthens future growth.,90
 ICICIBANK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-ICICIBANK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 ICICIBANK,CON,C5,High debt increases financial risk.,93
 ICICIBANK,CON,C6,Poor interest coverage raises repayment concerns.,92
-ICICIGI,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ICICIGI,PRO,P4,High operating margin reflects operational efficiency.,90
 ICICIGI,PRO,P5,Low debt improves financial stability.,93
 ICICIGI,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 ICICIGI,PRO,P10,Positive free cash flow strengthens future growth.,90
 ICICIGI,PRO,P11,Healthy dividend yield rewards shareholders.,80
-ICICIPRULI,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ICICIPRULI,PRO,P4,High operating margin reflects operational efficiency.,90
 ICICIPRULI,PRO,P5,Low debt improves financial stability.,93
 ICICIPRULI,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -369,12 +335,10 @@ INDUSINDBK,PRO,P7,Revenue has grown consistently over five years.,92
 INDUSINDBK,PRO,P8,Profit growth has remained consistently strong.,92
 INDUSINDBK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 INDUSINDBK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-INDUSINDBK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 INDUSINDBK,CON,C5,High debt increases financial risk.,93
 INDUSINDBK,CON,C6,Poor interest coverage raises repayment concerns.,92
 INDUSINDBK,CON,C10,Negative free cash flow may constrain future growth.,90
 INFY,PRO,P1,High ROE indicates efficient capital utilization.,95
-INFY,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 INFY,PRO,P3,Strong profit margins support healthy earnings.,90
 INFY,PRO,P4,High operating margin reflects operational efficiency.,90
 INFY,PRO,P5,Low debt improves financial stability.,93
@@ -383,7 +347,6 @@ INFY,PRO,P10,Positive free cash flow strengthens future growth.,90
 INFY,PRO,P11,Healthy dividend yield rewards shareholders.,80
 INFY,PRO,P12,Excellent overall quality score.,96
 IOC,PRO,P1,High ROE indicates efficient capital utilization.,95
-IOC,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 IOC,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 IOC,PRO,P8,Profit growth has remained consistently strong.,92
 IOC,PRO,P9,EPS growth indicates increasing shareholder value.,92
@@ -391,7 +354,6 @@ IOC,PRO,P10,Positive free cash flow strengthens future growth.,90
 IOC,PRO,P11,Healthy dividend yield rewards shareholders.,80
 IOC,CON,C4,Low operating margin signals operational weakness.,90
 IRCTC,PRO,P1,High ROE indicates efficient capital utilization.,95
-IRCTC,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 IRCTC,PRO,P3,Strong profit margins support healthy earnings.,90
 IRCTC,PRO,P4,High operating margin reflects operational efficiency.,90
 IRCTC,PRO,P5,Low debt improves financial stability.,93
@@ -409,11 +371,9 @@ IRFC,PRO,P8,Profit growth has remained consistently strong.,92
 IRFC,PRO,P9,EPS growth indicates increasing shareholder value.,92
 IRFC,PRO,P10,Positive free cash flow strengthens future growth.,90
 IRFC,PRO,P11,Healthy dividend yield rewards shareholders.,80
-IRFC,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 IRFC,CON,C5,High debt increases financial risk.,93
 IRFC,CON,C6,Poor interest coverage raises repayment concerns.,92
 ITC,PRO,P1,High ROE indicates efficient capital utilization.,95
-ITC,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ITC,PRO,P3,Strong profit margins support healthy earnings.,90
 ITC,PRO,P4,High operating margin reflects operational efficiency.,90
 ITC,PRO,P5,Low debt improves financial stability.,93
@@ -434,7 +394,6 @@ JIOFIN,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 JIOFIN,PRO,P10,Positive free cash flow strengthens future growth.,90
 JIOFIN,PRO,P11,Healthy dividend yield rewards shareholders.,80
 JIOFIN,CON,C1,Low ROE reflects weak capital efficiency.,95
-JIOFIN,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 JSWENERGY,PRO,P3,Strong profit margins support healthy earnings.,90
 JSWENERGY,PRO,P4,High operating margin reflects operational efficiency.,90
 JSWENERGY,PRO,P8,Profit growth has remained consistently strong.,92
@@ -455,11 +414,9 @@ KOTAKBANK,PRO,P8,Profit growth has remained consistently strong.,92
 KOTAKBANK,PRO,P9,EPS growth indicates increasing shareholder value.,92
 KOTAKBANK,PRO,P10,Positive free cash flow strengthens future growth.,90
 KOTAKBANK,PRO,P11,Healthy dividend yield rewards shareholders.,80
-KOTAKBANK,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 KOTAKBANK,CON,C5,High debt increases financial risk.,93
 KOTAKBANK,CON,C6,Poor interest coverage raises repayment concerns.,92
 LICI,PRO,P1,High ROE indicates efficient capital utilization.,95
-LICI,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 LICI,PRO,P5,Low debt improves financial stability.,93
 LICI,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 LICI,PRO,P8,Profit growth has remained consistently strong.,92
@@ -478,12 +435,10 @@ LODHA,CON,C8,Profit growth has remained weak.,92
 LODHA,CON,C9,EPS growth has been limited.,92
 LODHA,CON,C10,Negative free cash flow may constrain future growth.,90
 LT,PRO,P1,High ROE indicates efficient capital utilization.,95
-LT,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 LT,PRO,P5,Low debt improves financial stability.,93
 LT,PRO,P10,Positive free cash flow strengthens future growth.,90
 LT,PRO,P11,Healthy dividend yield rewards shareholders.,80
 LTIM,PRO,P1,High ROE indicates efficient capital utilization.,95
-LTIM,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 LTIM,PRO,P5,Low debt improves financial stability.,93
 LTIM,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 LTIM,PRO,P7,Revenue has grown consistently over five years.,92
@@ -496,12 +451,10 @@ M&M,PRO,P9,EPS growth indicates increasing shareholder value.,92
 M&M,PRO,P11,Healthy dividend yield rewards shareholders.,80
 M&M,CON,C5,High debt increases financial risk.,93
 M&M,CON,C10,Negative free cash flow may constrain future growth.,90
-MARUTI,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 MARUTI,PRO,P5,Low debt improves financial stability.,93
 MARUTI,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 MARUTI,PRO,P10,Positive free cash flow strengthens future growth.,90
 MARUTI,PRO,P11,Healthy dividend yield rewards shareholders.,80
-MOTHERSON,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 MOTHERSON,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 MOTHERSON,PRO,P10,Positive free cash flow strengthens future growth.,90
 MOTHERSON,PRO,P11,Healthy dividend yield rewards shareholders.,80
@@ -514,12 +467,10 @@ NAUKRI,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 NAUKRI,PRO,P7,Revenue has grown consistently over five years.,92
 NAUKRI,PRO,P11,Healthy dividend yield rewards shareholders.,80
 NAUKRI,CON,C1,Low ROE reflects weak capital efficiency.,95
-NAUKRI,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 NAUKRI,CON,C8,Profit growth has remained weak.,92
 NAUKRI,CON,C9,EPS growth has been limited.,92
 NAUKRI,CON,C10,Negative free cash flow may constrain future growth.,90
 NESTLEIND,PRO,P1,High ROE indicates efficient capital utilization.,95
-NESTLEIND,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 NESTLEIND,PRO,P3,Strong profit margins support healthy earnings.,90
 NESTLEIND,PRO,P4,High operating margin reflects operational efficiency.,90
 NESTLEIND,PRO,P5,Low debt improves financial stability.,93
@@ -533,11 +484,9 @@ NHPC,PRO,P4,High operating margin reflects operational efficiency.,90
 NHPC,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 NHPC,PRO,P10,Positive free cash flow strengthens future growth.,90
 NHPC,PRO,P11,Healthy dividend yield rewards shareholders.,80
-NHPC,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 NHPC,CON,C7,Revenue growth has been weak.,92
 NTPC,PRO,P4,High operating margin reflects operational efficiency.,90
 NTPC,PRO,P10,Positive free cash flow strengthens future growth.,90
-ONGC,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 ONGC,PRO,P5,Low debt improves financial stability.,93
 ONGC,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 ONGC,PRO,P10,Positive free cash flow strengthens future growth.,90
@@ -546,12 +495,10 @@ PFC,PRO,P1,High ROE indicates efficient capital utilization.,95
 PFC,PRO,P3,Strong profit margins support healthy earnings.,90
 PFC,PRO,P4,High operating margin reflects operational efficiency.,90
 PFC,PRO,P8,Profit growth has remained consistently strong.,92
-PFC,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 PFC,CON,C5,High debt increases financial risk.,93
 PFC,CON,C6,Poor interest coverage raises repayment concerns.,92
 PFC,CON,C10,Negative free cash flow may constrain future growth.,90
 PIDILITIND,PRO,P1,High ROE indicates efficient capital utilization.,95
-PIDILITIND,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 PIDILITIND,PRO,P4,High operating margin reflects operational efficiency.,90
 PIDILITIND,PRO,P5,Low debt improves financial stability.,93
 PIDILITIND,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -572,7 +519,6 @@ RECLTD,PRO,P4,High operating margin reflects operational efficiency.,90
 RECLTD,PRO,P8,Profit growth has remained consistently strong.,92
 RECLTD,PRO,P9,EPS growth indicates increasing shareholder value.,92
 RECLTD,PRO,P11,Healthy dividend yield rewards shareholders.,80
-RECLTD,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 RECLTD,CON,C5,High debt increases financial risk.,93
 RECLTD,CON,C6,Poor interest coverage raises repayment concerns.,92
 RECLTD,CON,C10,Negative free cash flow may constrain future growth.,90
@@ -584,11 +530,9 @@ SBILIFE,PRO,P5,Low debt improves financial stability.,93
 SBILIFE,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 SBILIFE,PRO,P7,Revenue has grown consistently over five years.,92
 SBILIFE,PRO,P11,Healthy dividend yield rewards shareholders.,80
-SBILIFE,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 SBILIFE,CON,C3,Weak profit margins reduce profitability.,90
 SBILIFE,CON,C4,Low operating margin signals operational weakness.,90
 SBILIFE,CON,C10,Negative free cash flow may constrain future growth.,90
-SHREECEM,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 SHREECEM,PRO,P4,High operating margin reflects operational efficiency.,90
 SHREECEM,PRO,P5,Low debt improves financial stability.,93
 SHREECEM,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -600,7 +544,6 @@ SHRIRAMFIN,PRO,P4,High operating margin reflects operational efficiency.,90
 SHRIRAMFIN,PRO,P7,Revenue has grown consistently over five years.,92
 SHRIRAMFIN,PRO,P8,Profit growth has remained consistently strong.,92
 SHRIRAMFIN,PRO,P11,Healthy dividend yield rewards shareholders.,80
-SHRIRAMFIN,CON,C2,Low ROCE indicates inefficient capital utilization.,95
 SHRIRAMFIN,CON,C5,High debt increases financial risk.,93
 SHRIRAMFIN,CON,C6,Poor interest coverage raises repayment concerns.,92
 SHRIRAMFIN,CON,C10,Negative free cash flow may constrain future growth.,90
@@ -626,7 +569,6 @@ TATACONSUM,PRO,P10,Positive free cash flow strengthens future growth.,90
 TATACONSUM,PRO,P11,Healthy dividend yield rewards shareholders.,80
 TATACONSUM,CON,C1,Low ROE reflects weak capital efficiency.,95
 TATAMOTORS,PRO,P1,High ROE indicates efficient capital utilization.,95
-TATAMOTORS,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 TATAMOTORS,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 TATAMOTORS,PRO,P10,Positive free cash flow strengthens future growth.,90
 TATAMOTORS,PRO,P11,Healthy dividend yield rewards shareholders.,80
@@ -638,7 +580,6 @@ TATASTEEL,CON,C1,Low ROE reflects weak capital efficiency.,95
 TATASTEEL,CON,C3,Weak profit margins reduce profitability.,90
 TATASTEEL,CON,C4,Low operating margin signals operational weakness.,90
 TCS,PRO,P1,High ROE indicates efficient capital utilization.,95
-TCS,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 TCS,PRO,P3,Strong profit margins support healthy earnings.,90
 TCS,PRO,P4,High operating margin reflects operational efficiency.,90
 TCS,PRO,P5,Low debt improves financial stability.,93
@@ -655,7 +596,6 @@ TECHM,CON,C4,Low operating margin signals operational weakness.,90
 TECHM,CON,C8,Profit growth has remained weak.,92
 TECHM,CON,C9,EPS growth has been limited.,92
 TITAN,PRO,P1,High ROE indicates efficient capital utilization.,95
-TITAN,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 TITAN,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 TITAN,PRO,P7,Revenue has grown consistently over five years.,92
 TITAN,PRO,P8,Profit growth has remained consistently strong.,92
@@ -664,7 +604,6 @@ TITAN,PRO,P10,Positive free cash flow strengthens future growth.,90
 TITAN,PRO,P11,Healthy dividend yield rewards shareholders.,80
 TITAN,CON,C5,High debt increases financial risk.,93
 TORNTPHARM,PRO,P1,High ROE indicates efficient capital utilization.,95
-TORNTPHARM,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 TORNTPHARM,PRO,P3,Strong profit margins support healthy earnings.,90
 TORNTPHARM,PRO,P4,High operating margin reflects operational efficiency.,90
 TORNTPHARM,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -674,7 +613,6 @@ TORNTPHARM,PRO,P10,Positive free cash flow strengthens future growth.,90
 TORNTPHARM,PRO,P11,Healthy dividend yield rewards shareholders.,80
 TORNTPHARM,PRO,P12,Excellent overall quality score.,96
 TRENT,PRO,P1,High ROE indicates efficient capital utilization.,95
-TRENT,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 TRENT,PRO,P5,Low debt improves financial stability.,93
 TRENT,PRO,P6,Comfortable interest coverage reduces financial risk.,92
 TRENT,PRO,P7,Revenue has grown consistently over five years.,92
@@ -691,7 +629,6 @@ TVSMOTOR,CON,C3,Weak profit margins reduce profitability.,90
 TVSMOTOR,CON,C5,High debt increases financial risk.,93
 TVSMOTOR,CON,C10,Negative free cash flow may constrain future growth.,90
 INDIGO,PRO,P1,High ROE indicates efficient capital utilization.,95
-INDIGO,PRO,P2,Excellent ROCE demonstrates efficient business operations.,95
 INDIGO,PRO,P4,High operating margin reflects operational efficiency.,90
 INDIGO,PRO,P5,Low debt improves financial stability.,93
 INDIGO,PRO,P6,Comfortable interest coverage reduces financial risk.,92
@@ -701,3 +638,39 @@ INDIGO,PRO,P9,EPS growth indicates increasing shareholder value.,92
 INDIGO,PRO,P10,Positive free cash flow strengthens future growth.,90
 INDIGO,PRO,P11,Healthy dividend yield rewards shareholders.,80
 INDIGO,PRO,P12,Excellent overall quality score.,96
+ABB,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ADANIPORTS,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ADANIPOWER,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ASIANPAINT,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+BAJAJ-AUTO,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+BAJAJHLDNG,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+BOSCHLTD,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+BRITANNIA,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+CIPLA,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+COALINDIA,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+DRREDDY,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+EICHERMOT,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+GAIL,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+HAL,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+HAVELLS,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+HCLTECH,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+HINDUNILVR,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ICICIGI,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+INFY,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+IRCTC,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ITC,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+LT,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+LTIM,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+MARUTI,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+NESTLEIND,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+NTPC,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+ONGC,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+PIDILITIND,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+POWERGRID,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+SIEMENS,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+SUNPHARMA,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+TATAMOTORS,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+TCS,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+TORNTPHARM,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+TRENT,CON,C0,Financial metrics should be monitored continuously for future performance.,70
+INDIGO,CON,C0,Financial metrics should be monitored continuously for future performance.,70

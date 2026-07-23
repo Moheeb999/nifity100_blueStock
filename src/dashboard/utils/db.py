@@ -555,7 +555,7 @@ def get_peer_metrics(group_name):
     )
 
     conn.close()
-
+    
     return df
 
 @st.cache_data(ttl=600)

@@ -93,14 +93,25 @@ labels = [
     "Quality"
 ]
 
-peer_average = metrics[
-    cols
-].mean(
-    numeric_only=True
+# Convert metric columns to numeric
+metrics_numeric = metrics.copy()
+
+metrics_numeric[cols] = metrics_numeric[cols].apply(
+    pd.to_numeric,
+    errors="coerce"
 )
 
+# Selected company row
+row_numeric = metrics_numeric[
+    metrics_numeric.company_id == ticker
+].iloc[0]
+
+# Peer averages
+peer_average = metrics_numeric[cols].mean()
+
+# Radar values
 company_values = [
-    0 if pd.isna(row[c]) else float(row[c])
+    0 if pd.isna(row_numeric[c]) else float(row_numeric[c])
     for c in cols
 ]
 
@@ -258,4 +269,4 @@ Peer Group : {group}
 
 Companies : {len(metrics)}
 """
-)   
+)
