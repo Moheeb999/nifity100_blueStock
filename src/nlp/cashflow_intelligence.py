@@ -99,6 +99,21 @@ for _, row in df.iterrows():
             "Negative operating and net cash flow indicate sustained cash burn.",
             96
         )
+    # Rule 7 - Mixed Cash Flow
+    if not (
+        (op > 0 and inv < 0 and fin < 0) or
+        (op > 0 and inv < 0 and fin > 0) or
+        (op > 0 and net > 0) or
+        (op < 0) or
+        (fin > 0 and op < 0) or
+        (net < 0 and op < 0)
+    ):
+        add(
+            row["company_id"],
+            "Mixed Cash Flow",
+            "Cash flow pattern does not clearly match the predefined categories and requires further analysis.",
+            75
+        )    
 
 output = pd.DataFrame(results)
 

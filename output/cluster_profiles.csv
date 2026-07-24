@@ -1,0 +1,8 @@
+,return_on_equity_pct,return_on_equity_pct,return_on_equity_pct,return_on_equity_pct,return_on_equity_pct,debt_to_equity,debt_to_equity,debt_to_equity,debt_to_equity,debt_to_equity,revenue_cagr_5yr,revenue_cagr_5yr,revenue_cagr_5yr,revenue_cagr_5yr,revenue_cagr_5yr,operating_profit_margin_pct,operating_profit_margin_pct,operating_profit_margin_pct,operating_profit_margin_pct,operating_profit_margin_pct,free_cash_flow_cr,free_cash_flow_cr,free_cash_flow_cr,free_cash_flow_cr,free_cash_flow_cr
+,mean,median,std,min,max,mean,median,std,min,max,mean,median,std,min,max,mean,median,std,min,max,mean,median,std,min,max
+cluster_id,,,,,,,,,,,,,,,,,,,,,,,,,
+0,22.05,17.0,19.75,-5.33,117.75,0.55,0.18,0.76,0.0,3.83,11.18,10.49,7.11,-5.14,36.31,19.92,19.09,10.06,0.19,49.91,6069.91,1068.5,14523.5,-33833.0,50429.0
+1,26.45,20.4,15.92,15.12,61.32,5.44,4.79,1.86,3.68,8.52,18.02,18.56,4.81,11.08,24.35,43.22,36.69,25.89,28.1,100.77,-59955.71,-59554.0,27980.01,-101229.0,-29445.0
+2,74.04,15.35,226.64,1.15,892.57,0.66,0.06,1.18,0.0,4.0,14.02,13.17,7.32,2.15,31.61,81.03,84.04,13.92,52.2,102.03,7610.2,6766.0,8856.7,-2893.0,27809.0
+3,15.09,15.05,1.8,12.81,17.99,8.8,7.57,3.08,6.45,14.87,19.89,17.83,6.48,14.74,34.98,56.9,51.58,23.32,34.69,99.5,2061.0,173.5,18467.35,-17468.0,35669.0
+4,4280.32,4280.32,655.82,3816.58,4744.05,0.56,0.56,0.08,0.51,0.62,9.73,9.73,1.44,8.71,10.75,28.51,28.51,5.07,24.92,32.09,274.5,274.5,2177.18,-1265.0,1814.0

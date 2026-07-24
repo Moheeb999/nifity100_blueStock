@@ -1,0 +1,92 @@
+company_id,start_year,end_year,from_pattern,to_pattern,changed
+ABB,2012,2024,Reinvestor,Reinvestor,False
+ADANIENSOL,2014,2024,Pre-Revenue,Reinvestor,True
+ADANIENT,2013,2024,Mixed,Mixed,False
+ADANIGREEN,2017,2024,Mixed,Mixed,False
+ADANIPORTS,2013,2024,Mixed,Reinvestor,True
+ADANIPOWER,2013,2024,Mixed,Liquidating Assets,True
+AMBUJACEM,2012,2024,Reinvestor,Mixed,True
+APOLLOHOSP,2013,2024,Mixed,Reinvestor,True
+ASIANPAINT,2013,2024,Reinvestor,Reinvestor,False
+AXISBANK,2013,2024,Mixed,Growth Funded by Debt,True
+BAJAJ-AUTO,2013,2024,Reinvestor,Reinvestor,False
+BAJAJFINSV,2013,2024,Distress Signal,Growth Funded by Debt,True
+BAJAJHLDNG,2013,2024,Reinvestor,Reinvestor,False
+BAJFINANCE,2015,2024,Growth Funded by Debt,Growth Funded by Debt,False
+BANKBARODA,2013,2024,Reinvestor,Growth Funded by Debt,True
+BEL,2013,2024,Unknown,Reinvestor,True
+BHARTIARTL,2013,2024,Reinvestor,Reinvestor,False
+BHEL,2013,2024,Mixed,Distress Signal,True
+BOSCHLTD,2012,2024,Reinvestor,Liquidating Assets,True
+BPCL,2013,2024,Reinvestor,Reinvestor,False
+BRITANNIA,2013,2024,Liquidating Assets,Liquidating Assets,False
+CANBK,2013,2024,Reinvestor,Reinvestor,False
+CHOLAFIN,2013,2024,Distress Signal,Growth Funded by Debt,True
+CIPLA,2013,2024,Mixed,Reinvestor,True
+COALINDIA,2013,2024,Reinvestor,Reinvestor,False
+DABUR,2013,2024,Reinvestor,Reinvestor,False
+DIVISLAB,2013,2024,Reinvestor,Reinvestor,False
+DLF,2013,2024,Liquidating Assets,Mixed,True
+DMART,2013,2024,Mixed,Reinvestor,True
+DRREDDY,2013,2024,Reinvestor,Reinvestor,False
+EICHERMOT,2012,2024,Reinvestor,Reinvestor,False
+GAIL,2013,2024,Mixed,Reinvestor,True
+GODREJCP,2013,2024,Mixed,Mixed,False
+GRASIM,2013,2024,Mixed,Growth Funded by Debt,True
+HAL,2017,2024,Unknown,Reinvestor,True
+HAVELLS,2013,2024,Reinvestor,Reinvestor,False
+HCLTECH,2013,2024,Reinvestor,Reinvestor,False
+HDFCBANK,2013,2024,Growth Funded by Debt,Liquidating Assets,True
+HDFCLIFE,2013,2024,Pre-Revenue,Reinvestor,True
+HEROMOTOCO,2014,2024,Reinvestor,Reinvestor,False
+HINDALCO,2013,2024,Mixed,Reinvestor,True
+HINDUNILVR,2013,2024,Liquidating Assets,Reinvestor,True
+ICICIBANK,2013,2024,Mixed,Mixed,False
+ICICIGI,2013,2024,Mixed,Reinvestor,True
+ICICIPRULI,2013,2024,Unknown,Unknown,False
+INDIGO,2013,2024,Mixed,Reinvestor,True
+INDUSINDBK,2013,2024,Growth Funded by Debt,Pre-Revenue,True
+INFY,2013,2024,Reinvestor,Reinvestor,False
+IOC,2013,2024,Mixed,Reinvestor,True
+IRCTC,2015,2024,Reinvestor,Reinvestor,False
+IRFC,2016,2024,Distress Signal,Reinvestor,True
+ITC,2013,2024,Reinvestor,Liquidating Assets,True
+JINDALSTEL,2013,2024,Mixed,Mixed,False
+JIOFIN,2023,2024,Reinvestor,Unknown,True
+JSWENERGY,2013,2024,Reinvestor,Mixed,True
+JSWSTEEL,2013,2024,Reinvestor,Reinvestor,False
+KOTAKBANK,2013,2024,Mixed,Mixed,False
+LICI,2019,2024,Liquidating Assets,Reinvestor,True
+LODHA,2016,2024,Mixed,Mixed,False
+LT,2013,2024,Growth Funded by Debt,Liquidating Assets,True
+LTIM,2013,2024,Reinvestor,Reinvestor,False
+M&M,2013,2024,Growth Funded by Debt,Growth Funded by Debt,False
+MARUTI,2013,2024,Reinvestor,Reinvestor,False
+MOTHERSON,2013,2024,Reinvestor,Mixed,True
+NAUKRI,2013,2024,Reinvestor,Mixed,True
+NESTLEIND,2013,2024,Reinvestor,Reinvestor,False
+NHPC,2013,2024,Reinvestor,Reinvestor,False
+NTPC,2013,2024,Mixed,Reinvestor,True
+ONGC,2013,2024,Reinvestor,Reinvestor,False
+PFC,2013,2024,Distress Signal,Growth Funded by Debt,True
+PIDILITIND,2013,2024,Reinvestor,Reinvestor,False
+PNB,2013,2024,Pre-Revenue,Growth Funded by Debt,True
+POWERGRID,2013,2024,Mixed,Reinvestor,True
+RECLTD,2013,2024,Distress Signal,Growth Funded by Debt,True
+RELIANCE,2013,2024,Mixed,Reinvestor,True
+SBILIFE,2013,2024,Reinvestor,Reinvestor,False
+SBIN,2013,2024,Reinvestor,Reinvestor,False
+SHREECEM,2013,2024,Reinvestor,Reinvestor,False
+SHRIRAMFIN,2013,2024,Growth Funded by Debt,Growth Funded by Debt,False
+SIEMENS,2011,2024,Liquidating Assets,Reinvestor,True
+SUNPHARMA,2013,2024,Reinvestor,Reinvestor,False
+TATACONSUM,2013,2024,Cash Accumulator,Mixed,True
+TATAMOTORS,2013,2024,Reinvestor,Reinvestor,False
+TATAPOWER,2013,2024,Reinvestor,Reinvestor,False
+TATASTEEL,2013,2024,Reinvestor,Reinvestor,False
+TCS,2013,2024,Reinvestor,Liquidating Assets,True
+TECHM,2013,2024,Mixed,Reinvestor,True
+TITAN,2013,2024,Reinvestor,Reinvestor,False
+TORNTPHARM,2013,2024,Mixed,Reinvestor,True
+TRENT,2013,2024,Mixed,Reinvestor,True
+TVSMOTOR,2013,2024,Reinvestor,Growth Funded by Debt,True

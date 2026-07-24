@@ -1,0 +1,3 @@
+company_id,company_name,broad_sector,cluster_id,distance_from_centroid,return_on_equity_pct,debt_to_equity,revenue_cagr_5yr,operating_profit_margin_pct,free_cash_flow_cr
+BEL,Bharat Electronics Ltd,Industrials,4,0.756,4744.047619047619,0.5119047619047619,10.7508063318833,24.921057825143084,-1265.0
+HAL,Hindustan Aeronautics Ltd,Industrials,4,0.756,3816.5829145728644,0.6180904522613065,8.712548590236358,32.08913465652875,1814.0

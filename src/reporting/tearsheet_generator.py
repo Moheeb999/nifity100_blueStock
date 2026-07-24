@@ -44,6 +44,7 @@ from reportlab.platypus import (
     KeepTogether,
     ListFlowable,
     ListItem,
+    PageBreak,
     Paragraph,
     SimpleDocTemplate,
     Spacer,
@@ -62,6 +63,10 @@ DB_PATH = PROJECT_ROOT / "db" / "nifty100.db"
 PROS_CONS_CSV = PROJECT_ROOT / "output" / "pros_cons_generated.csv"
 
 CASHFLOW_CSV = PROJECT_ROOT / "output" / "cashflow_intelligence.csv"
+
+CAPITAL_ALLOCATION_CSV = PROJECT_ROOT / "output" / "capital_allocation.csv"
+
+PATTERN_CHANGES_CSV = PROJECT_ROOT / "output" / "pattern_changes.csv"
 
 OUTPUT_DIR = PROJECT_ROOT / "output" / "tearsheets"
 
@@ -137,6 +142,16 @@ class CompanyTearsheetData:
     cons: list[str] = field(default_factory=list)
 
     cashflow_insights: list[tuple[str, str]] = field(default_factory=list)
+
+    capital_allocation: Optional[str] = None
+
+    pattern_changed: Optional[bool] = None
+
+    from_pattern: Optional[str] = None
+
+    to_pattern: Optional[str] = None
+
+    pattern_history: list[tuple[int, str]] = field(default_factory=list)
 
 
 # ---------------------------------------------------------------------
@@ -283,6 +298,27 @@ def load_cashflow_intelligence(path: Path):
     )
 
 
+def load_capital_allocation(path: Path):
+    return _load_csv_checked(
+        path,
+        ["company_id", "year", "pattern_label"],
+        "Capital Allocation",
+    )
+
+
+def load_pattern_changes(path: Path):
+    return _load_csv_checked(
+        path,
+        [
+            "company_id",
+            "from_pattern",
+            "to_pattern",
+            "changed",
+        ],
+        "Pattern Changes",
+    )
+
+
 # ---------------------------------------------------------------------
 # Build Company Object
 # ---------------------------------------------------------------------
@@ -294,6 +330,10 @@ def build_company_data(
     pros_cons_df: pd.DataFrame,
 
     cashflow_df: pd.DataFrame,
+
+    capital_df: pd.DataFrame,
+
+    pattern_df: pd.DataFrame,
 
 ) -> list[CompanyTearsheetData]:
 
@@ -377,6 +417,49 @@ def build_company_data(
                     cf["insight"],
                 )
             )
+
+        # -------------------------------------------------------
+        # Capital Allocation
+        # -------------------------------------------------------
+
+        if not capital_df.empty:
+
+            capital = (
+                capital_df[capital_df.company_id == row.id]
+                .sort_values("year")
+            )
+
+            if not capital.empty:
+
+                company.capital_allocation = capital.iloc[-1]["pattern_label"]
+
+                company.pattern_history = list(
+                    zip(
+                        capital["year"],
+                        capital["pattern_label"]
+                    )
+                )
+
+
+        # -------------------------------------------------------
+        # Pattern Changes
+        # -------------------------------------------------------
+
+        if not pattern_df.empty:
+
+            pattern = pattern_df[
+                pattern_df.company_id == row.id
+            ]
+
+            if not pattern.empty:
+
+                record = pattern.iloc[0]
+
+                company.pattern_changed = bool(record["changed"])
+
+                company.from_pattern = record["from_pattern"]
+
+                company.to_pattern = record["to_pattern"]
 
         records.append(company)
 
@@ -919,6 +1002,109 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
 
         )
 
+    story.append(PageBreak())
+
+    # -------------------------------------------------------
+    # CAPITAL ALLOCATION
+    # -------------------------------------------------------
+
+    story.append(
+        Paragraph(
+            "Capital Allocation",
+            styles["section"],
+        )
+    )
+
+    story.append(
+        Paragraph(
+            f"<b>Latest Pattern:</b> "
+            f"{data.capital_allocation or 'Not Available'}",
+            styles["body"],
+        )
+    )
+
+    story.append(Spacer(1, 8))
+
+    # -------------------------------------------------------
+    # PATTERN HISTORY
+    # -------------------------------------------------------
+
+    story.append(
+        Paragraph(
+            "Pattern History",
+            styles["section"],
+        )
+    )
+
+    if data.pattern_history:
+
+        rows = [["Year", "Pattern"]]
+
+        for year, pattern in data.pattern_history:
+            rows.append([str(year), pattern])
+
+        history_table = Table(
+            rows,
+            colWidths=[40 * mm, 100 * mm]
+        )
+
+        history_table.setStyle(
+            TableStyle([
+                ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
+                ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ])
+        )
+
+        story.append(history_table)
+
+    else:
+
+        story.append(
+            Paragraph(
+                "No pattern history available.",
+                styles["empty"],
+            )
+        )
+
+    story.append(Spacer(1, 10))
+
+    # -------------------------------------------------------
+    # PATTERN CHANGE SUMMARY
+    # -------------------------------------------------------
+
+    story.append(
+        Paragraph(
+            "Pattern Change Summary",
+            styles["section"],
+        )
+    )
+
+    status = "Yes" if data.pattern_changed else "No"
+
+    summary_rows = [
+        ["Changed", status],
+        ["From", data.from_pattern or "N/A"],
+        ["To", data.to_pattern or "N/A"],
+    ]
+
+    summary_table = Table(
+        summary_rows,
+        colWidths=[45 * mm, 95 * mm]
+    )
+
+    summary_table.setStyle(
+        TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
+            ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#EEF2FF")),
+            ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+        ])
+    )
+
+    story.append(summary_table)
+
     # -------------------------------------------------------
     # BUILD PDF
     # -------------------------------------------------------
@@ -986,10 +1172,20 @@ def generate_tearsheets(
         cashflow_path
     )
 
+    capital_df = load_capital_allocation(
+        CAPITAL_ALLOCATION_CSV
+    )
+
+    pattern_df = load_pattern_changes(
+        PATTERN_CHANGES_CSV
+    )
+
     company_records = build_company_data(
         companies_df,
         pros_cons_df,
         cashflow_df,
+        capital_df,
+        pattern_df,
     )
 
     generated = []
