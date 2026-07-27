@@ -1,7 +1,5 @@
-import streamlit as st
-import pandas as pd
 import plotly.express as px
-
+import streamlit as st
 from utils.db import get_capital_allocation_data
 
 st.title("🌳 Capital Allocation Map")
@@ -14,6 +12,7 @@ if df.empty:
 
 
 def classify(row):
+    """Classify a company based on capital allocation metrics."""
 
     if row["debt_to_equity"] <= 0.30 and row["return_on_equity_pct"] >= 20:
         return "Quality Compounder"
@@ -38,28 +37,18 @@ fig = px.treemap(
     path=["allocation_pattern", "company_name"],
     values="free_cash_flow_cr",
     color="return_on_equity_pct",
-    hover_data=[
-        "debt_to_equity",
-        "revenue_cagr_5yr"
-    ]
+    hover_data=["debt_to_equity", "revenue_cagr_5yr"],
 )
 
 st.plotly_chart(fig, width="stretch")
 
 st.subheader("Allocation Summary")
 
-summary = (
-    df.groupby("allocation_pattern")
-      .size()
-      .reset_index(name="Companies")
-)
+summary = df.groupby("allocation_pattern").size().reset_index(name="Companies")
 
 st.dataframe(summary, width="stretch")
 
-pattern = st.selectbox(
-    "Select Pattern",
-    sorted(df["allocation_pattern"].unique())
-)
+pattern = st.selectbox("Select Pattern", sorted(df["allocation_pattern"].unique()))
 
 companies = df[df["allocation_pattern"] == pattern]
 
@@ -73,8 +62,8 @@ st.dataframe(
             "return_on_equity_pct",
             "debt_to_equity",
             "free_cash_flow_cr",
-            "revenue_cagr_5yr"
+            "revenue_cagr_5yr",
         ]
     ],
-    width="stretch"
+    width="stretch",
 )

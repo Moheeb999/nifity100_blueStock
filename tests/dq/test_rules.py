@@ -1,22 +1,22 @@
 import pandas as pd
 
 from src.etl.validator import (
-    validate_pk_uniqueness,
-    validate_composite_pk,
-    validate_fk,
-    validate_balance_sheet,
-    validate_opm,
-    validate_positive_sales,
-    validate_net_cash,
-    validate_tax_rate,
-    validate_dividend_cap,
-    validate_urls,
-    validate_eps_sign,
-    validate_profiles,
-    validate_year_coverage,
     validate_annual_reports,
-    validate_market_cap,
+    validate_balance_sheet,
+    validate_composite_pk,
+    validate_dividend_cap,
+    validate_eps_sign,
     validate_financial_ratios,
+    validate_fk,
+    validate_market_cap,
+    validate_net_cash,
+    validate_opm,
+    validate_pk_uniqueness,
+    validate_positive_sales,
+    validate_profiles,
+    validate_tax_rate,
+    validate_urls,
+    validate_year_coverage,
 )
 
 
@@ -31,10 +31,7 @@ def test_validate_pk_uniqueness():
 
 
 def test_validate_composite_pk():
-    df = pd.DataFrame({
-        "company_id": ["TCS", "TCS"],
-        "year": [2024, 2024]
-    })
+    df = pd.DataFrame({"company_id": ["TCS", "TCS"], "year": [2024, 2024]})
 
     failures = validate_composite_pk(df, "profitandloss")
 
@@ -46,9 +43,7 @@ def test_validate_composite_pk():
 def test_validate_fk():
     companies = pd.DataFrame({"id": ["TCS"]})
 
-    pnl = pd.DataFrame({
-        "company_id": ["INFY"]
-    })
+    pnl = pd.DataFrame({"company_id": ["INFY"]})
 
     failures = validate_fk(pnl, companies, "profitandloss")
 
@@ -57,12 +52,14 @@ def test_validate_fk():
 
 
 def test_validate_balance_sheet():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "total_assets": [100],
-        "total_liabilities": [90]
-    })
+    df = pd.DataFrame(
+        {
+            "company_id": ["TCS"],
+            "year": [2024],
+            "total_assets": [100],
+            "total_liabilities": [90],
+        }
+    )
 
     failures = validate_balance_sheet(df)
 
@@ -71,13 +68,15 @@ def test_validate_balance_sheet():
 
 
 def test_validate_opm():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "operating_profit": [20],
-        "sales": [100],
-        "opm_percentage": [10]
-    })
+    df = pd.DataFrame(
+        {
+            "company_id": ["TCS"],
+            "year": [2024],
+            "operating_profit": [20],
+            "sales": [100],
+            "opm_percentage": [10],
+        }
+    )
 
     failures = validate_opm(df)
 
@@ -86,11 +85,7 @@ def test_validate_opm():
 
 
 def test_validate_positive_sales():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "sales": [-100]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"], "year": [2024], "sales": [-100]})
 
     failures = validate_positive_sales(df)
 
@@ -99,14 +94,16 @@ def test_validate_positive_sales():
 
 
 def test_validate_net_cash():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "operating_activity": [100],
-        "investing_activity": [-20],
-        "financing_activity": [-30],
-        "net_cash_flow": [100]
-    })
+    df = pd.DataFrame(
+        {
+            "company_id": ["TCS"],
+            "year": [2024],
+            "operating_activity": [100],
+            "investing_activity": [-20],
+            "financing_activity": [-30],
+            "net_cash_flow": [100],
+        }
+    )
 
     failures = validate_net_cash(df)
 
@@ -115,11 +112,7 @@ def test_validate_net_cash():
 
 
 def test_validate_tax_rate():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "tax_percentage": [120]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"], "year": [2024], "tax_percentage": [120]})
 
     failures = validate_tax_rate(df)
 
@@ -128,11 +121,7 @@ def test_validate_tax_rate():
 
 
 def test_validate_dividend_cap():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "dividend_payout": [150]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"], "year": [2024], "dividend_payout": [150]})
 
     failures = validate_dividend_cap(df)
 
@@ -141,12 +130,14 @@ def test_validate_dividend_cap():
 
 
 def test_validate_urls():
-    df = pd.DataFrame({
-        "id": ["TCS"],
-        "website": ["invalid"],
-        "nse_profile": ["invalid"],
-        "bse_profile": ["invalid"]
-    })
+    df = pd.DataFrame(
+        {
+            "id": ["TCS"],
+            "website": ["invalid"],
+            "nse_profile": ["invalid"],
+            "bse_profile": ["invalid"],
+        }
+    )
 
     failures = validate_urls(df)
 
@@ -155,12 +146,9 @@ def test_validate_urls():
 
 
 def test_validate_eps_sign():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "net_profit": [-100],
-        "eps": [10]
-    })
+    df = pd.DataFrame(
+        {"company_id": ["TCS"], "year": [2024], "net_profit": [-100], "eps": [10]}
+    )
 
     failures = validate_eps_sign(df)
 
@@ -169,11 +157,9 @@ def test_validate_eps_sign():
 
 
 def test_validate_profiles():
-    df = pd.DataFrame({
-        "id": ["TCS"],
-        "nse_profile": [None],
-        "bse_profile": ["https://bse.com"]
-    })
+    df = pd.DataFrame(
+        {"id": ["TCS"], "nse_profile": [None], "bse_profile": ["https://bse.com"]}
+    )
 
     failures = validate_profiles(df)
 
@@ -182,10 +168,7 @@ def test_validate_profiles():
 
 
 def test_validate_year_coverage():
-    df = pd.DataFrame({
-        "company_id": ["TCS"] * 4,
-        "year": [2021, 2022, 2023, 2024]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"] * 4, "year": [2021, 2022, 2023, 2024]})
 
     failures = validate_year_coverage(df)
 
@@ -194,10 +177,7 @@ def test_validate_year_coverage():
 
 
 def test_validate_annual_reports():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "annual_report": [None]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"], "annual_report": [None]})
 
     failures = validate_annual_reports(df)
 
@@ -206,11 +186,7 @@ def test_validate_annual_reports():
 
 
 def test_validate_market_cap():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "market_cap_crore": [0]
-    })
+    df = pd.DataFrame({"company_id": ["TCS"], "year": [2024], "market_cap_crore": [0]})
 
     failures = validate_market_cap(df)
 
@@ -219,11 +195,9 @@ def test_validate_market_cap():
 
 
 def test_validate_financial_ratios():
-    df = pd.DataFrame({
-        "company_id": ["TCS"],
-        "year": [2024],
-        "return_on_equity_pct": [None]
-    })
+    df = pd.DataFrame(
+        {"company_id": ["TCS"], "year": [2024], "return_on_equity_pct": [None]}
+    )
 
     failures = validate_financial_ratios(df)
 

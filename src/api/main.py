@@ -17,7 +17,6 @@ from src.api.routers import (
 )
 from src.api.schemas.error import ErrorResponse
 
-
 app = FastAPI(
     title="Nifty100 Analytics API",
     version="1.0.0",
@@ -39,16 +38,14 @@ app.add_middleware(
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
+    """Log each incoming HTTP request and its processing time."""
     start_time = time.time()
 
     response = await call_next(request)
 
     process_time = time.time() - start_time
 
-    print(
-        f"{request.method} {request.url.path} "
-        f"- {process_time:.4f} sec"
-    )
+    print(f"{request.method} {request.url.path} " f"- {process_time:.4f} sec")
 
     return response
 
@@ -112,9 +109,8 @@ app.include_router(
 
 @app.get("/", tags=["Default"])
 def root():
-    return {
-        "message": "Welcome to Nifty100 Analytics API"
-    }
+    """Return the API welcome message."""
+    return {"message": "Welcome to Nifty100 Analytics API"}
 
 
 @app.exception_handler(HTTPException)
@@ -122,6 +118,7 @@ async def http_exception_handler(
     request: Request,
     exc: HTTPException,
 ):
+    """Return a standardized JSON response for HTTP exceptions."""
     error = ErrorResponse(
         code=exc.status_code,
         message=str(exc.detail),
@@ -129,7 +126,5 @@ async def http_exception_handler(
 
     return JSONResponse(
         status_code=exc.status_code,
-        content={
-            "error": error.model_dump()
-        },
+        content={"error": error.model_dump()},
     )

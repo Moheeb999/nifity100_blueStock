@@ -3,17 +3,17 @@ from pathlib import Path
 
 from reportlab.lib import colors
 from reportlab.lib.styles import (
-    getSampleStyleSheet,
     ParagraphStyle,
+    getSampleStyleSheet,
 )
 from reportlab.platypus import (
-    SimpleDocTemplate,
+    Image,
+    PageBreak,
     Paragraph,
+    SimpleDocTemplate,
     Spacer,
     Table,
     TableStyle,
-    Image,
-    PageBreak,
 )
 
 from src.analytics.portfolio_analytics import PortfolioAnalytics
@@ -79,33 +79,30 @@ class PortfolioReport:
             textColor=colors.grey,
         )
 
-        self.standard_table_style = TableStyle([
-
-            # Header
-            ("BACKGROUND", (0,0), (-1,0), self.primary_color),
-            ("TEXTCOLOR", (0,0), (-1,0), colors.white),
-            ("FONTNAME", (0,0), (-1,0), "Helvetica-Bold"),
-            ("FONTSIZE", (0,0), (-1,0), 12),
-
-            # Body
-            ("BACKGROUND", (0,1), (-1,-1), colors.white),
-            ("FONTNAME", (0,1), (-1,-1), "Helvetica"),
-            ("FONTSIZE", (0,1), (-1,-1), 10),
-
-            # Borders
-            ("GRID", (0,0), (-1,-1), 0.4, self.border_color),
-            ("BOX", (0,0), (-1,-1), 1.0, self.primary_color),
-
-            # Alignment
-            ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
-            ("ALIGN", (0,0), (-1,-1), "CENTER"),
-
-            # Padding
-            ("TOPPADDING", (0,0), (-1,-1), 8),
-            ("BOTTOMPADDING", (0,0), (-1,-1), 8),
-            ("LEFTPADDING", (0,0), (-1,-1), 8),
-            ("RIGHTPADDING", (0,0), (-1,-1), 8),
-        ])
+        self.standard_table_style = TableStyle(
+            [
+                # Header
+                ("BACKGROUND", (0, 0), (-1, 0), self.primary_color),
+                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                ("FONTSIZE", (0, 0), (-1, 0), 12),
+                # Body
+                ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+                ("FONTNAME", (0, 1), (-1, -1), "Helvetica"),
+                ("FONTSIZE", (0, 1), (-1, -1), 10),
+                # Borders
+                ("GRID", (0, 0), (-1, -1), 0.4, self.border_color),
+                ("BOX", (0, 0), (-1, -1), 1.0, self.primary_color),
+                # Alignment
+                ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                # Padding
+                ("TOPPADDING", (0, 0), (-1, -1), 8),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
+                ("LEFTPADDING", (0, 0), (-1, -1), 8),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 8),
+            ]
+        )
 
     def generate(self, portfolio_csv: str, output_pdf: str):
 
@@ -116,8 +113,12 @@ class PortfolioReport:
         self.profit_loss = self.analytics.calculate_profit_loss(self.portfolio)
         self.return_pct = self.analytics.calculate_return_percentage(self.portfolio)
 
-        self.quality_score = self.analytics.calculate_weighted_quality_score(self.portfolio)
-        self.health_score = self.analytics.calculate_portfolio_health_score(self.portfolio)
+        self.quality_score = self.analytics.calculate_weighted_quality_score(
+            self.portfolio
+        )
+        self.health_score = self.analytics.calculate_portfolio_health_score(
+            self.portfolio
+        )
 
         self.weighted_pe = self.analytics.calculate_weighted_pe_ratio(self.portfolio)
         self.weighted_pb = self.analytics.calculate_weighted_pb_ratio(self.portfolio)
@@ -127,14 +128,10 @@ class PortfolioReport:
             self.portfolio
         )
 
-        self.concentration = self.analytics.calculate_concentration_risk(
-            self.portfolio
-        )
+        self.concentration = self.analytics.calculate_concentration_risk(self.portfolio)
 
-        self.sectors = self.analytics.calculate_sector_allocation(
-            self.portfolio
-        )
-                # -----------------------
+        self.sectors = self.analytics.calculate_sector_allocation(self.portfolio)
+        # -----------------------
         # Generate Charts
         # -----------------------
 
@@ -200,15 +197,17 @@ class PortfolioReport:
         )
 
         banner.setStyle(
-            TableStyle([
-                ("BACKGROUND", (0, 0), (-1, -1), self.primary_color),
-                ("TEXTCOLOR", (0, 0), (-1, -1), colors.white),
-                ("ALIGN", (0, 0), (-1, -1), "CENTER"),
-                ("FONTNAME", (0, 0), (-1, -1), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 18),
-                ("TOPPADDING", (0, 0), (-1, -1), 14),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 14),
-            ])
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, -1), self.primary_color),
+                    ("TEXTCOLOR", (0, 0), (-1, -1), colors.white),
+                    ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                    ("FONTNAME", (0, 0), (-1, -1), "Helvetica-Bold"),
+                    ("FONTSIZE", (0, 0), (-1, -1), 18),
+                    ("TOPPADDING", (0, 0), (-1, -1), 14),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 14),
+                ]
+            )
         )
 
         story.append(banner)
@@ -289,6 +288,7 @@ class PortfolioReport:
         story.append(table)
 
         story.append(PageBreak())
+
     # ======================================================
     # SECTOR TABLE
     # ======================================================
@@ -308,7 +308,7 @@ class PortfolioReport:
             )
         )
 
-        story.append(Spacer(1, 25)) 
+        story.append(Spacer(1, 25))
 
     def add_dashboard(self, story):
 
@@ -355,70 +355,50 @@ class PortfolioReport:
             card.setStyle(
                 TableStyle(
                     [
-                        ("BACKGROUND",(0,0),(-1,0),self.primary_color),
-                        ("TEXTCOLOR",(0,0),(-1,0),colors.white),
-
-                        ("BACKGROUND",(0,1),(-1,-1),colors.white),
-
-                        ("BOX",(0,0),(-1,-1),1.5,self.primary_color),
-                        ("GRID",(0,0),(-1,-1),0.4,self.border_color),
-
-                        ("ALIGN",(0,0),(-1,-1),"CENTER"),
-                        ("VALIGN",(0,0),(-1,-1),"MIDDLE"),
-
-                        ("FONTNAME",(0,0),(-1,0),"Helvetica-Bold"),
-                        ("FONTNAME",(0,1),(-1,-1),"Helvetica-Bold"),
-
-                        ("FONTSIZE",(0,0),(-1,0),13),
-                        ("FONTSIZE",(0,1),(-1,-1),18),
-
-                        ("TOPPADDING",(0,1),(-1,-1),20),
-                        ("BOTTOMPADDING",(0,1),(-1,-1),20),
+                        ("BACKGROUND", (0, 0), (-1, 0), self.primary_color),
+                        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                        ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+                        ("BOX", (0, 0), (-1, -1), 1.5, self.primary_color),
+                        ("GRID", (0, 0), (-1, -1), 0.4, self.border_color),
+                        ("ALIGN", (0, 0), (-1, -1), "CENTER"),
+                        ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                        ("FONTNAME", (0, 1), (-1, -1), "Helvetica-Bold"),
+                        ("FONTSIZE", (0, 0), (-1, 0), 13),
+                        ("FONTSIZE", (0, 1), (-1, -1), 18),
+                        ("TOPPADDING", (0, 1), (-1, -1), 20),
+                        ("BOTTOMPADDING", (0, 1), (-1, -1), 20),
                     ]
                 )
             )
         if self.profit_loss >= 0:
-            card3.setStyle(
-                TableStyle([
-                    ("TEXTCOLOR", (0,1), (-1,-1), colors.green)
-                ])
-            )
+            card3.setStyle(TableStyle([("TEXTCOLOR", (0, 1), (-1, -1), colors.green)]))
         else:
-            card3.setStyle(
-                TableStyle([
-                    ("TEXTCOLOR", (0,1), (-1,-1), colors.red)
-                ])
-            )
+            card3.setStyle(TableStyle([("TEXTCOLOR", (0, 1), (-1, -1), colors.red)]))
         if self.return_pct >= 0:
-            card4.setStyle(
-                TableStyle([
-                    ("TEXTCOLOR", (0,1), (-1,-1), colors.green)
-                ])
-            )
+            card4.setStyle(TableStyle([("TEXTCOLOR", (0, 1), (-1, -1), colors.green)]))
         else:
-            card4.setStyle(
-                TableStyle([
-                    ("TEXTCOLOR", (0,1), (-1,-1), colors.red)
-                ])
-            )    
+            card4.setStyle(TableStyle([("TEXTCOLOR", (0, 1), (-1, -1), colors.red)]))
         cards = Table(
             [
                 [card1, card2],
                 [card3, card4],
             ],
-            colWidths=[250,250],
-            rowHeights=[95,95],
+            colWidths=[250, 250],
+            rowHeights=[95, 95],
         )
 
         cards.setStyle(
-            TableStyle([
-                ("BOTTOMPADDING",(0,0),(-1,-1),12),
-                ("TOPPADDING",(0,0),(-1,-1),12),
-            ])
+            TableStyle(
+                [
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 12),
+                    ("TOPPADDING", (0, 0), (-1, -1), 12),
+                ]
+            )
         )
 
         story.append(cards)
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
         story.append(Spacer(1, 15))
         if self.health_score >= 80:
             status = "🟢 Excellent"
@@ -475,36 +455,36 @@ class PortfolioReport:
 
         summary_table = Table(
             summary_data,
-            colWidths=[230,180],
+            colWidths=[230, 180],
         )
 
         summary_table.setStyle(
-            TableStyle([
-                ("BACKGROUND",(0,0),(-1,0),self.primary_color),
-                ("TEXTCOLOR",(0,0),(-1,0),colors.white),
-                ("FONTNAME",(0,0),(-1,0),"Helvetica-Bold"),
-                ("BACKGROUND",(0,1),(-1,-1),colors.white),
-                ("GRID",(0,0),(-1,-1),0.4,self.border_color),
-                ("BOTTOMPADDING",(0,0),(-1,0),8),
-                ("ALIGN",(1,1),(-1,-1),"CENTER"),
-            ])
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), self.primary_color),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+                    ("GRID", (0, 0), (-1, -1), 0.4, self.border_color),
+                    ("BOTTOMPADDING", (0, 0), (-1, 0), 8),
+                    ("ALIGN", (1, 1), (-1, -1), "CENTER"),
+                ]
+            )
         )
 
         story.append(summary_table)
 
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
         divider = Table([[""]], colWidths=[500])
 
         divider.setStyle(
-            TableStyle([
-                ("LINEBELOW",(0,0),(-1,-1),1,self.primary_color)
-            ])
+            TableStyle([("LINEBELOW", (0, 0), (-1, -1), 1, self.primary_color)])
         )
 
-        story.append(Spacer(1,20))
+        story.append(Spacer(1, 20))
         story.append(divider)
-        story.append(Spacer(1,15))
+        story.append(Spacer(1, 15))
 
     def add_top_bottom_performers(self, story):
 
@@ -518,10 +498,7 @@ class PortfolioReport:
             investment = holding.shares * holding.buy_price
             value = holding.shares * company["close_price"]
 
-            return_pct = (
-                ((value - investment) / investment) * 100
-                if investment else 0
-            )
+            return_pct = ((value - investment) / investment) * 100 if investment else 0
 
             holdings.append(
                 (
@@ -552,24 +529,22 @@ class PortfolioReport:
             table.setStyle(
                 TableStyle(
                     [
-                        ("BACKGROUND", (0,0), (-1,0), self.primary_color),
-                        ("TEXTCOLOR", (0,0), (-1,0), colors.white),
-                        ("GRID", (0,0), (-1,-1), 0.5, self.border_color),
-                        ("BACKGROUND", (0,1), (-1,-1), self.background_color),
-                        ("FONTNAME", (0,0), (-1,0), "Helvetica-Bold"),
+                        ("BACKGROUND", (0, 0), (-1, 0), self.primary_color),
+                        ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                        ("GRID", (0, 0), (-1, -1), 0.5, self.border_color),
+                        ("BACKGROUND", (0, 1), (-1, -1), self.background_color),
+                        ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
                     ]
                 )
             )
             story.append(
                 Table(
-                    [
-                        [top_table, bottom_table]
-                    ],
+                    [[top_table, bottom_table]],
                     colWidths=[250, 250],
                 )
             )
 
-            story.append(Spacer(1,24))
+            story.append(Spacer(1, 24))
 
     def add_risk_analysis(self, story):
 
@@ -595,19 +570,28 @@ class PortfolioReport:
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
                 )
         story.append(table)
-        story.append(Spacer(1,24))       
+        story.append(Spacer(1, 24))
 
     def add_scorecard(self, story):
 
@@ -648,20 +632,29 @@ class PortfolioReport:
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
                 )
 
         story.append(table)
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
     def add_summary(self, story):
 
@@ -684,30 +677,43 @@ class PortfolioReport:
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
                 )
 
-        profit_loss_color = self.success_color if self.profit_loss >= 0 else self.danger_color
+        profit_loss_color = (
+            self.success_color if self.profit_loss >= 0 else self.danger_color
+        )
         return_color = self.success_color if self.return_pct >= 0 else self.danger_color
 
         table.setStyle(
-            TableStyle([
-                ("TEXTCOLOR", (1,3), (1,3), profit_loss_color),
-                ("TEXTCOLOR", (1,4), (1,4), return_color),
-            ])
+            TableStyle(
+                [
+                    ("TEXTCOLOR", (1, 3), (1, 3), profit_loss_color),
+                    ("TEXTCOLOR", (1, 4), (1, 4), return_color),
+                ]
+            )
         )
 
         story.append(table)
-        story.append(Spacer(1,24)) 
+        story.append(Spacer(1, 24))
 
     def add_health(self, story):
 
@@ -726,20 +732,29 @@ class PortfolioReport:
             ["Concentration", self.concentration],
         ]
 
-        table = Table(data, colWidths=[250,180])
+        table = Table(data, colWidths=[250, 180])
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
                 )
 
         if self.health_score >= 80:
@@ -750,13 +765,16 @@ class PortfolioReport:
             health_color = self.danger_color
 
         table.setStyle(
-            TableStyle([
-                ("TEXTCOLOR", (1,1), (1,1), health_color),
-            ])
+            TableStyle(
+                [
+                    ("TEXTCOLOR", (1, 1), (1, 1), health_color),
+                ]
+            )
         )
 
         story.append(table)
-        story.append(Spacer(1,24))  
+        story.append(Spacer(1, 24))
+
     def add_valuation(self, story):
 
         story.append(
@@ -773,32 +791,44 @@ class PortfolioReport:
             ["Weighted ROE", f"{self.weighted_roe:.2f}%"],
         ]
 
-        table = Table(data, colWidths=[250,180])
+        table = Table(data, colWidths=[250, 180])
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
                 )
 
         pe_color = self.warning_color if self.weighted_pe > 35 else self.success_color
 
         table.setStyle(
-            TableStyle([
-                ("TEXTCOLOR", (1,1), (1,1), pe_color),
-            ])
+            TableStyle(
+                [
+                    ("TEXTCOLOR", (1, 1), (1, 1), pe_color),
+                ]
+            )
         )
 
         story.append(table)
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
+
     def add_sector_table(self, story):
 
         story.append(
@@ -836,9 +866,11 @@ class PortfolioReport:
 
         table.setStyle(self.standard_table_style)
         table.setStyle(
-            TableStyle([
-                ("ALIGN", (0,1), (0,-1), "LEFT"),
-            ])
+            TableStyle(
+                [
+                    ("ALIGN", (0, 1), (0, -1), "LEFT"),
+                ]
+            )
         )
 
         for row in range(1, len(data)):
@@ -865,13 +897,20 @@ class PortfolioReport:
         for row in range(1, len(data)):
             if row % 2 == 0:
                 table.setStyle(
-                    TableStyle([
-                        ("BACKGROUND", (0, row), (-1, row), colors.HexColor("#F8FAFC"))
-                    ])
-                )    
+                    TableStyle(
+                        [
+                            (
+                                "BACKGROUND",
+                                (0, row),
+                                (-1, row),
+                                colors.HexColor("#F8FAFC"),
+                            )
+                        ]
+                    )
+                )
 
         story.append(table)
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
     # ======================================================
     # CHARTS
@@ -911,7 +950,7 @@ class PortfolioReport:
             )
         )
 
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
     # ======================================================
     # HOLDINGS TABLE
@@ -927,26 +966,24 @@ class PortfolioReport:
         )
 
         data = [
-        [
-            "Ticker",
-            "Company",
-            "Sector",
-            "Shares",
-            "Buy",
-            "Current",
-            "Investment",
-            "Value",
-            "P/L",
-            "Return %",
+            [
+                "Ticker",
+                "Company",
+                "Sector",
+                "Shares",
+                "Buy",
+                "Current",
+                "Investment",
+                "Value",
+                "P/L",
+                "Return %",
+            ]
         ]
-    ]
 
         for stock in self.portfolio:
 
             holding = stock["holding"]
             company = stock["company"]
-
-            
 
             investment = holding.shares * holding.buy_price
             value = holding.shares * company["close_price"]
@@ -971,16 +1008,16 @@ class PortfolioReport:
         table = Table(
             data,
             colWidths=[
-                45,    # Ticker
-                110,   # Company
-                75,    # Sector
-                40,    # Shares
-                55,    # Buy
-                55,    # Current
-                70,    # Investment
-                70,    # Value
-                65,    # P/L
-                55,    # Return %
+                45,  # Ticker
+                110,  # Company
+                75,  # Sector
+                40,  # Shares
+                55,  # Buy
+                55,  # Current
+                70,  # Investment
+                70,  # Value
+                65,  # P/L
+                55,  # Return %
             ],
             repeatRows=1,
         )
@@ -989,12 +1026,12 @@ class PortfolioReport:
         table.setStyle(
             TableStyle(
                 [
-                    ("ALIGN", (1,1), (2,-1), "LEFT"),
-                    ("FONTSIZE", (0,0), (-1,0), 9),
-                    ("FONTSIZE", (0,1), (-1,-1), 8),
-                    ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
-                    ("TOPPADDING", (0,1), (-1,-1), 6),
-                    ("BOTTOMPADDING", (0,1), (-1,-1), 6),
+                    ("ALIGN", (1, 1), (2, -1), "LEFT"),
+                    ("FONTSIZE", (0, 0), (-1, 0), 9),
+                    ("FONTSIZE", (0, 1), (-1, -1), 8),
+                    ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
+                    ("TOPPADDING", (0, 1), (-1, -1), 6),
+                    ("BOTTOMPADDING", (0, 1), (-1, -1), 6),
                     ("BOTTOMPADDING", (0, 0), (-1, 0), 8),
                 ]
             )
@@ -1006,19 +1043,13 @@ class PortfolioReport:
             if row_num % 2 == 0:
                 table.setStyle(
                     TableStyle(
-                        [
-                            ("BACKGROUND", (0, row_num), (-1, row_num), colors.whitesmoke)
-                        ]
+                        [("BACKGROUND", (0, row_num), (-1, row_num), colors.whitesmoke)]
                     )
                 )
         # Color Profit/Loss and Return % columns
         for row_num in range(1, len(data)):
 
-            profit_loss = float(
-                data[row_num][8]
-                .replace("₹", "")
-                .replace(",", "")
-            )
+            profit_loss = float(data[row_num][8].replace("₹", "").replace(",", ""))
 
             color = colors.green if profit_loss >= 0 else colors.red
 
@@ -1032,7 +1063,7 @@ class PortfolioReport:
             )
 
         story.append(table)
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
     # ======================================================
     # INSIGHTS
@@ -1062,24 +1093,16 @@ class PortfolioReport:
             )
 
         elif self.concentration == "Medium":
-            insights.append(
-                "• Moderate concentration risk."
-            )
+            insights.append("• Moderate concentration risk.")
 
         else:
-            insights.append(
-                "✓ Portfolio is well diversified."
-            )
+            insights.append("✓ Portfolio is well diversified.")
 
         if self.weighted_roe >= 20:
-            insights.append(
-                "✓ Portfolio companies have excellent profitability."
-            )
+            insights.append("✓ Portfolio companies have excellent profitability.")
 
         if self.weighted_pe > 35:
-            insights.append(
-                "⚠ Portfolio valuation appears expensive."
-            )
+            insights.append("⚠ Portfolio valuation appears expensive.")
 
         for text in insights:
 
@@ -1090,7 +1113,7 @@ class PortfolioReport:
                 )
             )
 
-        story.append(Spacer(1,24))
+        story.append(Spacer(1, 24))
 
     # ======================================================
     # RECOMMENDATION
@@ -1109,23 +1132,27 @@ class PortfolioReport:
         # Step 4.1 — Rating Badges
         # --------------------------------------------------
 
-        health_badge = "🟢 Excellent" if self.health_score >= 80 else (
-            "🟡 Good" if self.health_score >= 60 else "🔴 Poor"
+        health_badge = (
+            "🟢 Excellent"
+            if self.health_score >= 80
+            else ("🟡 Good" if self.health_score >= 60 else "🔴 Poor")
         )
 
-        quality_badge = "🟢 Excellent" if self.quality_score >= 80 else (
-            "🟡 Good" if self.quality_score >= 60 else "🔴 Poor"
+        quality_badge = (
+            "🟢 Excellent"
+            if self.quality_score >= 80
+            else ("🟡 Good" if self.quality_score >= 60 else "🔴 Poor")
         )
 
-        diversification_badge = "🟢 Good" if self.diversification >= 70 else (
-            "🟡 Average" if self.diversification >= 50 else "🔴 Weak"
+        diversification_badge = (
+            "🟢 Good"
+            if self.diversification >= 70
+            else ("🟡 Average" if self.diversification >= 50 else "🔴 Weak")
         )
 
-        risk_badge = {
-            "Low": "🟢 Low",
-            "Medium": "🟡 Medium",
-            "High": "🔴 High"
-        }.get(self.concentration, self.concentration)
+        risk_badge = {"Low": "🟢 Low", "Medium": "🟡 Medium", "High": "🔴 High"}.get(
+            self.concentration, self.concentration
+        )
 
         # --------------------------------------------------
         # Step 4.2 — Portfolio Rating Card
@@ -1139,15 +1166,12 @@ class PortfolioReport:
             ["Risk", risk_badge],
         ]
 
-        rating_table = Table(
-            rating_data,
-            colWidths=[240,180]
-        )
+        rating_table = Table(rating_data, colWidths=[240, 180])
 
         rating_table.setStyle(self.standard_table_style)
 
         story.append(rating_table)
-        story.append(Spacer(1,20))
+        story.append(Spacer(1, 20))
 
         # --------------------------------------------------
         # Step 4.3 — Strengths Panel
@@ -1178,12 +1202,10 @@ class PortfolioReport:
             strengths.append("Portfolio has room for improvement.")
 
         for item in strengths:
-            story.append(
-                Paragraph(f"✓ {item}", self.body_style)
-            )
-            story.append(Spacer(1,8))
+            story.append(Paragraph(f"✓ {item}", self.body_style))
+            story.append(Spacer(1, 8))
 
-        story.append(Spacer(1,10))
+        story.append(Spacer(1, 10))
 
         # --------------------------------------------------
         # Step 4.4 — Weaknesses Panel
@@ -1211,12 +1233,10 @@ class PortfolioReport:
             weaknesses.append("No significant weaknesses identified.")
 
         for item in weaknesses:
-            story.append(
-                Paragraph(f"⚠ {item}", self.body_style)
-            )
-            story.append(Spacer(1,8))
+            story.append(Paragraph(f"⚠ {item}", self.body_style))
+            story.append(Spacer(1, 8))
 
-        story.append(Spacer(1,10))
+        story.append(Spacer(1, 10))
 
         # --------------------------------------------------
         # Step 4.5 — Recommended Actions Panel
@@ -1242,11 +1262,9 @@ class PortfolioReport:
         actions.append("Continue long-term investing.")
 
         for item in actions:
-            story.append(
-                Paragraph(f"➡ {item}", self.body_style)
-            )
+            story.append(Paragraph(f"➡ {item}", self.body_style))
 
-        story.append(Spacer(1,15))
+        story.append(Spacer(1, 15))
 
         # --------------------------------------------------
         # Step 4.6 — Recommendation Card
@@ -1259,11 +1277,7 @@ class PortfolioReport:
             )
         )
 
-        overall = (
-            self.health_score +
-            self.quality_score +
-            self.diversification
-        ) / 3
+        overall = (self.health_score + self.quality_score + self.diversification) / 3
 
         if overall >= 90:
             verdict = "★★★★★ Outstanding"
@@ -1284,26 +1298,23 @@ class PortfolioReport:
             ["Overall Rating", verdict],
             [
                 "Recommendation",
-                "Continue Holding"
-                if overall >= 80
-                else "Review Portfolio"
+                "Continue Holding" if overall >= 80 else "Review Portfolio",
             ],
         ]
 
-        recommendation_table = Table(
-            recommendation,
-            colWidths=[200,250]
-        )
+        recommendation_table = Table(recommendation, colWidths=[200, 250])
 
         recommendation_table.setStyle(
-            TableStyle([
-                ("BACKGROUND",(0,0),(-1,0),self.primary_color),
-                ("TEXTCOLOR",(0,0),(-1,0),colors.white),
-                ("FONTNAME",(0,0),(-1,0),"Helvetica-Bold"),
-                ("GRID",(0,0),(-1,-1),0.5,self.border_color),
-                ("BACKGROUND",(0,1),(-1,-1),colors.white),
-                ("BOTTOMPADDING",(0,0),(-1,0),10),
-            ])
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), self.primary_color),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("GRID", (0, 0), (-1, -1), 0.5, self.border_color),
+                    ("BACKGROUND", (0, 1), (-1, -1), colors.white),
+                    ("BOTTOMPADDING", (0, 0), (-1, 0), 10),
+                ]
+            )
         )
 
         story.append(recommendation_table)
@@ -1340,14 +1351,9 @@ class PortfolioReport:
                 "risk profile."
             )
 
-        story.append(Spacer(1,12))
+        story.append(Spacer(1, 12))
 
-        story.append(
-            Paragraph(
-                comment,
-                self.body_style
-            )
-        )
+        story.append(Paragraph(comment, self.body_style))
 
         story.append(Spacer(1, 20))
 
@@ -1355,22 +1361,13 @@ class PortfolioReport:
         # Step 4.8 — Bottom Divider
         # --------------------------------------------------
 
-        divider = Table(
-            [[""]],
-            colWidths=[500]
-        )
+        divider = Table([[""]], colWidths=[500])
 
         divider.setStyle(
-            TableStyle([
-                ("LINEABOVE",
-                 (0,0),
-                 (-1,-1),
-                 1,
-                 self.primary_color)
-            ])
+            TableStyle([("LINEABOVE", (0, 0), (-1, -1), 1, self.primary_color)])
         )
 
-        story.append(Spacer(1,20))
+        story.append(Spacer(1, 20))
         story.append(divider)
 
     # ======================================================
@@ -1385,6 +1382,7 @@ class PortfolioReport:
                 self.small_style,
             )
         )
+
     def add_page_number(self, canvas, doc):
 
         canvas.saveState()
@@ -1422,7 +1420,7 @@ class PortfolioReport:
             f"Page {doc.page}",
         )
 
-        canvas.restoreState()    
+        canvas.restoreState()
 
 
 if __name__ == "__main__":

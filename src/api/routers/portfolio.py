@@ -1,5 +1,6 @@
-from fastapi import APIRouter
 from statistics import quantiles
+
+from fastapi import APIRouter
 
 from src.api.database import get_db_connection
 
@@ -8,6 +9,7 @@ router = APIRouter()
 
 @router.get("/portfolio/stats")
 def portfolio_stats():
+    """Return portfolio metric deciles based on financial ratios."""
 
     metrics = [
         "return_on_equity_pct",
@@ -29,8 +31,7 @@ def portfolio_stats():
 
     for metric in metrics:
 
-        cursor.execute(
-            f"""
+        cursor.execute(f"""
             SELECT {metric}
             FROM financial_ratios
             WHERE year = (
@@ -39,8 +40,7 @@ def portfolio_stats():
                 WHERE fr2.company_id = financial_ratios.company_id
             )
             AND {metric} IS NOT NULL
-            """
-        )
+            """)
 
         values = [row[0] for row in cursor.fetchall()]
 

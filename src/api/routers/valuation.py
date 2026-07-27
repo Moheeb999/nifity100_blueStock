@@ -7,6 +7,7 @@ router = APIRouter()
 
 @router.get("/market-cap/{ticker}")
 def get_market_cap_history(ticker: str):
+    """Return historical market valuation metrics for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -24,10 +25,7 @@ def get_market_cap_history(ticker: str):
 
     if not company:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Company not found."
-        )
+        raise HTTPException(status_code=404, detail="Company not found.")
 
     # Fetch valuation history
     cursor.execute(

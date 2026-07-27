@@ -1,6 +1,7 @@
 import sqlite3
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 DB_PATH = "db/nifty100.db"
 OUTPUT_DIR = Path("output")
@@ -41,13 +42,15 @@ results = []
 
 
 def add(company, typ, rule, text, confidence):
-    results.append({
-        "company_id": company,
-        "type": typ,
-        "rule_id": rule,
-        "text": text,
-        "confidence_pct": confidence
-    })
+    results.append(
+        {
+            "company_id": company,
+            "type": typ,
+            "rule_id": rule,
+            "text": text,
+            "confidence_pct": confidence,
+        }
+    )
 
 
 for _, r in df.iterrows():
@@ -73,13 +76,21 @@ for _, r in df.iterrows():
         add(c, "PRO", "P1", "High ROE indicates efficient capital utilization.", 95)
 
     if pd.notna(roce) and roce > 20:
-        add(c, "PRO", "P2", "Excellent ROCE demonstrates efficient business operations.", 95)
+        add(
+            c,
+            "PRO",
+            "P2",
+            "Excellent ROCE demonstrates efficient business operations.",
+            95,
+        )
 
     if pd.notna(npm) and npm > 15:
         add(c, "PRO", "P3", "Strong profit margins support healthy earnings.", 90)
 
     if pd.notna(opm) and opm > 20:
-        add(c, "PRO", "P4", "High operating margin reflects operational efficiency.", 90)
+        add(
+            c, "PRO", "P4", "High operating margin reflects operational efficiency.", 90
+        )
 
     if pd.notna(de) and de < 0.5:
         add(c, "PRO", "P5", "Low debt improves financial stability.", 93)
@@ -152,20 +163,11 @@ companies = df.company_id.unique()
 
 for company in companies:
 
-    company_rows = [
-        x for x in results
-        if x["company_id"] == company
-    ]
+    company_rows = [x for x in results if x["company_id"] == company]
 
-    pros = [
-        x for x in company_rows
-        if x["type"] == "PRO"
-    ]
+    pros = [x for x in company_rows if x["type"] == "PRO"]
 
-    cons = [
-        x for x in company_rows
-        if x["type"] == "CON"
-    ]
+    cons = [x for x in company_rows if x["type"] == "CON"]
 
     if len(pros) == 0:
         add(
@@ -185,20 +187,9 @@ for company in companies:
             70,
         )
 
-output = (
-    pd.DataFrame(results)
-    .drop_duplicates(
-        subset=[
-            "company_id",
-            "text"
-        ]
-    )
-)
+output = pd.DataFrame(results).drop_duplicates(subset=["company_id", "text"])
 
-output.to_csv(
-    OUTPUT_DIR / "pros_cons_generated.csv",
-    index=False
-)
+output.to_csv(OUTPUT_DIR / "pros_cons_generated.csv", index=False)
 
 print("=" * 60)
 print("AUTO PROS / CONS GENERATOR")

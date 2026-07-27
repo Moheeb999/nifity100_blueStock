@@ -54,6 +54,7 @@ def roa(net_profit, total_assets):
 
     return (net_profit / total_assets) * 100
 
+
 def opm_crosscheck(computed_opm, stored_opm):
     """
     Return True if OPM mismatch > 1%
@@ -63,7 +64,9 @@ def opm_crosscheck(computed_opm, stored_opm):
 
     return abs(computed_opm - stored_opm) > 1
 
+
 def debt_to_equity(borrowings, equity_capital, reserves):
+    """Calculate the debt-to-equity ratio."""
     if borrowings == 0:
         return 0
 
@@ -76,6 +79,7 @@ def debt_to_equity(borrowings, equity_capital, reserves):
 
 
 def high_leverage_flag(de_ratio, is_financial=False):
+    """Return whether a company has excessive leverage."""
     if is_financial:
         return False
 
@@ -86,6 +90,7 @@ def high_leverage_flag(de_ratio, is_financial=False):
 
 
 def interest_coverage_ratio(operating_profit, other_income, interest):
+    """Calculate the interest coverage ratio."""
     if interest == 0:
         return None
 
@@ -93,22 +98,26 @@ def interest_coverage_ratio(operating_profit, other_income, interest):
 
 
 def icr_label(icr):
+    """Return a descriptive label for the interest coverage ratio."""
     if icr is None:
         return "Debt Free"
     return "Normal"
 
 
 def icr_warning(icr):
+    """Return True when interest coverage is critically low."""
     if icr is None:
         return False
     return icr < 1.5
 
 
 def net_debt(borrowings, investments):
+    """Calculate net debt."""
     return borrowings - investments
 
 
 def asset_turnover(sales, total_assets):
+    """Calculate the asset turnover ratio."""
     if total_assets == 0:
         return None
     return sales / total_assets

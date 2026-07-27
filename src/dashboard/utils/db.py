@@ -1,4 +1,5 @@
 import sqlite3
+
 import pandas as pd
 import streamlit as st
 
@@ -7,6 +8,7 @@ DB_PATH = "db/nifty100.db"
 
 @st.cache_data(ttl=600)
 def get_companies():
+    """Return the list of companies."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -18,7 +20,7 @@ def get_companies():
         FROM companies
         ORDER BY company_name
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -28,6 +30,7 @@ def get_companies():
 
 @st.cache_data(ttl=600)
 def get_ratios(ticker, year=None):
+    """Return financial ratios for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -45,11 +48,7 @@ def get_ratios(ticker, year=None):
 
     query += " ORDER BY year"
 
-    df = pd.read_sql(
-        query,
-        conn,
-        params=params
-    )
+    df = pd.read_sql(query, conn, params=params)
 
     conn.close()
 
@@ -58,6 +57,7 @@ def get_ratios(ticker, year=None):
 
 @st.cache_data(ttl=600)
 def get_pl(ticker):
+    """Return profit and loss history for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -69,7 +69,7 @@ def get_pl(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
@@ -79,6 +79,7 @@ def get_pl(ticker):
 
 @st.cache_data(ttl=600)
 def get_bs(ticker):
+    """Return balance sheet history for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -90,7 +91,7 @@ def get_bs(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
@@ -100,6 +101,7 @@ def get_bs(ticker):
 
 @st.cache_data(ttl=600)
 def get_cf(ticker):
+    """Return cash flow history for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -111,7 +113,7 @@ def get_cf(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
@@ -121,6 +123,7 @@ def get_cf(ticker):
 
 @st.cache_data(ttl=600)
 def get_sectors():
+    """Return sector information."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -129,7 +132,7 @@ def get_sectors():
         SELECT *
         FROM sectors
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -139,6 +142,7 @@ def get_sectors():
 
 @st.cache_data(ttl=600)
 def get_peers(group_name):
+    """Return companies in a peer group."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -149,7 +153,7 @@ def get_peers(group_name):
         WHERE peer_group_name = ?
         """,
         conn,
-        params=[group_name]
+        params=[group_name],
     )
 
     conn.close()
@@ -159,6 +163,7 @@ def get_peers(group_name):
 
 @st.cache_data(ttl=600)
 def get_valuation(ticker):
+    """Return valuation history for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -170,15 +175,17 @@ def get_valuation(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
 
     return df
 
+
 @st.cache_data(ttl=600)
 def get_home_kpis(year):
+    """Return dashboard KPI metrics for the selected year."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -197,7 +204,7 @@ def get_home_kpis(year):
         WHERE fr.year = ?
         """,
         conn,
-        params=[year]
+        params=[year],
     )
 
     conn.close()
@@ -207,18 +214,14 @@ def get_home_kpis(year):
         "median_pe": round(df["pe_ratio"].median(), 2),
         "median_de": round(df["debt_to_equity"].median(), 2),
         "total_companies": int(df["company_id"].nunique()),
-        "median_revenue_cagr": round(
-            df["revenue_cagr_5yr"].median(),
-            2
-        ),
-        "debt_free_companies": int(
-            (df["debt_to_equity"] <= 0.10).sum()
-        )
+        "median_revenue_cagr": round(df["revenue_cagr_5yr"].median(), 2),
+        "debt_free_companies": int((df["debt_to_equity"] <= 0.10).sum()),
     }
 
 
 @st.cache_data(ttl=600)
 def get_sector_breakdown():
+    """Return company counts by sector."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -231,7 +234,7 @@ def get_sector_breakdown():
         GROUP BY broad_sector
         ORDER BY companies DESC
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -241,6 +244,7 @@ def get_sector_breakdown():
 
 @st.cache_data(ttl=600)
 def get_top_quality_companies(year):
+    """Return the top quality companies for the selected year."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -261,7 +265,7 @@ def get_top_quality_companies(year):
         LIMIT 5
         """,
         conn,
-        params=[year]
+        params=[year],
     )
 
     conn.close()
@@ -271,6 +275,7 @@ def get_top_quality_companies(year):
 
 @st.cache_data(ttl=600)
 def search_companies():
+    """Return companies for dashboard search."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -282,15 +287,17 @@ def search_companies():
         FROM companies
         ORDER BY company_name
         """,
-        conn
+        conn,
     )
 
     conn.close()
 
     return df
 
+
 @st.cache_data(ttl=600)
 def get_company_profile(ticker):
+    """Return company profile details."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -310,11 +317,7 @@ def get_company_profile(ticker):
     WHERE c.id = ?
     """
 
-    df = pd.read_sql(
-        query,
-        conn,
-        params=[ticker]
-    )
+    df = pd.read_sql(query, conn, params=[ticker])
 
     conn.close()
 
@@ -323,6 +326,7 @@ def get_company_profile(ticker):
 
 @st.cache_data(ttl=600)
 def get_latest_ratios(ticker):
+    """Return the latest financial ratios for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -341,11 +345,7 @@ def get_latest_ratios(ticker):
     LIMIT 1
     """
 
-    df = pd.read_sql(
-        query,
-        conn,
-        params=[ticker]
-    )
+    df = pd.read_sql(query, conn, params=[ticker])
 
     conn.close()
 
@@ -354,6 +354,7 @@ def get_latest_ratios(ticker):
 
 @st.cache_data(ttl=600)
 def get_pros_cons(ticker):
+    """Return the pros and cons for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -366,15 +367,17 @@ def get_pros_cons(ticker):
         WHERE company_id=?
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
 
     return df
 
+
 @st.cache_data(ttl=600)
 def get_profit_loss_history(ticker):
+    """Return historical profit and loss data."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -389,7 +392,7 @@ def get_profit_loss_history(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
@@ -399,6 +402,7 @@ def get_profit_loss_history(ticker):
 
 @st.cache_data(ttl=600)
 def get_ratio_history(ticker):
+    """Return historical financial ratio data."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -413,14 +417,17 @@ def get_ratio_history(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
 
     return df
+
+
 @st.cache_data(ttl=600)
 def get_screener_data():
+    """Return the latest stock screener dataset."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -463,17 +470,16 @@ def get_screener_data():
     ORDER BY fr.company_id
     """
 
-    df = pd.read_sql(
-        query,
-        conn
-    )
+    df = pd.read_sql(query, conn)
 
     conn.close()
 
     return df
 
+
 @st.cache_data(ttl=600)
 def get_peer_groups():
+    """Return all available peer groups."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -483,7 +489,7 @@ def get_peer_groups():
         FROM peer_groups
         ORDER BY peer_group_name
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -493,6 +499,7 @@ def get_peer_groups():
 
 @st.cache_data(ttl=600)
 def get_peer_companies(group_name):
+    """Return companies belonging to a peer group."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -508,7 +515,7 @@ def get_peer_companies(group_name):
         ORDER BY c.company_name
         """,
         conn,
-        params=[group_name]
+        params=[group_name],
     )
 
     conn.close()
@@ -518,6 +525,7 @@ def get_peer_companies(group_name):
 
 @st.cache_data(ttl=600)
 def get_peer_metrics(group_name):
+    """Return peer comparison metrics."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -548,18 +556,16 @@ def get_peer_metrics(group_name):
       )
     """
 
-    df = pd.read_sql(
-        query,
-        conn,
-        params=[group_name]
-    )
+    df = pd.read_sql(query, conn, params=[group_name])
 
     conn.close()
-    
+
     return df
+
 
 @st.cache_data(ttl=600)
 def get_trend_data(ticker):
+    """Return trend analysis data for a company."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -581,7 +587,7 @@ def get_trend_data(ticker):
         ORDER BY year
         """,
         conn,
-        params=[ticker]
+        params=[ticker],
     )
 
     conn.close()
@@ -591,6 +597,7 @@ def get_trend_data(ticker):
 
 @st.cache_data(ttl=600)
 def get_sector_analysis():
+    """Return sector analysis data."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -624,7 +631,7 @@ def get_sector_analysis():
             FROM market_cap
         )
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -634,6 +641,7 @@ def get_sector_analysis():
 
 @st.cache_data(ttl=600)
 def get_capital_map():
+    """Return capital allocation map data."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -642,7 +650,7 @@ def get_capital_map():
         SELECT *
         FROM capital_allocation
         """,
-        conn
+        conn,
     )
 
     conn.close()
@@ -652,6 +660,7 @@ def get_capital_map():
 
 @st.cache_data(ttl=600)
 def get_reports():
+    """Return annual report records."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -661,15 +670,17 @@ def get_reports():
         FROM annual_reports
         ORDER BY company_id, year DESC
         """,
-        conn
+        conn,
     )
 
     conn.close()
 
     return df
 
+
 @st.cache_data(ttl=600)
 def get_capital_allocation_data():
+    """Return capital allocation metrics for all companies."""
 
     conn = sqlite3.connect(DB_PATH)
 
@@ -693,7 +704,7 @@ def get_capital_allocation_data():
             FROM financial_ratios
         )
         """,
-        conn
+        conn,
     )
 
     conn.close()

@@ -28,12 +28,11 @@ from src.analytics.clustering import (
 
 
 def load_cluster_labels() -> pd.DataFrame:
+    """Load cluster label assignments from CSV."""
     path = OUTPUT_DIR / "cluster_labels.csv"
 
     if not path.exists():
-        raise FileNotFoundError(
-            f"{path} not found. Run clustering.py first."
-        )
+        raise FileNotFoundError(f"{path} not found. Run clustering.py first.")
 
     return pd.read_csv(path)
 
@@ -62,15 +61,18 @@ def build_diagnostic_frame() -> pd.DataFrame:
 
 
 def cluster_size_summary(df: pd.DataFrame) -> pd.Series:
+    """Return the number of companies in each cluster."""
     return df["cluster_id"].value_counts().sort_index()
 
 
 def flag_small_clusters(df: pd.DataFrame, max_size: int) -> list[int]:
+    """Return cluster IDs with size at or below the given threshold."""
     sizes = cluster_size_summary(df)
     return sizes[sizes <= max_size].index.tolist()
 
 
 def inspect_cluster(df: pd.DataFrame, cluster_id: int) -> pd.DataFrame:
+    """Return raw feature values for companies in one cluster."""
     cols = [
         "company_id",
         "company_name",
@@ -87,11 +89,7 @@ def inspect_cluster(df: pd.DataFrame, cluster_id: int) -> pd.DataFrame:
 def cluster_profile(df: pd.DataFrame, cluster_id: int) -> pd.DataFrame:
     """Descriptive statistics (mean, quartiles, range) for one cluster."""
 
-    return (
-        df[df["cluster_id"] == cluster_id][FEATURES]
-        .describe()
-        .round(2)
-    )
+    return df[df["cluster_id"] == cluster_id][FEATURES].describe().round(2)
 
 
 def flag_extreme_features(
@@ -104,11 +102,13 @@ def flag_extreme_features(
     which cluster they landed in.
     """
 
-    flags = pd.DataFrame({
-        "company_id": df["company_id"],
-        "company_name": df["company_name"],
-        "cluster_id": df["cluster_id"],
-    })
+    flags = pd.DataFrame(
+        {
+            "company_id": df["company_id"],
+            "company_name": df["company_name"],
+            "cluster_id": df["cluster_id"],
+        }
+    )
 
     any_extreme = pd.Series(False, index=df.index)
 
@@ -130,20 +130,17 @@ def flag_extreme_features(
 
     for idx in df.index:
         cols = [
-            col
-            for col in FEATURES
-            if abs(flags.loc[idx, f"{col}_z"]) > z_threshold
+            col for col in FEATURES if abs(flags.loc[idx, f"{col}_z"]) > z_threshold
         ]
         triggered.append(", ".join(cols))
 
     flags["trigger_features"] = triggered
 
-    return flags[flags["is_extreme_outlier"]].sort_values(
-        "company_id"
-    )
+    return flags[flags["is_extreme_outlier"]].sort_values("company_id")
 
 
 def main():
+    """Run the cluster inspection CLI workflow."""
 
     parser = argparse.ArgumentParser(
         description="Inspect small/imbalanced KMeans clusters."
@@ -205,26 +202,18 @@ def main():
             index=False,
         )
 
-        profile.to_csv(
-            OUTPUT_DIR / f"cluster_{cid}_profile.csv"
-        )
+        profile.to_csv(OUTPUT_DIR / f"cluster_{cid}_profile.csv")
 
-    summary = (
-        df.groupby("cluster_id")[FEATURES]
-          .mean()
-          .round(2)
-    )
+    summary = df.groupby("cluster_id")[FEATURES].mean().round(2)
 
-    summary.to_csv(
-        OUTPUT_DIR / "cluster_summary.csv"
-    )
+    summary.to_csv(OUTPUT_DIR / "cluster_summary.csv")
 
     print("\nCluster Summary:")
     print(summary)
 
-    print("\nRaw-feature outliers (|z| > {:.1f}), regardless of cluster:".format(
-        args.z_threshold
-    ))
+    print(
+        f"\nRaw-feature outliers (|z| > {args.z_threshold:.1f}), regardless of cluster:"
+    )
 
     extreme = flag_extreme_features(df, z_threshold=args.z_threshold)
 

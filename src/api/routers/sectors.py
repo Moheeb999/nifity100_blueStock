@@ -10,11 +10,11 @@ router = APIRouter()
 
 @router.get("/sectors")
 def get_sectors():
+    """Return sector-level summary statistics."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute(
-        """
+    cursor.execute("""
         SELECT
             s.broad_sector,
             fr.return_on_equity_pct,
@@ -31,8 +31,7 @@ def get_sectors():
             FROM financial_ratios f2
             WHERE f2.company_id = fr.company_id
         )
-        """
-    )
+        """)
 
     rows = cursor.fetchall()
     conn.close()
@@ -51,31 +50,26 @@ def get_sectors():
             if r["return_on_equity_pct"] is not None
         ]
 
-        pe = [
-            r["pe_ratio"]
-            for r in companies
-            if r["pe_ratio"] is not None
-        ]
+        pe = [r["pe_ratio"] for r in companies if r["pe_ratio"] is not None]
 
-        de = [
-            r["debt_to_equity"]
-            for r in companies
-            if r["debt_to_equity"] is not None
-        ]
+        de = [r["debt_to_equity"] for r in companies if r["debt_to_equity"] is not None]
 
-        result.append({
-            "sector": sector,
-            "company_count": len(companies),
-            "median_roe": round(statistics.median(roe), 2) if roe else None,
-            "median_pe": round(statistics.median(pe), 2) if pe else None,
-            "median_de": round(statistics.median(de), 2) if de else None
-        })
+        result.append(
+            {
+                "sector": sector,
+                "company_count": len(companies),
+                "median_roe": round(statistics.median(roe), 2) if roe else None,
+                "median_pe": round(statistics.median(pe), 2) if pe else None,
+                "median_de": round(statistics.median(de), 2) if de else None,
+            }
+        )
 
     return sorted(result, key=lambda x: x["sector"])
 
 
 @router.get("/sectors/{sector}/companies")
 def get_sector_companies(sector: str):
+    """Return companies belonging to the specified sector."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -91,10 +85,7 @@ def get_sector_companies(sector: str):
 
     if cursor.fetchone()[0] == 0:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail=f"Sector '{sector}' not found."
-        )
+        raise HTTPException(status_code=404, detail=f"Sector '{sector}' not found.")
 
     cursor.execute(
         """

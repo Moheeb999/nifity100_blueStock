@@ -2,17 +2,35 @@ import sqlite3
 
 
 def main():
+    """Detect and log ratio anomalies into ratio_edge_cases.log."""
     conn = sqlite3.connect("db/nifty100.db")
     cursor = conn.cursor()
 
     # Financial sector carve-out companies
     financial_companies = {
-        "AXISBANK", "BAJAJFINSV", "BAJAJHLDNG", "BAJFINANCE",
-        "BANKBARODA", "CANBK", "CHOLAFIN", "HDFCBANK",
-        "HDFCLIFE", "ICICIBANK", "ICICIGI", "ICICIPRULI",
-        "INDUSINDBK", "IRFC", "JIOFIN", "KOTAKBANK",
-        "LICI", "PFC", "PNB", "RECLTD", "SBILIFE",
-        "SBIN", "SHRIRAMFIN"
+        "AXISBANK",
+        "BAJAJFINSV",
+        "BAJAJHLDNG",
+        "BAJFINANCE",
+        "BANKBARODA",
+        "CANBK",
+        "CHOLAFIN",
+        "HDFCBANK",
+        "HDFCLIFE",
+        "ICICIBANK",
+        "ICICIGI",
+        "ICICIPRULI",
+        "INDUSINDBK",
+        "IRFC",
+        "JIOFIN",
+        "KOTAKBANK",
+        "LICI",
+        "PFC",
+        "PNB",
+        "RECLTD",
+        "SBILIFE",
+        "SBIN",
+        "SHRIRAMFIN",
     }
 
     query = """
@@ -70,8 +88,7 @@ def main():
             )
 
     with open("output/ratio_edge_cases.log", "w") as f:
-        for line in log_lines:
-            f.write(line + "\n")
+        f.writelines(line + "\n" for line in log_lines)
 
     print("ratio_edge_cases.log generated")
     print("Total Anomalies:", len(log_lines))

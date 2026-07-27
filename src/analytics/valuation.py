@@ -1,6 +1,7 @@
 import sqlite3
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 DB = "db/nifty100.db"
 OUTPUT = Path("output")
@@ -34,30 +35,22 @@ df = pd.read_sql(query, conn)
 
 conn.close()
 
-df["fcf_yield_pct"] = (
-    df["free_cash_flow_cr"]
-    / df["market_cap_crore"]
-) * 100
+df["fcf_yield_pct"] = (df["free_cash_flow_cr"] / df["market_cap_crore"]) * 100
 
 sector_pe = (
     df.groupby("broad_sector")["pe_ratio"]
-      .median()
-      .reset_index()
-      .rename(columns={"pe_ratio":"sector_median_pe"})
+    .median()
+    .reset_index()
+    .rename(columns={"pe_ratio": "sector_median_pe"})
 )
 
-df = df.merge(
-    sector_pe,
-    on="broad_sector",
-    how="left"
-)
+df = df.merge(sector_pe, on="broad_sector", how="left")
 
-df["pe_vs_sector_median_pct"] = (
-    df["pe_ratio"]
-    / df["sector_median_pe"]
-) * 100
+df["pe_vs_sector_median_pct"] = (df["pe_ratio"] / df["sector_median_pe"]) * 100
+
 
 def classify(r):
+    """Classify valuation relative to the sector median."""
 
     if pd.isna(r["pe_ratio"]):
         return "N/A"
@@ -69,6 +62,7 @@ def classify(r):
         return "Discount"
 
     return "Fair"
+
 
 df["flag"] = df.apply(classify, axis=1)
 
@@ -83,25 +77,17 @@ summary = df[
         "fcf_yield_pct",
         "sector_median_pe",
         "pe_vs_sector_median_pct",
-        "flag"
+        "flag",
     ]
 ]
 
-summary.to_excel(
-    OUTPUT/"valuation_summary.xlsx",
-    index=False
-)
+summary.to_excel(OUTPUT / "valuation_summary.xlsx", index=False)
 
-summary[
-    summary["flag"]!="Fair"
-].to_csv(
-    OUTPUT/"valuation_flags.csv",
-    index=False
-)
+summary[summary["flag"] != "Fair"].to_csv(OUTPUT / "valuation_flags.csv", index=False)
 
-print("="*50)
+print("=" * 50)
 print("Valuation Module Complete")
-print("="*50)
+print("=" * 50)
 print(f"Companies : {len(summary)}")
 print(f"Discount : {(summary.flag=='Discount').sum()}")
 print(f"Caution : {(summary.flag=='Caution').sum()}")
@@ -110,4 +96,4 @@ print()
 print("Generated:")
 print("output/valuation_summary.xlsx")
 print("output/valuation_flags.csv")
-print("="*50)
+print("=" * 50)

@@ -1,10 +1,6 @@
-import streamlit as st
 import plotly.graph_objects as go
-
-from utils.db import (
-    search_companies,
-    get_trend_data
-)
+import streamlit as st
+from utils.db import get_trend_data, search_companies
 
 st.title("📈 Trend Analysis")
 
@@ -15,14 +11,10 @@ st.title("📈 Trend Analysis")
 companies = search_companies()
 
 company_map = {
-    f"{row.company_name} ({row.id})": row.id
-    for _, row in companies.iterrows()
+    f"{row.company_name} ({row.id})": row.id for _, row in companies.iterrows()
 }
 
-selected_company = st.selectbox(
-    "Select Company",
-    sorted(company_map.keys())
-)
+selected_company = st.selectbox("Select Company", sorted(company_map.keys()))
 
 ticker = company_map[selected_company]
 
@@ -49,14 +41,14 @@ metric_options = {
     "Operating Profit Margin": "operating_profit_margin_pct",
     "Debt / Equity": "debt_to_equity",
     "Interest Coverage": "interest_coverage",
-    "Free Cash Flow": "free_cash_flow_cr"
+    "Free Cash Flow": "free_cash_flow_cr",
 }
 
 selected_metrics = st.multiselect(
     "Select up to 3 Metrics",
     list(metric_options.keys()),
     default=["ROE"],
-    max_selections=3
+    max_selections=3,
 )
 
 # -----------------------------
@@ -70,12 +62,7 @@ for metric in selected_metrics:
     column = metric_options[metric]
 
     fig.add_trace(
-        go.Scatter(
-            x=df["year"],
-            y=df[column],
-            mode="lines+markers",
-            name=metric
-        )
+        go.Scatter(x=df["year"], y=df[column], mode="lines+markers", name=metric)
     )
 
 fig.update_layout(
@@ -84,13 +71,10 @@ fig.update_layout(
     yaxis_title="Metric Value",
     template="plotly_white",
     hovermode="x unified",
-    height=600
+    height=600,
 )
 
-st.plotly_chart(
-    fig,
-    width="stretch"
-)
+st.plotly_chart(fig, width="stretch")
 
 # -----------------------------
 # Trend Data Table
@@ -98,7 +82,4 @@ st.plotly_chart(
 
 st.subheader("Historical Financial Data")
 
-st.dataframe(
-    df,
-    width="stretch"
-)
+st.dataframe(df, width="stretch")

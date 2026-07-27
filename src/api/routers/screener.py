@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Query
 
 from src.api.database import get_db_connection
 
@@ -15,6 +15,7 @@ def screener(
     min_pat_cagr_5yr: float | None = Query(None),
     max_pe: float | None = Query(None, gt=0),
 ):
+    """Return companies matching the supplied screening criteria."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -38,7 +39,10 @@ def screener(
     LEFT JOIN market_cap mc
         ON fr.company_id = mc.company_id
        AND fr.year = mc.year
-    WHERE 1 = 1
+    WHERE fr.year = (
+        SELECT MAX(year)
+        FROM financial_ratios
+    )
     """
 
     params = []

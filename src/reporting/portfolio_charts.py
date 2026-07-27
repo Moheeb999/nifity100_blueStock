@@ -11,23 +11,15 @@ class PortfolioCharts:
         labels = list(sectors.keys())
         values = list(sectors.values())
 
-        plt.figure(figsize=(7,7))
+        plt.figure(figsize=(7, 7))
 
-        plt.pie(
-            values,
-            labels=labels,
-            autopct="%1.1f%%",
-            startangle=140
-        )
+        plt.pie(values, labels=labels, autopct="%1.1f%%", startangle=140)
 
         plt.title("Sector Allocation")
 
         plt.tight_layout()
 
-        Path(output_file).parent.mkdir(
-            parents=True,
-            exist_ok=True
-        )
+        Path(output_file).parent.mkdir(parents=True, exist_ok=True)
 
         plt.savefig(output_file)
 
@@ -36,19 +28,11 @@ class PortfolioCharts:
     @staticmethod
     def valuation_chart(pe, pb, roe, output_file):
 
-        metrics = [
-            "PE",
-            "PB",
-            "ROE"
-        ]
+        metrics = ["PE", "PB", "ROE"]
 
-        values = [
-            pe,
-            pb,
-            roe
-        ]
+        values = [pe, pb, roe]
 
-        plt.figure(figsize=(6,4))
+        plt.figure(figsize=(6, 4))
 
         plt.bar(metrics, values)
 
@@ -58,10 +42,7 @@ class PortfolioCharts:
 
         plt.tight_layout()
 
-        Path(output_file).parent.mkdir(
-            parents=True,
-            exist_ok=True
-        )
+        Path(output_file).parent.mkdir(parents=True, exist_ok=True)
 
         plt.savefig(output_file)
 

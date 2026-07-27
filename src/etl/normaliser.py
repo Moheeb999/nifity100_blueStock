@@ -33,7 +33,7 @@ def normalize_year(value):
     if value.isdigit() and len(value) == 4:
         return int(value)
 
-    match = re.search(r'(\d{2})$', value)
+    match = re.search(r"(\d{2})$", value)
 
     if match:
         yr = int(match.group(1))

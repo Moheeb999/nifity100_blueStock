@@ -24,7 +24,6 @@ from src.analytics.clustering import (
     fill_sector_medians,
     load_latest_ratios,
 )
-
 from src.analytics.inspect_clusters import load_cluster_labels
 
 
@@ -65,9 +64,7 @@ def build_profile_frame() -> pd.DataFrame:
     missing = required_columns - set(merged.columns)
 
     if missing:
-        raise ValueError(
-            f"Missing required columns: {sorted(missing)}"
-        )
+        raise ValueError(f"Missing required columns: {sorted(missing)}")
 
     return merged
 
@@ -128,9 +125,7 @@ def save_sector_distribution(
         output_path,
         index=False,
     )
-    print(
-        f"Saved sector distribution to: {output_path}"
-    )
+    print(f"Saved sector distribution to: {output_path}")
     return output_path
 
 
@@ -138,21 +133,11 @@ def generate_cluster_report(df: pd.DataFrame) -> pd.DataFrame:
     """
     Generate one-row summary for each cluster.
     """
-    cluster_size = (
-        df.groupby("cluster_id")
-        .size()
-        .rename("company_count")
-    )
+    cluster_size = df.groupby("cluster_id").size().rename("company_count")
     cluster_names = (
-        df.groupby("cluster_id")["cluster_name"]
-        .first()
-        .rename("cluster_name")
+        df.groupby("cluster_id")["cluster_name"].first().rename("cluster_name")
     )
-    feature_means = (
-        df.groupby("cluster_id")[FEATURES]
-        .mean()
-        .round(2)
-    )
+    feature_means = df.groupby("cluster_id")[FEATURES].mean().round(2)
     dominant_sector = (
         df.groupby(["cluster_id", "broad_sector"])
         .size()
@@ -204,8 +189,7 @@ if __name__ == "__main__":
 
     sector_distribution = generate_sector_distribution(df)
     print(
-        f"Generated sector distribution for "
-        f"{df['cluster_id'].nunique()} clusters."
+        f"Generated sector distribution for " f"{df['cluster_id'].nunique()} clusters."
     )
 
     save_sector_distribution(sector_distribution)

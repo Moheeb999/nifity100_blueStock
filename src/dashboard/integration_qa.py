@@ -1,4 +1,5 @@
 import sqlite3
+
 import pandas as pd
 
 DB = "db/nifty100.db"
@@ -19,17 +20,14 @@ tables = [
     "peer_groups",
     "peer_percentiles",
     "documents",
-    "sectors"
+    "sectors",
 ]
 
 print("\nTABLE COUNTS\n")
 
 for table in tables:
 
-    count = pd.read_sql(
-        f"SELECT COUNT(*) c FROM {table}",
-        conn
-    ).iloc[0]["c"]
+    count = pd.read_sql(f"SELECT COUNT(*) c FROM {table}", conn).iloc[0]["c"]
 
     print(f"{table:<22} {count}")
 
@@ -44,7 +42,7 @@ companies = pd.read_sql(
     ORDER BY RANDOM()
     LIMIT 10
     """,
-    conn
+    conn,
 )
 
 print("=" * 60)
@@ -68,7 +66,7 @@ missing = pd.read_sql(
 
     WHERE f.company_id IS NULL
     """,
-    conn
+    conn,
 )
 
 print("=" * 60)

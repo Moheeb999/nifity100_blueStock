@@ -1,5 +1,6 @@
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 INPUT = Path("output/capital_allocation.csv")
 OUTPUT = Path("output/pattern_changes.csv")
@@ -16,14 +17,16 @@ for company, group in df.groupby("company_id"):
     first = group.iloc[0]
     last = group.iloc[-1]
 
-    records.append({
-        "company_id": company,
-        "start_year": first["year"],
-        "end_year": last["year"],
-        "from_pattern": first["pattern_label"],
-        "to_pattern": last["pattern_label"],
-        "changed": first["pattern_label"] != last["pattern_label"]
-    })
+    records.append(
+        {
+            "company_id": company,
+            "start_year": first["year"],
+            "end_year": last["year"],
+            "from_pattern": first["pattern_label"],
+            "to_pattern": last["pattern_label"],
+            "changed": first["pattern_label"] != last["pattern_label"],
+        }
+    )
 
 result = pd.DataFrame(records)
 

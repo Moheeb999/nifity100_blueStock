@@ -1,9 +1,12 @@
 import sqlite3
+
 import pandas as pd
+
 from src.analytics.cashflow_kpis import capital_allocation_pattern
 
 
 def main():
+    """Generate capital allocation patterns from cash flow data."""
     conn = sqlite3.connect("db/nifty100.db")
 
     query = """
@@ -26,9 +29,9 @@ def main():
         lambda row: capital_allocation_pattern(
             row["operating_activity"],
             row["investing_activity"],
-            row["financing_activity"]
+            row["financing_activity"],
         ),
-        axis=1
+        axis=1,
     )
 
     output_df = df[

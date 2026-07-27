@@ -13,29 +13,20 @@ capital = pd.read_csv("output/capital_allocation.csv")
 
 latest_year = capital["year"].max()
 
-capital_latest = (
-    capital[capital["year"] == latest_year]
-    [["company_id", "pattern_label"]]
-    .rename(columns={
-        "pattern_label": "capital_allocation"
-    })
-)
+capital_latest = capital[capital["year"] == latest_year][
+    ["company_id", "pattern_label"]
+].rename(columns={"pattern_label": "capital_allocation"})
 
 # -----------------------------------------
 # Build Company Summary
 # -----------------------------------------
 
 summary = (
-    cashflow
-    .groupby("company_id")
+    cashflow.groupby("company_id")
     .agg(
-        categories=("category",
-                    lambda x: ", ".join(sorted(set(x)))),
-
-        insights=("insight",
-                  lambda x: " | ".join(x)),
-
-        confidence_pct=("confidence_pct", "max")
+        categories=("category", lambda x: ", ".join(sorted(set(x)))),
+        insights=("insight", lambda x: " | ".join(x)),
+        confidence_pct=("confidence_pct", "max"),
     )
     .reset_index()
 )
@@ -44,20 +35,13 @@ summary = (
 # Merge Capital Allocation
 # -----------------------------------------
 
-summary = summary.merge(
-    capital_latest,
-    on="company_id",
-    how="left"
-)
+summary = summary.merge(capital_latest, on="company_id", how="left")
 
 # -----------------------------------------
 # Save
 # -----------------------------------------
 
-summary.to_excel(
-    "output/cashflow_intelligence.xlsx",
-    index=False
-)
+summary.to_excel("output/cashflow_intelligence.xlsx", index=False)
 
 print("Cashflow Intelligence Summary Generated")
 print(f"Companies : {summary.company_id.nunique()}")

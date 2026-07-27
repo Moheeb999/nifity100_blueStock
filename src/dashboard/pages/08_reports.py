@@ -1,7 +1,7 @@
-import streamlit as st
-import pandas as pd
 import sqlite3
 
+import pandas as pd
+import streamlit as st
 from utils.db import search_companies
 
 DB_PATH = "db/nifty100.db"
@@ -15,14 +15,10 @@ st.title("📄 Annual Reports")
 companies = search_companies()
 
 company_map = {
-    f"{row.company_name} ({row.id})": row.id
-    for _, row in companies.iterrows()
+    f"{row.company_name} ({row.id})": row.id for _, row in companies.iterrows()
 }
 
-selected = st.selectbox(
-    "Select Company",
-    sorted(company_map.keys())
-)
+selected = st.selectbox("Select Company", sorted(company_map.keys()))
 
 ticker = company_map[selected]
 
@@ -42,7 +38,7 @@ reports = pd.read_sql(
     ORDER BY year DESC
     """,
     conn,
-    params=[ticker]
+    params=[ticker],
 )
 
 conn.close()
@@ -53,9 +49,7 @@ conn.close()
 
 if reports.empty:
 
-    st.info(
-        "No annual reports available."
-    )
+    st.info("No annual reports available.")
 
 else:
 
@@ -66,20 +60,13 @@ else:
         year = row["year"]
         url = row["annual_report"]
 
-        if (
-            pd.isna(url)
-            or str(url).strip() == ""
-        ):
+        if pd.isna(url) or str(url).strip() == "":
 
-            st.error(
-                f"{year} — Report unavailable"
-            )
+            st.error(f"{year} — Report unavailable")
 
         else:
 
-            st.markdown(
-                f"📄 **{year}** — [Open Annual Report]({url})"
-            )
+            st.markdown(f"📄 **{year}** — [Open Annual Report]({url})")
 
 # -------------------------------------
 # Summary
@@ -87,7 +74,4 @@ else:
 
 st.divider()
 
-st.metric(
-    "Reports Available",
-    len(reports)
-)
+st.metric("Reports Available", len(reports))

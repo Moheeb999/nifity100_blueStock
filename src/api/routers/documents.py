@@ -1,5 +1,5 @@
-from fastapi import APIRouter, HTTPException
 import requests
+from fastapi import APIRouter, HTTPException
 
 from src.api.database import get_db_connection
 
@@ -7,6 +7,7 @@ router = APIRouter()
 
 
 def is_valid_url(url: str) -> bool:
+    """Check whether a document URL is reachable."""
     try:
         response = requests.head(
             url,
@@ -31,6 +32,7 @@ def is_valid_url(url: str) -> bool:
 
 @router.get("/companies/{ticker}/documents")
 def get_documents(ticker: str):
+    """Return annual report documents for a company."""
 
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -48,10 +50,7 @@ def get_documents(ticker: str):
 
     if not company:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Company not found."
-        )
+        raise HTTPException(status_code=404, detail="Company not found.")
 
     cursor.execute(
         """

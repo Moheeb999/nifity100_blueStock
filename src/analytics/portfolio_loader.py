@@ -1,4 +1,5 @@
 from pathlib import Path
+
 import pandas as pd
 
 from .portfolio import PortfolioHolding
@@ -20,9 +21,7 @@ class PortfolioLoader:
         """
 
         if not self.csv_path.exists():
-            raise FileNotFoundError(
-                f"Portfolio file not found: {self.csv_path}"
-            )
+            raise FileNotFoundError(f"Portfolio file not found: {self.csv_path}")
 
         df = pd.read_csv(self.csv_path)
 
@@ -30,9 +29,7 @@ class PortfolioLoader:
         missing = self.REQUIRED_COLUMNS - set(df.columns)
 
         if missing:
-            raise ValueError(
-                f"Missing required columns: {missing}"
-            )
+            raise ValueError(f"Missing required columns: {missing}")
 
         holdings = []
 
@@ -43,14 +40,10 @@ class PortfolioLoader:
             buy_price = float(row["buy_price"])
 
             if shares <= 0:
-                raise ValueError(
-                    f"{ticker}: Shares must be greater than zero."
-                )
+                raise ValueError(f"{ticker}: Shares must be greater than zero.")
 
             if buy_price <= 0:
-                raise ValueError(
-                    f"{ticker}: Buy price must be greater than zero."
-                )
+                raise ValueError(f"{ticker}: Buy price must be greater than zero.")
 
             holdings.append(
                 PortfolioHolding(
@@ -61,13 +54,11 @@ class PortfolioLoader:
             )
 
         return holdings
-    
+
 
 if __name__ == "__main__":
 
-    loader = PortfolioLoader(
-        "data/raw/sample_portfolio.csv"
-    )
+    loader = PortfolioLoader("data/raw/sample_portfolio.csv")
 
     holdings = loader.load()
 

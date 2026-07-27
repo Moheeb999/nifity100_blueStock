@@ -31,12 +31,14 @@ results = []
 
 
 def add(company, category, insight, confidence):
-    results.append({
-        "company_id": company,
-        "category": category,
-        "insight": insight,
-        "confidence_pct": confidence
-    })
+    results.append(
+        {
+            "company_id": company,
+            "category": category,
+            "insight": insight,
+            "confidence_pct": confidence,
+        }
+    )
 
 
 for _, row in df.iterrows():
@@ -52,7 +54,7 @@ for _, row in df.iterrows():
             row["company_id"],
             "Healthy Cash Flow",
             "Strong operating cash flow while investing for growth and reducing financing obligations.",
-            95
+            95,
         )
 
     # Rule 2 - Growing Business
@@ -61,7 +63,7 @@ for _, row in df.iterrows():
             row["company_id"],
             "Growing Business",
             "Business is generating cash and raising capital to support expansion.",
-            90
+            90,
         )
 
     # Rule 3 - Cash Rich
@@ -70,7 +72,7 @@ for _, row in df.iterrows():
             row["company_id"],
             "Cash Rich",
             "Positive operating and overall cash flow indicate healthy liquidity.",
-            92
+            92,
         )
 
     # Rule 4 - Operational Weakness
@@ -79,7 +81,7 @@ for _, row in df.iterrows():
             row["company_id"],
             "Operational Weakness",
             "Negative operating cash flow indicates weak core business performance.",
-            95
+            95,
         )
 
     # Rule 5 - Heavy Borrowing
@@ -88,7 +90,7 @@ for _, row in df.iterrows():
             row["company_id"],
             "Heavy Borrowing",
             "Business depends on external financing instead of operations.",
-            94
+            94,
         )
 
     # Rule 6 - Cash Burn
@@ -97,30 +99,27 @@ for _, row in df.iterrows():
             row["company_id"],
             "Cash Burn",
             "Negative operating and net cash flow indicate sustained cash burn.",
-            96
+            96,
         )
     # Rule 7 - Mixed Cash Flow
     if not (
-        (op > 0 and inv < 0 and fin < 0) or
-        (op > 0 and inv < 0 and fin > 0) or
-        (op > 0 and net > 0) or
-        (op < 0) or
-        (fin > 0 and op < 0) or
-        (net < 0 and op < 0)
+        (op > 0 and inv < 0 and fin < 0)
+        or (op > 0 and inv < 0 and fin > 0)
+        or (op > 0 and net > 0)
+        or (op < 0)
+        or (fin > 0 and op < 0)
+        or (net < 0 and op < 0)
     ):
         add(
             row["company_id"],
             "Mixed Cash Flow",
             "Cash flow pattern does not clearly match the predefined categories and requires further analysis.",
-            75
-        )    
+            75,
+        )
 
 output = pd.DataFrame(results)
 
-output.to_csv(
-    OUTPUT_DIR / "cashflow_intelligence.csv",
-    index=False
-)
+output.to_csv(OUTPUT_DIR / "cashflow_intelligence.csv", index=False)
 
 print("=" * 60)
 print("CASH FLOW INTELLIGENCE")

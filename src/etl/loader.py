@@ -1,4 +1,5 @@
 import pandas as pd
+
 from src.etl.normaliser import normalize_ticker, normalize_year
 
 
@@ -23,7 +24,7 @@ def load_excel(path, header=1):
     if "year" in df.columns:
         df["year"] = df["year"].apply(normalize_year)
         df = df[df["year"].notna()]
-    return df    
+    return df
 
 
 if __name__ == "__main__":

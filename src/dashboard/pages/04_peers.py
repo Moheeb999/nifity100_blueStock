@@ -1,12 +1,7 @@
-import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
-
-from utils.db import (
-    get_peer_groups,
-    get_peer_companies,
-    get_peer_metrics
-)
+import streamlit as st
+from utils.db import get_peer_companies, get_peer_groups, get_peer_metrics
 
 st.title("🤝 Peer Comparison")
 
@@ -20,10 +15,7 @@ if groups.empty:
     st.warning("No peer groups available.")
     st.stop()
 
-group = st.selectbox(
-    "Peer Group",
-    groups["peer_group_name"]
-)
+group = st.selectbox("Peer Group", groups["peer_group_name"])
 
 # --------------------------------------------------
 # Company Selection
@@ -36,16 +28,10 @@ if companies.empty:
     st.stop()
 
 mapping = {
-    f"{r.company_name} ({r.company_id})": r.company_id
-    for _, r in companies.iterrows()
+    f"{r.company_name} ({r.company_id})": r.company_id for _, r in companies.iterrows()
 }
 
-ticker = mapping[
-    st.selectbox(
-        "Company",
-        list(mapping.keys())
-    )
-]
+ticker = mapping[st.selectbox("Company", list(mapping.keys()))]
 
 # --------------------------------------------------
 # Metrics
@@ -57,9 +43,7 @@ if metrics.empty:
     st.warning("No peer metrics found.")
     st.stop()
 
-row = metrics[
-    metrics.company_id == ticker
-]
+row = metrics[metrics.company_id == ticker]
 
 if row.empty:
     st.warning("Company metrics unavailable.")
@@ -79,46 +63,26 @@ cols = [
     "debt_to_equity",
     "revenue_cagr_5yr",
     "pat_cagr_5yr",
-    "composite_quality_score"
+    "composite_quality_score",
 ]
 
-labels = [
-    "ROE",
-    "ROCE",
-    "NPM",
-    "OPM",
-    "D/E",
-    "Revenue CAGR",
-    "PAT CAGR",
-    "Quality"
-]
+labels = ["ROE", "ROCE", "NPM", "OPM", "D/E", "Revenue CAGR", "PAT CAGR", "Quality"]
 
 # Convert metric columns to numeric
 metrics_numeric = metrics.copy()
 
-metrics_numeric[cols] = metrics_numeric[cols].apply(
-    pd.to_numeric,
-    errors="coerce"
-)
+metrics_numeric[cols] = metrics_numeric[cols].apply(pd.to_numeric, errors="coerce")
 
 # Selected company row
-row_numeric = metrics_numeric[
-    metrics_numeric.company_id == ticker
-].iloc[0]
+row_numeric = metrics_numeric[metrics_numeric.company_id == ticker].iloc[0]
 
 # Peer averages
 peer_average = metrics_numeric[cols].mean()
 
 # Radar values
-company_values = [
-    0 if pd.isna(row_numeric[c]) else float(row_numeric[c])
-    for c in cols
-]
+company_values = [0 if pd.isna(row_numeric[c]) else float(row_numeric[c]) for c in cols]
 
-peer_values = [
-    0 if pd.isna(peer_average[c]) else float(peer_average[c])
-    for c in cols
-]
+peer_values = [0 if pd.isna(peer_average[c]) else float(peer_average[c]) for c in cols]
 
 company_values.append(company_values[0])
 peer_values.append(peer_values[0])
@@ -129,56 +93,27 @@ fig = go.Figure()
 
 fig.add_trace(
     go.Scatterpolar(
-        r=company_values,
-        theta=theta,
-        fill="toself",
-        name=row["company_name"]
+        r=company_values, theta=theta, fill="toself", name=row["company_name"]
     )
 )
 
 fig.add_trace(
-    go.Scatterpolar(
-        r=peer_values,
-        theta=theta,
-        fill="toself",
-        name="Peer Average"
-    )
+    go.Scatterpolar(r=peer_values, theta=theta, fill="toself", name="Peer Average")
 )
 
 fig.update_layout(
-
     title="Company vs Peer Average",
-
     polar=dict(
-
         bgcolor="white",
-
         radialaxis=dict(
-
-            visible=True,
-            showline=True,
-            linewidth=1,
-            gridcolor="lightgray"
-
-        )
-
+            visible=True, showline=True, linewidth=1, gridcolor="lightgray"
+        ),
     ),
-
-    legend=dict(
-
-        orientation="h",
-        y=1.10
-
-    ),
-
-    template="plotly_white"
-
+    legend=dict(orientation="h", y=1.10),
+    template="plotly_white",
 )
 
-st.plotly_chart(
-    fig,
-    width="stretch"
-)
+st.plotly_chart(fig, width="stretch")
 
 # --------------------------------------------------
 # Benchmark Cards
@@ -190,23 +125,13 @@ left, right = st.columns(2)
 
 with left:
 
-    st.metric(
-        "Selected Company",
-        row["company_name"]
-    )
+    st.metric("Selected Company", row["company_name"])
 
 with right:
 
-    best = metrics.loc[
-        metrics[
-            "composite_quality_score"
-        ].idxmax()
-    ]
+    best = metrics.loc[metrics["composite_quality_score"].idxmax()]
 
-    st.metric(
-        "Best Quality Score",
-        best["company_name"]
-    )
+    st.metric("Best Quality Score", best["company_name"])
 
 # --------------------------------------------------
 # Peer KPI Table
@@ -226,47 +151,31 @@ display = display.rename(
         "debt_to_equity": "D/E",
         "revenue_cagr_5yr": "Revenue CAGR",
         "pat_cagr_5yr": "PAT CAGR",
-        "composite_quality_score": "Quality Score"
+        "composite_quality_score": "Quality Score",
     }
 )
 
 
 def highlight_company(r):
+    """Highlight the selected company in the peer comparison table."""
 
     if r["Company"] == row["company_name"]:
 
-        return [
-            "background-color:#C8F7C5;font-weight:bold"
-        ] * len(r)
+        return ["background-color:#C8F7C5;font-weight:bold"] * len(r)
 
-    return [
-        ""
-    ] * len(r)
+    return [""] * len(r)
 
 
-styled = (
-    display
-    .style
-    .format(precision=2)
-    .apply(
-        highlight_company,
-        axis=1
-    )
-)
+styled = display.style.format(precision=2).apply(highlight_company, axis=1)
 
-st.dataframe(
-    styled,
-    width="stretch"
-)
+st.dataframe(styled, width="stretch")
 
 # --------------------------------------------------
 # Footer
 # --------------------------------------------------
 
-st.caption(
-    f"""
+st.caption(f"""
 Peer Group : {group}
 
 Companies : {len(metrics)}
-"""
-)
+""")

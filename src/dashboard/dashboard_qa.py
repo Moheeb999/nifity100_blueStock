@@ -1,12 +1,15 @@
 import sqlite3
+
 import pandas as pd
 
 DB_PATH = "db/nifty100.db"
 
 
 class DashboardQATest:
+    """Run quality assurance checks for dashboard data."""
 
     def __init__(self):
+        """Initialize the QA test runner."""
 
         self.conn = sqlite3.connect(DB_PATH)
 
@@ -15,6 +18,7 @@ class DashboardQATest:
         self.failed = []
 
     def check_company(self, ticker):
+        """Validate dashboard data availability for a company."""
 
         # ----------------------------
         # Company Profile
@@ -27,7 +31,7 @@ class DashboardQATest:
             WHERE id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if company.empty:
@@ -46,7 +50,7 @@ class DashboardQATest:
             LIMIT 1
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if ratios.empty:
@@ -63,7 +67,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if pl.empty:
@@ -80,7 +84,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if bs.empty:
@@ -97,7 +101,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if cf.empty:
@@ -114,7 +118,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if sector.empty:
@@ -131,7 +135,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if peer.empty:
@@ -148,7 +152,7 @@ class DashboardQATest:
             WHERE company_id = ?
             """,
             self.conn,
-            params=[ticker]
+            params=[ticker],
         )
 
         if market.empty:
@@ -167,7 +171,7 @@ class DashboardQATest:
                 WHERE company_id = ?
                 """,
                 self.conn,
-                params=[ticker]
+                params=[ticker],
             )
 
             if pc.empty:
@@ -178,6 +182,7 @@ class DashboardQATest:
             print("⚠ prosandcons table not found")
 
     def run(self):
+        """Execute QA checks for all companies."""
 
         companies = pd.read_sql(
             """
@@ -187,7 +192,7 @@ class DashboardQATest:
             FROM companies
             ORDER BY company_name
             """,
-            self.conn
+            self.conn,
         )
 
         self.total = len(companies)
@@ -208,12 +213,7 @@ class DashboardQATest:
 
             except Exception as e:
 
-                self.failed.append(
-                    (
-                        ticker,
-                        str(e)
-                    )
-                )
+                self.failed.append((ticker, str(e)))
 
         print("\n" + "=" * 70)
         print("QA SUMMARY")
@@ -229,9 +229,7 @@ class DashboardQATest:
 
             for ticker, error in self.failed:
 
-                print(
-                    f"{ticker:<15} {error}"
-                )
+                print(f"{ticker:<15} {error}")
 
         else:
 
@@ -243,6 +241,7 @@ class DashboardQATest:
 
 
 def main():
+    """Run the dashboard QA test suite."""
 
     DashboardQATest().run()
 

@@ -1,16 +1,20 @@
-from collections import defaultdict
-from .portfolio_loader import PortfolioLoader
 import sqlite3
+from collections import defaultdict
 from pathlib import Path
+
+from .portfolio_loader import PortfolioLoader
 
 
 class PortfolioAnalytics:
+    """Perform portfolio analysis using market and financial data."""
 
     def __init__(self, db_path: str):
+        """Initialize the portfolio analytics engine."""
         self.conn = sqlite3.connect(Path(db_path))
         self.conn.row_factory = sqlite3.Row
 
     def get_company_data(self, ticker: str):
+        """Retrieve the latest financial data for a company."""
 
         query = """
     SELECT
@@ -69,8 +73,10 @@ class PortfolioAnalytics:
     WHERE c.id = ?
     """
 
-        return self.conn.execute(query, (ticker,)).fetchone() 
+        return self.conn.execute(query, (ticker,)).fetchone()
+
     def load_portfolio(self, csv_path: str):
+        """Load and enrich portfolio holdings."""
 
         loader = PortfolioLoader(csv_path)
 
@@ -91,10 +97,12 @@ class PortfolioAnalytics:
                     "holding": holding,
                     "company": dict(company),
                 }
-        )
+            )
 
-        return portfolio 
+        return portfolio
+
     def calculate_portfolio_cost(self, portfolio):
+        """Calculate the total acquisition cost."""
 
         total_cost = 0.0
 
@@ -104,8 +112,10 @@ class PortfolioAnalytics:
 
             total_cost += holding.shares * holding.buy_price
 
-        return round(total_cost, 2)  
+        return round(total_cost, 2)
+
     def calculate_current_value(self, portfolio):
+        """Calculate the current market value."""
 
         total_value = 0.0
 
@@ -119,7 +129,9 @@ class PortfolioAnalytics:
             total_value += holding.shares * current_price
 
         return round(total_value, 2)
+
     def calculate_profit_loss(self, portfolio):
+        """Calculate the unrealized profit or loss."""
 
         total_cost = self.calculate_portfolio_cost(portfolio)
         current_value = self.calculate_current_value(portfolio)
@@ -127,7 +139,9 @@ class PortfolioAnalytics:
         profit_loss = current_value - total_cost
 
         return round(profit_loss, 2)
+
     def calculate_return_percentage(self, portfolio):
+        """Calculate the overall portfolio return percentage."""
 
         total_cost = self.calculate_portfolio_cost(portfolio)
 
@@ -137,7 +151,9 @@ class PortfolioAnalytics:
         profit_loss = self.calculate_profit_loss(portfolio)
 
         return round((profit_loss / total_cost) * 100, 2)
+
     def calculate_sector_allocation(self, portfolio):
+        """Calculate portfolio allocation by sector."""
 
         sector_values = defaultdict(float)
         total_value = self.calculate_current_value(portfolio)
@@ -162,34 +178,41 @@ class PortfolioAnalytics:
             allocation[sector] = round((value / total_value) * 100, 2)
 
         return dict(sorted(allocation.items(), key=lambda x: x[1], reverse=True))
+
     def calculate_weighted_quality_score(self, portfolio):
+        """Calculate the weighted composite quality score."""
 
         return self.calculate_weighted_metric(
             portfolio,
             "composite_quality_score",
         )
+
     def calculate_weighted_pe_ratio(self, portfolio):
+        """Calculate the weighted P/E ratio."""
 
         return self.calculate_weighted_metric(
             portfolio,
             "pe_ratio",
         )
-    
+
     def calculate_weighted_pb_ratio(self, portfolio):
+        """Calculate the weighted P/B ratio."""
 
         return self.calculate_weighted_metric(
             portfolio,
             "pb_ratio",
         )
-    
+
     def calculate_weighted_roe(self, portfolio):
+        """Calculate the weighted return on equity."""
 
         return self.calculate_weighted_metric(
             portfolio,
             "return_on_equity_pct",
         )
-    
+
     def calculate_diversification_score(self, portfolio):
+        """Calculate a diversification score based on sector count."""
 
         sector_allocation = self.calculate_sector_allocation(portfolio)
 
@@ -209,6 +232,7 @@ class PortfolioAnalytics:
             return 20
 
     def calculate_concentration_risk(self, portfolio):
+        """Classify concentration risk based on the largest sector weight."""
 
         sector_allocation = self.calculate_sector_allocation(portfolio)
 
@@ -219,21 +243,20 @@ class PortfolioAnalytics:
         elif largest_sector >= 40:
             return "Medium"
         else:
-            return "Low"    
+            return "Low"
 
     def calculate_portfolio_health_score(self, portfolio):
+        """Calculate an overall portfolio health score."""
 
         quality = self.calculate_weighted_quality_score(portfolio)
         diversification = self.calculate_diversification_score(portfolio)
 
-        health = (
-            quality * 0.7 +
-            diversification * 0.3
-        )
+        health = quality * 0.7 + diversification * 0.3
 
-        return round(health, 2)   
+        return round(health, 2)
 
     def calculate_weighted_metric(self, portfolio, metric_name):
+        """Calculate a value-weighted average for the given metric."""
 
         total_value = self.calculate_current_value(portfolio)
 
@@ -258,16 +281,13 @@ class PortfolioAnalytics:
             weighted_value += metric * weight
 
         return round(weighted_value, 2)
-    
-    
+
 
 if __name__ == "__main__":
 
     analytics = PortfolioAnalytics("db/nifty100.db")
 
-    portfolio = analytics.load_portfolio(
-        "data/raw/sample_portfolio.csv"
-    )
+    portfolio = analytics.load_portfolio("data/raw/sample_portfolio.csv")
 
     total_cost = analytics.calculate_portfolio_cost(portfolio)
     current_value = analytics.calculate_current_value(portfolio)

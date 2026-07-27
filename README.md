@@ -2,33 +2,41 @@
 
 ## Project Overview
 
-Nifty 100 Analytics is a Streamlit-based financial analytics platform for analyzing Nifty 100 companies using financial statements, valuation metrics, peer comparison, stock screening, and interactive dashboards.
+The Nifty 100 Analytics Dashboard is a financial analytics platform built using Python, Streamlit, FastAPI, and SQLite. It enables users to analyze Nifty 100 companies through interactive dashboards, financial statement analysis, valuation metrics, peer comparison, sector insights, and stock screening.
+
+The project combines an ETL pipeline, REST API, analytics engine, and Streamlit dashboard into a single end-to-end financial analytics solution.
 
 ---
 
 ## Features
 
-- Home Dashboard
-- Company Profile
+- Interactive Streamlit Dashboard
+- Company Profile Analysis
 - Stock Screener
 - Peer Comparison
 - Trend Analysis
 - Sector Analysis
 - Capital Allocation
-- Annual Reports
+- Annual Reports Viewer
 - Valuation Engine
+- REST API
+- PDF Tearsheet Generation
 - Excel & CSV Export
 
 ---
 
 ## Technologies Used
 
-- Python
+- Python 3.x
 - Streamlit
+- FastAPI
 - SQLite
 - Pandas
 - Plotly
 - OpenPyXL
+- Pytest
+- Black
+- Ruff
 
 ---
 
@@ -38,12 +46,39 @@ Nifty 100 Analytics is a Streamlit-based financial analytics platform for analyz
 nifty100_project/
 │
 ├── db/
+├── docs/
 ├── output/
+├── reports/
 ├── src/
 │   ├── analytics/
-│   └── dashboard/
+│   ├── api/
+│   ├── dashboard/
+│   └── etl/
+├── tests/
 ├── README.md
 └── requirements.txt
+```
+
+---
+
+## Installation
+
+Clone the repository and create a virtual environment.
+
+```bash
+python -m venv venv
+
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+---
+
+## Run the ETL Pipeline
+
+```bash
+python -m src.etl.main
 ```
 
 ---
@@ -51,9 +86,27 @@ nifty100_project/
 ## Run the Dashboard
 
 ```bash
-source venv/bin/activate
-
 streamlit run src/dashboard/app.py
+```
+
+The dashboard will be available at:
+
+```
+http://localhost:8501
+```
+
+---
+
+## Run the API
+
+```bash
+uvicorn src.api.main:app --reload
+```
+
+API Documentation:
+
+```
+http://localhost:8000/docs
 ```
 
 ---
@@ -66,10 +119,51 @@ python -m src.analytics.valuation
 
 ---
 
-## Output Files
+## Run the Test Suite
 
-- output/valuation_summary.xlsx
-- output/valuation_flags.csv
+Execute all tests:
+
+```bash
+pytest
+```
+
+Generate HTML report:
+
+```bash
+pytest --html=reports/pytest_report.html
+```
+
+---
+
+## Performance Testing
+
+Run API load test:
+
+```bash
+python tests/performance/load_test.py
+```
+
+Run dashboard performance test:
+
+```bash
+python -m tests.performance.dashboard_perf
+```
+
+---
+
+## Code Quality
+
+Format the project:
+
+```bash
+black src/ tests/
+```
+
+Run lint checks:
+
+```bash
+ruff check src/ tests/
+```
 
 ---
 
@@ -98,6 +192,18 @@ python -m src.analytics.valuation
 6. Sector Analysis
 7. Capital Allocation
 8. Annual Reports
+
+---
+
+## Output Files
+
+Generated reports and exports are stored in the `output/` directory, including:
+
+- valuation_summary.xlsx
+- valuation_flags.csv
+- perf_notes.md
+- PDF tearsheets
+- Exported CSV and Excel files
 
 ---
 

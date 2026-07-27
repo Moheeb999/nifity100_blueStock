@@ -4,20 +4,26 @@ from src.etl.normaliser import normalize_ticker
 def test_tcs():
     assert normalize_ticker("tcs") == "TCS"
 
+
 def test_spaces():
     assert normalize_ticker(" tcs ") == "TCS"
+
 
 def test_ns():
     assert normalize_ticker("hdfcbank.ns") == "HDFCBANK"
 
+
 def test_bo():
     assert normalize_ticker("reliance.bo") == "RELIANCE"
+
 
 def test_upper():
     assert normalize_ticker("INFY") == "INFY"
 
+
 def test_none():
     assert normalize_ticker(None) is None
+
 
 def test_lowercase():
     assert normalize_ticker("reliance") == "RELIANCE"

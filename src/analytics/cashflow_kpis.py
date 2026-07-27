@@ -51,11 +51,8 @@ def fcf_conversion_rate(fcf, operating_profit):
 
 
 def capital_allocation_pattern(cfo, cfi, cff):
-    signs = (
-        "+" if cfo > 0 else "-",
-        "+" if cfi > 0 else "-",
-        "+" if cff > 0 else "-"
-    )
+    """Classify a company based on the cash flow sign pattern."""
+    signs = ("+" if cfo > 0 else "-", "+" if cfi > 0 else "-", "+" if cff > 0 else "-")
 
     pattern_map = {
         ("+", "-", "-"): "Reinvestor",
@@ -64,7 +61,7 @@ def capital_allocation_pattern(cfo, cfi, cff):
         ("-", "-", "+"): "Growth Funded by Debt",
         ("+", "+", "+"): "Cash Accumulator",
         ("-", "-", "-"): "Pre-Revenue",
-        ("+", "-", "+"): "Mixed"
+        ("+", "-", "+"): "Mixed",
     }
 
     return pattern_map.get(signs, "Unknown")

@@ -31,12 +31,10 @@ import re
 import sqlite3
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 import pandas as pd
-
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import mm
@@ -83,57 +81,58 @@ logger = logging.getLogger("tearsheet_generator")
 # Dataclass
 # ---------------------------------------------------------------------
 
+
 @dataclass
 class CompanyTearsheetData:
 
     company_id: int
     company_name: str
 
-    about_company: Optional[str] = None
-    website: Optional[str] = None
+    about_company: str | None = None
+    website: str | None = None
 
     # Company information
 
-    broad_sector: Optional[str] = None
-    sub_sector: Optional[str] = None
-    market_cap_category: Optional[str] = None
+    broad_sector: str | None = None
+    sub_sector: str | None = None
+    market_cap_category: str | None = None
 
     # Market Metrics
 
-    market_cap_crore: Optional[float] = None
-    pe_ratio: Optional[float] = None
-    pb_ratio: Optional[float] = None
-    ev_ebitda: Optional[float] = None
-    dividend_yield_pct: Optional[float] = None
+    market_cap_crore: float | None = None
+    pe_ratio: float | None = None
+    pb_ratio: float | None = None
+    ev_ebitda: float | None = None
+    dividend_yield_pct: float | None = None
 
     # Profitability
 
-    roe_percentage: Optional[float] = None
-    roce_percentage: Optional[float] = None
+    roe_percentage: float | None = None
+    roce_percentage: float | None = None
 
-    net_profit_margin_pct: Optional[float] = None
-    operating_profit_margin_pct: Optional[float] = None
+    net_profit_margin_pct: float | None = None
+    operating_profit_margin_pct: float | None = None
 
     # Financial Health
 
-    debt_to_equity: Optional[float] = None
-    interest_coverage: Optional[float] = None
-    asset_turnover: Optional[float] = None
+    debt_to_equity: float | None = None
+    interest_coverage: float | None = None
+    asset_turnover: float | None = None
 
     # Shareholder Metrics
 
-    earnings_per_share: Optional[float] = None
-    book_value_per_share: Optional[float] = None
+    earnings_per_share: float | None = None
+    book_value_per_share: float | None = None
 
     # Growth
 
-    revenue_cagr_5yr: Optional[float] = None
-    pat_cagr_5yr: Optional[float] = None
-    eps_cagr_5yr: Optional[float] = None
+    revenue_cagr_5yr: float | None = None
+    pat_cagr_5yr: float | None = None
+    eps_cagr_5yr: float | None = None
 
     # Quality
 
-    composite_quality_score: Optional[float] = None
+    composite_quality_score: float | None = None
 
     # Lists
 
@@ -143,13 +142,13 @@ class CompanyTearsheetData:
 
     cashflow_insights: list[tuple[str, str]] = field(default_factory=list)
 
-    capital_allocation: Optional[str] = None
+    capital_allocation: str | None = None
 
-    pattern_changed: Optional[bool] = None
+    pattern_changed: bool | None = None
 
-    from_pattern: Optional[str] = None
+    from_pattern: str | None = None
 
-    to_pattern: Optional[str] = None
+    to_pattern: str | None = None
 
     pattern_history: list[tuple[int, str]] = field(default_factory=list)
 
@@ -158,9 +157,10 @@ class CompanyTearsheetData:
 # Database
 # ---------------------------------------------------------------------
 
+
 def load_companies(
     conn: sqlite3.Connection,
-    company_id: Optional[int] = None,
+    company_id: int | None = None,
 ) -> pd.DataFrame:
 
     query = """
@@ -251,6 +251,7 @@ def load_companies(
 # CSV Loading
 # ---------------------------------------------------------------------
 
+
 def _load_csv_checked(
     path: Path,
     required_cols: list[str],
@@ -323,18 +324,13 @@ def load_pattern_changes(path: Path):
 # Build Company Object
 # ---------------------------------------------------------------------
 
+
 def build_company_data(
-
     companies_df: pd.DataFrame,
-
     pros_cons_df: pd.DataFrame,
-
     cashflow_df: pd.DataFrame,
-
     capital_df: pd.DataFrame,
-
     pattern_df: pd.DataFrame,
-
 ) -> list[CompanyTearsheetData]:
 
     records = []
@@ -342,70 +338,40 @@ def build_company_data(
     for row in companies_df.itertuples(index=False):
 
         company = CompanyTearsheetData(
-
             company_id=row.id,
-
             company_name=row.company_name,
-
             about_company=row.about_company,
-
             website=row.website,
-
             broad_sector=row.broad_sector,
-
             sub_sector=row.sub_sector,
-
             market_cap_category=row.market_cap_category,
-
             market_cap_crore=row.market_cap_crore,
-
             pe_ratio=row.pe_ratio,
-
             pb_ratio=row.pb_ratio,
-
             ev_ebitda=row.ev_ebitda,
-
             dividend_yield_pct=row.dividend_yield_pct,
-
             roe_percentage=row.roe_percentage,
-
             roce_percentage=row.roce_percentage,
-
             net_profit_margin_pct=row.net_profit_margin_pct,
-
             operating_profit_margin_pct=row.operating_profit_margin_pct,
-
             debt_to_equity=row.debt_to_equity,
-
             interest_coverage=row.interest_coverage,
-
             asset_turnover=row.asset_turnover,
-
             earnings_per_share=row.earnings_per_share,
-
             book_value_per_share=row.book_value_per_share,
-
             revenue_cagr_5yr=row.revenue_cagr_5yr,
-
             pat_cagr_5yr=row.pat_cagr_5yr,
-
             eps_cagr_5yr=row.eps_cagr_5yr,
-
             composite_quality_score=row.composite_quality_score,
-
         )
 
         if not pros_cons_df.empty:
 
             pc = pros_cons_df[pros_cons_df.company_id == row.id]
 
-            company.pros = (
-                pc[pc.type.str.lower() == "pro"]["text"].tolist()
-            )
+            company.pros = pc[pc.type.str.lower() == "pro"]["text"].tolist()
 
-            company.cons = (
-                pc[pc.type.str.lower() == "con"]["text"].tolist()
-            )
+            company.cons = pc[pc.type.str.lower() == "con"]["text"].tolist()
 
         if not cashflow_df.empty:
 
@@ -424,22 +390,15 @@ def build_company_data(
 
         if not capital_df.empty:
 
-            capital = (
-                capital_df[capital_df.company_id == row.id]
-                .sort_values("year")
-            )
+            capital = capital_df[capital_df.company_id == row.id].sort_values("year")
 
             if not capital.empty:
 
                 company.capital_allocation = capital.iloc[-1]["pattern_label"]
 
                 company.pattern_history = list(
-                    zip(
-                        capital["year"],
-                        capital["pattern_label"]
-                    )
+                    zip(capital["year"], capital["pattern_label"])
                 )
-
 
         # -------------------------------------------------------
         # Pattern Changes
@@ -447,9 +406,7 @@ def build_company_data(
 
         if not pattern_df.empty:
 
-            pattern = pattern_df[
-                pattern_df.company_id == row.id
-            ]
+            pattern = pattern_df[pattern_df.company_id == row.id]
 
             if not pattern.empty:
 
@@ -465,6 +422,7 @@ def build_company_data(
 
     return records
 
+
 # ============================
 # END OF PART 1
 # ============================
@@ -472,6 +430,7 @@ def build_company_data(
 # ---------------------------------------------------------------------
 # Formatting Helpers
 # ---------------------------------------------------------------------
+
 
 def fmt_pct(value) -> str:
     if pd.isna(value):
@@ -507,6 +466,7 @@ def safe_filename(name: str) -> str:
 # Footer
 # ---------------------------------------------------------------------
 
+
 def draw_footer(canvas, doc):
     canvas.saveState()
 
@@ -514,15 +474,11 @@ def draw_footer(canvas, doc):
     canvas.setFillColor(colors.grey)
 
     canvas.drawString(
-        doc.leftMargin,
-        10 * mm,
-        "Generated by Nifty 100 Analytics Platform"
+        doc.leftMargin, 10 * mm, "Generated by Nifty 100 Analytics Platform"
     )
 
     canvas.drawRightString(
-        A4[0] - doc.rightMargin,
-        10 * mm,
-        f"Page {canvas.getPageNumber()}"
+        A4[0] - doc.rightMargin, 10 * mm, f"Page {canvas.getPageNumber()}"
     )
 
     canvas.restoreState()
@@ -532,12 +488,12 @@ def draw_footer(canvas, doc):
 # Styles
 # ---------------------------------------------------------------------
 
+
 def _build_styles():
 
     base = getSampleStyleSheet()
 
     return {
-
         "title": ParagraphStyle(
             "Title",
             parent=base["Title"],
@@ -546,7 +502,6 @@ def _build_styles():
             textColor=colors.HexColor("#0F172A"),
             spaceAfter=4,
         ),
-
         "subtitle": ParagraphStyle(
             "Subtitle",
             parent=base["Normal"],
@@ -555,7 +510,6 @@ def _build_styles():
             textColor=colors.HexColor("#64748B"),
             spaceAfter=12,
         ),
-
         "section": ParagraphStyle(
             "Section",
             parent=base["Heading2"],
@@ -564,28 +518,24 @@ def _build_styles():
             spaceBefore=14,
             spaceAfter=8,
         ),
-
         "body": ParagraphStyle(
             "Body",
             parent=base["Normal"],
             fontSize=10,
             leading=15,
         ),
-
         "metric_label": ParagraphStyle(
             "MetricLabel",
             parent=base["Normal"],
             fontSize=9,
             textColor=colors.HexColor("#475569"),
         ),
-
         "metric_value": ParagraphStyle(
             "MetricValue",
             parent=base["Normal"],
             fontSize=10,
             textColor=colors.black,
         ),
-
         "pro": ParagraphStyle(
             "Pro",
             parent=base["Normal"],
@@ -593,7 +543,6 @@ def _build_styles():
             leading=14,
             textColor=colors.HexColor("#15803D"),
         ),
-
         "con": ParagraphStyle(
             "Con",
             parent=base["Normal"],
@@ -601,7 +550,6 @@ def _build_styles():
             leading=14,
             textColor=colors.HexColor("#B91C1C"),
         ),
-
         "cashflow": ParagraphStyle(
             "Cashflow",
             parent=base["Normal"],
@@ -609,7 +557,6 @@ def _build_styles():
             leading=14,
             textColor=colors.HexColor("#1D4ED8"),
         ),
-
         "empty": ParagraphStyle(
             "Empty",
             parent=base["Italic"],
@@ -622,72 +569,55 @@ def _build_styles():
 # KPI Table
 # ---------------------------------------------------------------------
 
+
 def _kpi_table(data: CompanyTearsheetData, styles):
 
     rows = [
-
         [
             "Market Cap",
             fmt_crore(data.market_cap_crore),
-
             "ROE",
             fmt_pct(data.roe_percentage),
-
             "Revenue CAGR",
             fmt_pct(data.revenue_cagr_5yr),
         ],
-
         [
             "P/E",
             fmt_num(data.pe_ratio),
-
             "ROCE",
             fmt_pct(data.roce_percentage),
-
             "PAT CAGR",
             fmt_pct(data.pat_cagr_5yr),
         ],
-
         [
             "P/B",
             fmt_num(data.pb_ratio),
-
             "Net Margin",
             fmt_pct(data.net_profit_margin_pct),
-
             "EPS CAGR",
             fmt_pct(data.eps_cagr_5yr),
         ],
-
         [
             "EV/EBITDA",
             fmt_num(data.ev_ebitda),
-
             "Operating Margin",
             fmt_pct(data.operating_profit_margin_pct),
-
             "Quality Score",
             fmt_num(data.composite_quality_score),
         ],
-
         [
             "Dividend Yield",
             fmt_pct(data.dividend_yield_pct),
-
             "Debt / Equity",
             fmt_num(data.debt_to_equity),
-
             "Interest Coverage",
             fmt_num(data.interest_coverage),
         ],
-
         [
             "Asset Turnover",
             fmt_num(data.asset_turnover),
-
             "EPS",
             fmt_currency(data.earnings_per_share),
-
             "Book Value",
             fmt_currency(data.book_value_per_share),
         ],
@@ -706,36 +636,23 @@ def _kpi_table(data: CompanyTearsheetData, styles):
     )
 
     table.setStyle(
-
         TableStyle(
-
             [
-
                 ("GRID", (0, 0), (-1, -1), 0.3, colors.lightgrey),
-
                 ("BACKGROUND", (0, 0), (-1, -1), colors.whitesmoke),
-
                 ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#EEF2FF")),
                 ("BACKGROUND", (2, 0), (2, -1), colors.HexColor("#EEF2FF")),
                 ("BACKGROUND", (4, 0), (4, -1), colors.HexColor("#EEF2FF")),
-
                 ("FONTNAME", (0, 0), (-1, -1), "Helvetica"),
-
                 ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
                 ("FONTNAME", (2, 0), (2, -1), "Helvetica-Bold"),
                 ("FONTNAME", (4, 0), (4, -1), "Helvetica-Bold"),
-
                 ("FONTSIZE", (0, 0), (-1, -1), 9),
-
                 ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
                 ("TOPPADDING", (0, 0), (-1, -1), 7),
-
                 ("VALIGN", (0, 0), (-1, -1), "MIDDLE"),
-
             ]
-
         )
-
     )
 
     return table
@@ -745,29 +662,24 @@ def _kpi_table(data: CompanyTearsheetData, styles):
 # Bullet Lists
 # ---------------------------------------------------------------------
 
+
 def _bullet_list(items, style, empty_style, empty_text):
 
     if not items:
         return Paragraph(empty_text, empty_style)
 
     return ListFlowable(
-
         [
-
             ListItem(
                 Paragraph(item, style),
                 leftIndent=8,
             )
-
             for item in items
-
         ],
-
         bulletType="bullet",
-
         leftIndent=15,
-
     )
+
 
 # =========================
 # END OF PART 2
@@ -776,6 +688,7 @@ def _bullet_list(items, style, empty_style, empty_text):
 # ---------------------------------------------------------------------
 # PDF Generation
 # ---------------------------------------------------------------------
+
 
 def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
 
@@ -801,9 +714,7 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
     # HEADER
     # -------------------------------------------------------
 
-    story.append(
-        Paragraph(data.company_name, styles["title"])
-    )
+    story.append(Paragraph(data.company_name, styles["title"]))
 
     subtitle = []
 
@@ -817,11 +728,11 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
             subtitle.append(str(value))
 
     story.append(
-    Paragraph(
-        " | ".join(subtitle),
-        styles["subtitle"],
+        Paragraph(
+            " | ".join(subtitle),
+            styles["subtitle"],
+        )
     )
-)
 
     story.append(Spacer(1, 5))
 
@@ -838,9 +749,11 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
 
     story.append(
         Paragraph(
-            data.about_company
-            if data.about_company
-            else "No company description available.",
+            (
+                data.about_company
+                if data.about_company
+                else "No company description available."
+            ),
             styles["body"],
         )
     )
@@ -879,19 +792,9 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
     )
 
     story.append(
-
         _bullet_list(
-
-            data.pros,
-
-            styles["pro"],
-
-            styles["empty"],
-
-            "No strengths available."
-
+            data.pros, styles["pro"], styles["empty"], "No strengths available."
         )
-
     )
 
     story.append(Spacer(1, 10))
@@ -901,31 +804,14 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
     # -------------------------------------------------------
 
     story.append(
-
         Paragraph(
-
             "Investment Risks",
-
             styles["section"],
-
         )
-
     )
 
     story.append(
-
-        _bullet_list(
-
-            data.cons,
-
-            styles["con"],
-
-            styles["empty"],
-
-            "No risks available."
-
-        )
-
+        _bullet_list(data.cons, styles["con"], styles["empty"], "No risks available.")
     )
 
     story.append(Spacer(1, 10))
@@ -935,15 +821,10 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
     # -------------------------------------------------------
 
     story.append(
-
         Paragraph(
-
             "Cash Flow Intelligence",
-
             styles["section"],
-
         )
-
     )
 
     if data.cashflow_insights:
@@ -953,53 +834,30 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
         for category, insight in data.cashflow_insights:
 
             cf.append(
-
                 Paragraph(
-
                     f"<b>{category}</b>",
-
                     styles["cashflow"],
-
                 )
-
             )
 
             cf.append(
-
                 Paragraph(
-
                     insight,
-
                     styles["body"],
-
                 )
-
             )
 
-            cf.append(
+            cf.append(Spacer(1, 5))
 
-                Spacer(1, 5)
-
-            )
-
-        story.append(
-
-            KeepTogether(cf)
-
-        )
+        story.append(KeepTogether(cf))
 
     else:
 
         story.append(
-
             Paragraph(
-
                 "No cash flow intelligence available.",
-
                 styles["empty"],
-
             )
-
         )
 
     story.append(PageBreak())
@@ -1017,8 +875,7 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
 
     story.append(
         Paragraph(
-            f"<b>Latest Pattern:</b> "
-            f"{data.capital_allocation or 'Not Available'}",
+            f"<b>Latest Pattern:</b> " f"{data.capital_allocation or 'Not Available'}",
             styles["body"],
         )
     )
@@ -1043,18 +900,17 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
         for year, pattern in data.pattern_history:
             rows.append([str(year), pattern])
 
-        history_table = Table(
-            rows,
-            colWidths=[40 * mm, 100 * mm]
-        )
+        history_table = Table(rows, colWidths=[40 * mm, 100 * mm])
 
         history_table.setStyle(
-            TableStyle([
-                ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
-                ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-            ])
+            TableStyle(
+                [
+                    ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
+                    ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+                ]
+            )
         )
 
         story.append(history_table)
@@ -1089,18 +945,17 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
         ["To", data.to_pattern or "N/A"],
     ]
 
-    summary_table = Table(
-        summary_rows,
-        colWidths=[45 * mm, 95 * mm]
-    )
+    summary_table = Table(summary_rows, colWidths=[45 * mm, 95 * mm])
 
     summary_table.setStyle(
-        TableStyle([
-            ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
-            ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#EEF2FF")),
-            ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
-        ])
+        TableStyle(
+            [
+                ("GRID", (0, 0), (-1, -1), 0.4, colors.grey),
+                ("BACKGROUND", (0, 0), (0, -1), colors.HexColor("#EEF2FF")),
+                ("FONTNAME", (0, 0), (0, -1), "Helvetica-Bold"),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ]
+        )
     )
 
     story.append(summary_table)
@@ -1110,34 +965,30 @@ def build_pdf(data: CompanyTearsheetData, output_dir: Path) -> Path:
     # -------------------------------------------------------
 
     doc.build(
-
         story,
-
         onFirstPage=draw_footer,
-
         onLaterPages=draw_footer,
-
     )
 
     return pdf_path
 
+
 # ---------------------------------------------------------------------
 # Orchestration
 # ---------------------------------------------------------------------
+
 
 def generate_tearsheets(
     db_path: Path = DB_PATH,
     pros_cons_path: Path = PROS_CONS_CSV,
     cashflow_path: Path = CASHFLOW_CSV,
     output_dir: Path = OUTPUT_DIR,
-    company_id: Optional[int] = None,
-    limit: Optional[int] = None,
+    company_id: int | None = None,
+    limit: int | None = None,
 ) -> list[Path]:
 
     if not db_path.exists():
-        raise FileNotFoundError(
-            f"Database not found: {db_path}"
-        )
+        raise FileNotFoundError(f"Database not found: {db_path}")
 
     logger.info("Connecting to database: %s", db_path)
 
@@ -1164,21 +1015,13 @@ def generate_tearsheets(
 
         companies_df = companies_df.head(limit)
 
-    pros_cons_df = load_pros_cons(
-        pros_cons_path
-    )
+    pros_cons_df = load_pros_cons(pros_cons_path)
 
-    cashflow_df = load_cashflow_intelligence(
-        cashflow_path
-    )
+    cashflow_df = load_cashflow_intelligence(cashflow_path)
 
-    capital_df = load_capital_allocation(
-        CAPITAL_ALLOCATION_CSV
-    )
+    capital_df = load_capital_allocation(CAPITAL_ALLOCATION_CSV)
 
-    pattern_df = load_pattern_changes(
-        PATTERN_CHANGES_CSV
-    )
+    pattern_df = load_pattern_changes(PATTERN_CHANGES_CSV)
 
     company_records = build_company_data(
         companies_df,
@@ -1227,11 +1070,10 @@ def generate_tearsheets(
 # CLI
 # ---------------------------------------------------------------------
 
+
 def parse_args():
 
-    parser = argparse.ArgumentParser(
-        description="Generate Company Tearsheets"
-    )
+    parser = argparse.ArgumentParser(description="Generate Company Tearsheets")
 
     parser.add_argument(
         "--company-id",
@@ -1274,30 +1116,18 @@ def parse_args():
 # Main
 # ---------------------------------------------------------------------
 
+
 def main():
 
     args = parse_args()
 
     generate_tearsheets(
-
         db_path=Path(args.db_path),
-
-        pros_cons_path=Path(
-            args.pros_cons_csv
-        ),
-
-        cashflow_path=Path(
-            args.cashflow_csv
-        ),
-
-        output_dir=Path(
-            args.output_dir
-        ),
-
+        pros_cons_path=Path(args.pros_cons_csv),
+        cashflow_path=Path(args.cashflow_csv),
+        output_dir=Path(args.output_dir),
         company_id=args.company_id,
-
         limit=args.limit,
-
     )
 
 

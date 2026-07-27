@@ -9,6 +9,7 @@ router = APIRouter()
 
 @router.get("/peers/{group_name}")
 def get_peer_group(group_name: str):
+    """Return all companies belonging to a peer group."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -24,10 +25,7 @@ def get_peer_group(group_name: str):
 
     if cursor.fetchone()["cnt"] == 0:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Peer group not found."
-        )
+        raise HTTPException(status_code=404, detail="Peer group not found.")
 
     # Fetch all companies and their percentile metrics
     cursor.execute(
@@ -82,6 +80,7 @@ def get_peer_group(group_name: str):
 
 @router.get("/companies/{ticker}/peers/compare")
 def compare_with_peers(ticker: str):
+    """Compare a company against its peer group benchmark."""
     ticker = ticker.upper()
 
     conn = get_db_connection()
@@ -101,10 +100,7 @@ def compare_with_peers(ticker: str):
 
     if not company:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Company not found."
-        )
+        raise HTTPException(status_code=404, detail="Company not found.")
 
     # Find peer group
     cursor.execute(
@@ -120,10 +116,7 @@ def compare_with_peers(ticker: str):
 
     if not peer:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Peer group not found."
-        )
+        raise HTTPException(status_code=404, detail="Peer group not found.")
 
     peer_group = peer["peer_group_name"]
 
@@ -147,10 +140,7 @@ def compare_with_peers(ticker: str):
 
     if not benchmark:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail="Benchmark company not found."
-        )
+        raise HTTPException(status_code=404, detail="Benchmark company not found.")
 
     benchmark_id = benchmark["company_id"]
     benchmark_name = benchmark["company_name"]

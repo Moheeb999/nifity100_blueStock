@@ -1,5 +1,5 @@
-
 import sqlite3
+
 import pandas as pd
 
 METRICS = [
@@ -12,23 +12,24 @@ METRICS = [
     "pat_cagr_5yr",
     "eps_cagr_5yr",
     "interest_coverage",
-    "asset_turnover"
+    "asset_turnover",
 ]
 
 
 class PeerRankingEngine:
+    """Generate percentile rankings for companies within peer groups."""
 
     def __init__(self):
+        """Initialize the peer ranking engine."""
         self.conn = sqlite3.connect("db/nifty100.db")
 
     def load_data(self):
+        """Load company, peer group, and ratio data."""
         ratios = pd.read_sql("SELECT * FROM financial_ratios", self.conn)
         peers = pd.read_sql("SELECT * FROM peer_groups", self.conn)
 
         try:
-            companies = pd.read_sql(
-                "SELECT id, company_name FROM companies", self.conn
-            )
+            companies = pd.read_sql("SELECT id, company_name FROM companies", self.conn)
         except Exception:
             companies = pd.read_sql(
                 "SELECT id, id AS company_name FROM companies", self.conn
@@ -47,6 +48,7 @@ class PeerRankingEngine:
 
     @staticmethod
     def percentile_rank(series, reverse=False):
+        """Compute percentile ranks for a metric."""
         valid = series.dropna()
         out = pd.Series(index=series.index, dtype=float)
 
@@ -64,6 +66,7 @@ class PeerRankingEngine:
         return out
 
     def compute_percentiles(self, df):
+        """Calculate percentile rankings for all peer groups."""
         rows = []
 
         for group in sorted(df["peer_group_name"].dropna().unique()):
@@ -96,6 +99,7 @@ class PeerRankingEngine:
         return pd.DataFrame(rows)
 
     def save_to_database(self, percentile_df):
+        """Store percentile rankings in SQLite."""
         cur = self.conn.cursor()
         cur.execute("DELETE FROM peer_percentiles")
         self.conn.commit()
@@ -109,6 +113,7 @@ class PeerRankingEngine:
         self.conn.commit()
 
     def validate(self, df, percentile_df):
+        """Print validation statistics for generated rankings."""
         print("\\n==============================")
         print("Peer Ranking Summary")
         print("==============================")
@@ -122,6 +127,7 @@ class PeerRankingEngine:
             print(percentile_df.head(20))
 
     def run(self):
+        """Execute the peer ranking workflow."""
         print("Loading data...")
         df = self.load_data()
         print("Companies:", len(df))
@@ -133,6 +139,7 @@ class PeerRankingEngine:
 
 
 def main():
+    """Run the peer ranking engine."""
     engine = PeerRankingEngine()
     try:
         engine.run()

@@ -1,4 +1,5 @@
 import time
+
 from fastapi import APIRouter
 
 from src.api.config import APP_START_TIME, VERSION
@@ -9,6 +10,7 @@ router = APIRouter()
 
 @router.get("/health")
 def health_check():
+    """Return API health status and database statistics."""
     conn = get_db_connection()
     cursor = conn.cursor()
 

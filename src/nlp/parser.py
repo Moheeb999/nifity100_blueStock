@@ -17,10 +17,7 @@ print("=" * 60)
 # Read Excel
 # ----------------------------------------
 
-df = pd.read_excel(
-    INPUT_FILE,
-    header=1
-)
+df = pd.read_excel(INPUT_FILE, header=1)
 
 records = []
 failures = []
@@ -29,7 +26,7 @@ metric_columns = [
     "compounded_sales_growth",
     "compounded_profit_growth",
     "stock_price_cagr",
-    "roe"
+    "roe",
 ]
 
 # ----------------------------------------
@@ -58,18 +55,14 @@ for _, row in df.iterrows():
                     "company_id": company,
                     "metric_type": metric,
                     "period_years": int(match.group(1)),
-                    "value_pct": float(match.group(2))
+                    "value_pct": float(match.group(2)),
                 }
             )
 
         else:
 
             failures.append(
-                {
-                    "company_id": company,
-                    "metric_type": metric,
-                    "raw_text": text
-                }
+                {"company_id": company, "metric_type": metric, "raw_text": text}
             )
 
 # ----------------------------------------
@@ -77,16 +70,10 @@ for _, row in df.iterrows():
 # ----------------------------------------
 
 parsed = pd.DataFrame(records)
-parsed.to_csv(
-    OUTPUT_DIR / "analysis_parsed.csv",
-    index=False
-)
+parsed.to_csv(OUTPUT_DIR / "analysis_parsed.csv", index=False)
 
 failed = pd.DataFrame(failures)
-failed.to_csv(
-    OUTPUT_DIR / "parse_failures.csv",
-    index=False
-)
+failed.to_csv(OUTPUT_DIR / "parse_failures.csv", index=False)
 
 # ----------------------------------------
 # Summary

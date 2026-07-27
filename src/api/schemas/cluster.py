@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from typing import List
 
 
 class Cluster(BaseModel):
@@ -40,4 +39,4 @@ class ClusterListResponse(BaseModel):
     page_size: int
     total_records: int
     total_pages: int
-    data: List[Cluster]
+    data: list[Cluster]

@@ -47,6 +47,7 @@ def get_companies(
         description="Search by company name or ticker",
     ),
 ):
+    """Return companies with optional filtering and search."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -109,6 +110,7 @@ def get_companies(
 
 @router.get("/companies/{ticker}")
 def get_company_profile(ticker: str):
+    """Return the company profile and latest financial ratios."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -132,10 +134,7 @@ def get_company_profile(ticker: str):
 
     if company is None:
         conn.close()
-        raise HTTPException(
-            status_code=404,
-            detail=f"Company '{ticker}' not found."
-        )
+        raise HTTPException(status_code=404, detail=f"Company '{ticker}' not found.")
 
     cursor.execute(
         """
@@ -170,6 +169,7 @@ def get_profit_loss(
         description="End period in YYYY-MM format",
     ),
 ):
+    """Return profit and loss statements for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -212,6 +212,7 @@ def get_balance_sheet(
         description="End period in YYYY-MM format",
     ),
 ):
+    """Return balance sheet records for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -254,6 +255,7 @@ def get_cashflow(
         description="End period in YYYY-MM format",
     ),
 ):
+    """Return cash flow statements for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -289,6 +291,7 @@ def get_ratios(
     ticker: str,
     year: int | None = Query(default=None),
 ):
+    """Return financial ratios for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -315,6 +318,7 @@ def get_ratios(
 
 @router.get("/companies/{ticker}/tearsheet")
 def get_tearsheet(ticker: str):
+    """Download the latest annual report PDF for a company."""
     conn = get_db_connection()
     cursor = conn.cursor()
 
@@ -334,8 +338,7 @@ def get_tearsheet(ticker: str):
 
     if row is None:
         raise HTTPException(
-            status_code=404,
-            detail=f"No annual report found for '{ticker}'."
+            status_code=404, detail=f"No annual report found for '{ticker}'."
         )
 
     pdf_url = row["annual_report"]

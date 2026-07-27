@@ -1,5 +1,3 @@
-import pytest
-
 from src.etl.normaliser import normalize_year
 
 

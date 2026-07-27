@@ -26,7 +26,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import pandas as pd
-
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 
@@ -65,6 +64,7 @@ EXPECTED_COMPANIES = 90
 # ---------------------------------------------------------------------
 # Data Loading
 # ---------------------------------------------------------------------
+
 
 def load_latest_ratios():
     """Load the latest financial ratios for every company."""
@@ -114,15 +114,15 @@ def load_latest_ratios():
 # Sector Median Imputation
 # ---------------------------------------------------------------------
 
+
 def fill_sector_medians(df):
     """Fill missing feature values using the median within each broad sector."""
 
     df = df.copy()
 
     for column in FEATURES:
-        df[column] = (
-            df.groupby("broad_sector")[column]
-            .transform(lambda s: s.fillna(s.median()))
+        df[column] = df.groupby("broad_sector")[column].transform(
+            lambda s: s.fillna(s.median())
         )
 
         # Fallback if an entire sector is missing that metric
@@ -134,6 +134,7 @@ def fill_sector_medians(df):
 # ---------------------------------------------------------------------
 # Feature Scaling
 # ---------------------------------------------------------------------
+
 
 def scale_features(df):
     """Standardize clustering features."""
@@ -148,6 +149,7 @@ def scale_features(df):
 # ---------------------------------------------------------------------
 # Elbow Plot
 # ---------------------------------------------------------------------
+
 
 def generate_elbow_plot(X):
     """Generate inertia plot for k=2..10."""
@@ -187,6 +189,7 @@ def generate_elbow_plot(X):
 # KMeans Clustering
 # ---------------------------------------------------------------------
 
+
 def run_clustering(X):
     """Fit the final KMeans model."""
 
@@ -207,21 +210,22 @@ def run_clustering(X):
 # Save Output
 # ---------------------------------------------------------------------
 
+
 def save_cluster_labels(df, labels, distances):
     """Save company cluster assignments."""
 
-    output = pd.DataFrame({
-        "company_id": df["company_id"],
-        "company_name": df["company_name"],
-        "broad_sector": df["broad_sector"],
-        "cluster_id": labels,
-        "cluster_name": [f"Cluster {i}" for i in labels],
-        "distance_from_centroid": distances.round(4),
-    })
+    output = pd.DataFrame(
+        {
+            "company_id": df["company_id"],
+            "company_name": df["company_name"],
+            "broad_sector": df["broad_sector"],
+            "cluster_id": labels,
+            "cluster_name": [f"Cluster {i}" for i in labels],
+            "distance_from_centroid": distances.round(4),
+        }
+    )
 
-    output = output.sort_values(
-        ["cluster_id", "company_name"]
-    ).reset_index(drop=True)
+    output = output.sort_values(["cluster_id", "company_name"]).reset_index(drop=True)
 
     output.to_csv(
         OUTPUT_DIR / "cluster_labels.csv",
@@ -265,7 +269,9 @@ def save_scaled_features(df, X):
 # Main
 # ---------------------------------------------------------------------
 
+
 def main():
+    """Run the full clustering pipeline end-to-end."""
 
     df = load_latest_ratios()
 
@@ -282,8 +288,9 @@ def main():
 
     df = fill_sector_medians(df)
 
-    assert df[FEATURES].isna().sum().sum() == 0, \
-        "Missing values remain after imputation."
+    assert (
+        df[FEATURES].isna().sum().sum() == 0
+    ), "Missing values remain after imputation."
 
     print("\nFeature Summary")
     print(df[FEATURES].describe())

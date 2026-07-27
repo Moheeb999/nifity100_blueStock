@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 # ============================================
 # Paths
 # ============================================
@@ -32,8 +31,7 @@ parsed = parsed[
             ]
         )
     )
-    &
-    (parsed["period_years"] == 5)
+    & (parsed["period_years"] == 5)
 ].copy()
 
 print(f"Parsed rows selected : {len(parsed)}")
@@ -71,11 +69,7 @@ print(f"Companies loaded : {len(ratios)}")
 # Merge
 # ============================================
 
-merged = parsed.merge(
-    ratios,
-    on="company_id",
-    how="left"
-)
+merged = parsed.merge(ratios, on="company_id", how="left")
 
 print(f"Rows after merge : {len(merged)}")
 

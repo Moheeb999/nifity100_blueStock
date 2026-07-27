@@ -28,13 +28,17 @@ def calculate_cagr(start_value, end_value, years):
 
     return None, "UNKNOWN"
 
+
 def revenue_cagr(start_sales, end_sales, years):
+    """Calculate the revenue CAGR over the specified period."""
     return calculate_cagr(start_sales, end_sales, years)
 
 
 def pat_cagr(start_pat, end_pat, years):
+    """Calculate the profit after tax (PAT) CAGR."""
     return calculate_cagr(start_pat, end_pat, years)
 
 
 def eps_cagr(start_eps, end_eps, years):
+    """Calculate the earnings per share (EPS) CAGR."""
     return calculate_cagr(start_eps, end_eps, years)
